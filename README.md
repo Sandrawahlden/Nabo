@@ -1,14 +1,3 @@
 # Nabo
-Nabo projekt
-Skapar en readme igen.
-Git suger
-
-Git suger inte lika mkt langre
-
-OMG!!
-
-HEJ
-
-Halloj alla glada
-
-Nu är git det bästa som finns!
+Projekt i systemvetenskap.
+En app för grannsämja.
