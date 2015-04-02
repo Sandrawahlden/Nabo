@@ -10,3 +10,5 @@ OMG!!
 HEJ
 
 Halloj alla glada
+
+Nu är git det bästa som finns!
