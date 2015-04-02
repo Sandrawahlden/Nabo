@@ -8,3 +8,5 @@ Git suger inte lika mkt langre
 OMG!!
 
 HEJ
+
+Halloj alla glada
