@@ -17,7 +17,7 @@ def start():
     """      
     return template("index")
 
-@route("/board/<filename>")
+@route("/board/")
 def list_email():
     """
     list the sign in names
@@ -25,25 +25,36 @@ def list_email():
     global list_1
     list_1 = []
     files = listdir("user")
-    print files # a list of all filenames in directory wiki
 
     for i in files:
       list_1.append(i[:-4])
       
-    return template("board", articlenames=list_1)
+    return template("board", username=list_1)
 
 
-@route("/Nabo/", method="POST")
+@route("/nabo/submit/", method="POST")
 def index():
-    """Register user and saves the email and password in a document"""
+    """Register user and saves the name, surename, adress, email and
+    password in a document"""
     global list_1
 
+    contact = []
+    name = request.forms.name
+    surname = request.forms.surname
+    adress = request.forms.adress
     email = request.forms.email
     pwd_1 = request.forms.pwd_1
+
+    contact.extend((name, surname, adress, pwd_1))
+
     text_file = open("user/" + email + ".txt", "w")
-    text_file.write(pwd_1)
+
+    for i in contact:
+      text_file.write(i)
+      text_file.write("\n")
+
     text_file.close()
-    return template("home", title=email, text=pwd_1, articlenames=list_1)
+    return template("home", title=email, text=contact, username=list_1)
 
  
  

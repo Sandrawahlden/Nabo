@@ -19,6 +19,7 @@
 		<p>SIGN IN</p>	
 		<form action="/index/board/" method="POST">
 		<form class="form">
+		
 		<p class="email">
 			<input required type="text" name="email" id="email" placeholder="Email" />			
 		</p>
@@ -37,17 +38,30 @@
 
 		<div id="signUp">
 
-		<form action="/Nabo/" method="POST" class="form">
+		<form action="/nabo/submit/" method="POST" class="form">
+		
+		<p class ="name">
+			<input required type="text" name="name" id="name" placeholder="Fornamn">	
+		</p>
+			
+		<p class="surname">
+			<input required type="text" name="surname" id="surname" placeholder="Efternamn">	
+		</p>
+		
+		<p class="adress">
+			<input required type="text" name="adress" id="adress" placeholder="Adress">	
+		</p>
+		
 		<p class="email">
-			<input required type="text" name="email" id="email" placeholder="Email" />			
+			<input required type="text" name="email" id="email" placeholder="Email">			
 		</p>
 
 		<p class="password">
-			<input required type="password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" name="pwd1" name="pwd_1" id="password" placeholder="Password" onchange="form.pwd2.pattern = this.value;>	
+			<input type="password" required name="pwd_1" id="password" placeholder="Password" onchange="form.pwd2.pattern = this.value;>	
 		</p>
 
 		<p class="password">
-			<input type="password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" name="pwd_2" id="password" placeholder="Confirm password">	
+			<input type="password" required name="pwd_2" id="password" placeholder="Confirm password">	
 		</p>
 		
 		<p class="submit">

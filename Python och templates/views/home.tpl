@@ -3,17 +3,19 @@
 	<head>
 		<meta charset="utf-8">
 		<title>nabo</title>
-		<link href="../Stylesheets/style.css" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="/static/style.css">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	</head>
 
 	<header>
 		<p>Nabologga här</p>
-		<p id="mail">
-		%for name in articlenames:
-			<a href="/user/{{name}}">{{name}}</a>
-		%end
-		<a href="board.tpl">Logga ut</a>
+		<p id="user">
+			%for i in username:
+				<a href="/user/{{i}}">{{name}}</a>
+			%end
+		</p>
+		<p>
+			<a href="board">Logga ut</a>
 		</p>
 	</header>
 
