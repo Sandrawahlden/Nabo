@@ -2,12 +2,12 @@
 # Author: <Andre>
  
 from bottle import route, run, template, request, static_file
-from os import listdir
-list_1 = []
+username = ""
+email = ""
 
 @route("/static/<filename>")
 def server_static(filename):
-  """CSS"""
+  """CSS and pictures"""
   return static_file(filename, root="static")
  
 @route("/")
@@ -17,26 +17,29 @@ def start():
     """      
     return template("index")
 
-@route("/board/")
-def list_email():
+@route("/home/")
+def read_name():
     """
     list the sign in names
     """
-    global list_1
-    list_1 = []
-    files = listdir("user")
-
-    for i in files:
-      list_1.append(i[:-4])
+    global username, email
+    
+    f = open("user/" + email + ".txt", "r")
+    text_file = f.readlines()
+    firstname = text_file[0]
+    surname = text_file[1]
+    username = firstname + surname
+    f.close()
+    
       
-    return template("board", username=list_1)
+    return template("home", username=username)
 
 
-@route("/nabo/submit/", method="POST")
+@route("/home/", method="POST")
 def index():
     """Register user and saves the name, surename, adress, email and
     password in a document"""
-    global list_1
+    global username, email
 
     contact = []
     name = request.forms.name
@@ -54,8 +57,23 @@ def index():
       text_file.write("\n")
 
     text_file.close()
-    return template("home", title=email, text=contact, username=list_1)
 
+    read_name()
+    
+    return template("home", title=email, text=contact, username=username)
+
+@route("/home/<name>")
+def my_profile(name):
+    global username, email
+    
+    f = open("user/" + email + ".txt", "r")
+    text_file = f.readlines()
+    firstname = text_file[0]
+    surname = text_file[1]
+    name = firstname + surname
+    f.close()
+    return template("myProfile", username=username)
+  
  
  
 run(host='localhost', port=8080, debug=True, reloader=True)

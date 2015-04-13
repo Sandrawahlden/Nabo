@@ -3,18 +3,14 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Nabo</title>
-		<link rel="stylesheet" href="/static/style.css">
+		<link href="../Stylesheets/style.css" rel="stylesheet" type="text/css">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	</head>
 
 	<header>
-		<p>Nabologga här</p>
-		<p id="user">
-			<a href="/user/">{{name}}</a>
-		</p>
-		<p>
-			<a href="index">Logga ut</a>
-		</p>
+		Nabologga här
+
+		<a href="index.html">Logga ut</a>
 	</header>
 
 	<body>

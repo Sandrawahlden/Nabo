@@ -10,19 +10,17 @@
 	<header>
 		<p>Nabologga här</p>
 		<p id="user">
-			%for i in username:
-				<a href="/user/{{i}}">{{name}}</a>
-			%end
+			<a href="/user/">{{username}}</a>
 		</p>
 		<p>
-			<a href="board">Logga ut</a>
+			<a href="index">Logga ut</a>
 		</p>
 	</header>
 
 	<body>
 		<nav id="profile">
 			<ul>
-				<li><a href="myProfile.html" class="nav">Min profil</a>
+				<li><a href="myProfile" class="nav">{{username}}</a>
 				<li><a href="editProfile.html" class="nav">Redigera min profil</a>
 			</ul>
 		</nav>

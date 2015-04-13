@@ -17,7 +17,7 @@
 		<div id="signin">
 
 		<p>SIGN IN</p>	
-		<form action="/index/board/" method="POST">
+		<form action="/home/" method="POST">
 		<form class="form">
 		
 		<p class="email">
@@ -38,7 +38,7 @@
 
 		<div id="signUp">
 
-		<form action="/nabo/submit/" method="POST" class="form">
+		<form action="/home/" method="POST" class="form">
 		
 		<p class ="name">
 			<input required type="text" name="name" id="name" placeholder="Fornamn">	
