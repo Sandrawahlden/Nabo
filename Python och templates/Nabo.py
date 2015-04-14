@@ -36,7 +36,7 @@ def read_name():
 
 
 @route("/home/", method="POST")
-def index():
+def register_user():
     """Register user and saves the name, surename, adress, email and
     password in a document"""
     global username, email
@@ -61,6 +61,25 @@ def index():
     read_name()
     
     return template("home", title=email, text=contact, username=username)
+  
+##@route("/home/", method="POST")
+##def sign_in():
+##    """NOT WORKING!!!"""
+##    global username 
+##
+##    email = request.forms.mail
+##    pwd = request.forms.pwd
+##    
+##    f = open("user/" + email + ".txt", "r")
+##    text_file = f.readlines()
+##    pwd_2 = text_file[3]
+##
+##    if pwd == pwd_2:
+##      return poop
+##    else:
+##      read_name()
+##      return template("home", title=email, pwd=pwd, username=username)
+    
 
 @route("/home/<name>")
 def my_profile(name):
@@ -72,8 +91,6 @@ def my_profile(name):
     surname = text_file[1]
     name = firstname + surname
     f.close()
-    return template("myProfile", username=username)
-  
- 
+    return template("myProfile", username=username) 
  
 run(host='localhost', port=8080, debug=True, reloader=True)

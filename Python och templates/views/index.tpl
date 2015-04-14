@@ -16,58 +16,56 @@
 	<body>
 		<div id="signin">
 
-		<p>SIGN IN</p>	
-		<form action="/home/" method="POST">
-		<form class="form">
-		
-		<p class="email">
-			<input required type="text" name="email" id="email" placeholder="Email" />			
-		</p>
+			<h3>Logga in</h3>	
+				<form action="/home/" method="POST" class="form">
+				
+					<p class="email">
+						<input required type="email" name="mail" id="email" placeholder="Email">			
+					</p>
 
-		<p class="password">
-			<input required type="password" name="pwd_1" id="password" placeholder="Password" />	
-		</p>
+					<p class="password">
+						<input required type="password" name="pwd" id="password" placeholder="Password">	
+					</p>
 
-		
-		<p class="submit">
-			<input type="submit" value="Sign in" />
-		</p>
-		</form>
+					<p class="submit">
+						<input name="sign_in" type="submit" value="Logga in">
+					</p>
+				</form>
 		</div>
 
 
 		<div id="signUp">
+			<h3>Skapa andvändare</h3>	
+				<form action="/home/" method="POST" class="form">
+				
+					<p class ="name">
+						<input required type="text" name="name" id="name" placeholder="Fornamn">	
+					</p>
+						
+					<p class="surname">
+						<input required type="text" name="surname" id="surname" placeholder="Efternamn">	
+					</p>
+					
+					<p class="adress">
+						<input required type="text" name="adress" id="adress" placeholder="Adress">	
+					</p>
+					
+					<p class="email">
+						<input required type="email" name="email" id="email" placeholder="Email">			
+					</p>
 
-		<form action="/home/" method="POST" class="form">
-		
-		<p class ="name">
-			<input required type="text" name="name" id="name" placeholder="Fornamn">	
-		</p>
-			
-		<p class="surname">
-			<input required type="text" name="surname" id="surname" placeholder="Efternamn">	
-		</p>
-		
-		<p class="adress">
-			<input required type="text" name="adress" id="adress" placeholder="Adress">	
-		</p>
-		
-		<p class="email">
-			<input required type="text" name="email" id="email" placeholder="Email">			
-		</p>
+					<p class="password">
+						<input type="password" required name="pwd_1" id="password" placeholder="Password" onchange="form.pwd2.pattern = this.value;>	
+					</p>
 
-		<p class="password">
-			<input type="password" required name="pwd_1" id="password" placeholder="Password" onchange="form.pwd2.pattern = this.value;>	
-		</p>
-
-		<p class="password">
-			<input type="password" required name="pwd_2" id="password" placeholder="Confirm password">	
-		</p>
-		
-		<p class="submit">
-			<input type="submit" value="Sign in">
-		</p>
-		</form>
+					<p class="password">
+						<input type="password" required name="pwd_2" id="password" placeholder="Confirm password">	
+					</p>
+					
+					<p class="submit">
+						<input name="register" type="submit" value="Registrera">
+					</p>
+				</form>
 		</div>
 
 
