@@ -1,13 +1,11 @@
-def read_name():
-    """
-    list the sign in names
-    """
-    f = open("user/hannesdb@gmail.com.txt", "r")
-    text_file = f.readlines()
-    name = text_file[:2]
-    f.close()
-    
-      
-    print name
+def test():
+  pwd_1 = "då"
 
-read_name()
+  f = open("user/testmail.txt", "r")
+  text_file = f.readlines()
+  pwd_2 = text_file[3]
+  f.close()
+
+  print pwd_2
+
+test()

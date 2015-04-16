@@ -53,7 +53,8 @@
 
 	<div id="content"
 		<div id="bodySquare">
-			<p>Här kommer vi fylla på med innehåll.
+			<p>Här kommer vi fylla på med innehåll.<p>
+		</p>
 			</p>
 		</div>
 	</div>

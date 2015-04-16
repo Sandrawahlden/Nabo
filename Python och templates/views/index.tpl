@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Nabo</title>
+		<title>nabo</title>
 		<link rel="stylesheet" href="/static/style.css">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	</head>

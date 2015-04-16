@@ -10,11 +10,6 @@ def server_static(filename):
   """CSS"""
   return static_file(filename, root="static")
 
-@route('/static/<filepath:path>')
-def server_static(filepath):
-  """pictures"""
-  return static_file(filepath, root='/static/Bilder')
- 
 @route("/")
 def start():
   """
@@ -62,35 +57,31 @@ def sign_in():
   global username 
 
   email = request.forms.mail
-  pwd = request.forms.pwd
-    
+  pwd_1 = request.forms.pwd
+
   f = open("user/" + email + ".txt", "r")
   text_file = f.readlines()
   pwd_2 = text_file[3]
-  f.close()
 
-  if pwd == pwd_2:
-    return poop
-  else:
-    f = open("user/" + email + ".txt", "r")
-    text_file = f.readlines()
+  if pwd_1 == pwd_2:
     firstname = text_file[0]
     surname = text_file[1]
     username = firstname + surname
     f.close()
-    return template("home", title=email, pwd=pwd, username=username)
-    
+    return template("home", username=username)
+  else:
+    return "<p>Login Failed!</p>"
 
 @route("/home/<name>")
 def my_profile(name):
   global username, email
-    
-  f = open("user/" + email + ".txt", "r")
-  text_file = f.readlines()
-  firstname = text_file[0]
-  surname = text_file[1]
-  name = firstname + surname
-  f.close()
+##    
+##  f = open("user/" + email + ".txt", "r")
+##  text_file = f.readlines()
+##  firstname = text_file[0]
+##  surname = text_file[1]
+##  name = firstname + surname
+##  f.close()
   return template("myProfile", username=username) 
  
 run(host='localhost', port=8080, debug=True, reloader=True)
