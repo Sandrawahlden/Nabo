@@ -8,9 +8,7 @@
 	</head>
 
 	<header>
-		Nabologga här
-
-		
+		<p>nabologga.... Fungerar inte med css.</p>
 	</header>
 
 	<body>
@@ -24,7 +22,7 @@
 					</p>
 
 					<p class="password">
-						<input required type="password" name="pwd" id="password" placeholder="Password">	
+						<input required type="password" name="pwd" id="password" placeholder="Lösenord">	
 					</p>
 
 					<p class="submit">
@@ -39,7 +37,7 @@
 				<form action="/myProfile/" method="POST" class="form">
 				
 					<p class ="name">
-						<input required type="text" name="name" id="name" placeholder="Fornamn">	
+						<input required type="text" name="name" id="name" placeholder="Förnamn">	
 					</p>
 						
 					<p class="surname">
@@ -55,11 +53,11 @@
 					</p>
 
 					<p class="password">
-						<input type="password" required name="pwd_1" id="password" placeholder="Password" onchange="form.pwd2.pattern = this.value;>	
+						<input type="password" required name="pwd_1" id="password" placeholder="Lösenord" onchange="form.pwd2.pattern = this.value;>	
 					</p>
 
 					<p class="password">
-						<input type="password" required name="pwd_2" id="password" placeholder="Confirm password">	
+						<input type="password" required name="pwd_2" id="password" placeholder="Bekräfta lösenord">	
 					</p>
 					
 					<p class="submit">

@@ -12,13 +12,13 @@
 
 	<header>
 		<div id="logga">
-			<a href="home.html">
-			<img src="../Bilder/vitlogga.png" alt="Nabo logga" style="width:260px;height:82px;border:0"></a>
+			<a href="home">
+			<img src="../Bilder/vitlogga.png" alt="Nabologga" style="width:260px;height:82px;border:0"></a>
 		</div>
 		<p id="user">
-			<a href="/user/">{{name}}</a>
+			<a href="myProfile">{{username}}</a>
 		</p>
-		<div id="loggaUt"
+		<div id="loggaUt">
 			<a href="index.html">Logga ut</a>
 		</div>
 	</header>
@@ -26,7 +26,7 @@
 	<nav>
 		<nav id="profile">
 			<ul>
-				<li><p id="user"><a href="/user/">{{username}}</a></p></li>
+				<li><p id="user"><a href="myProfile">{{username}}</a></p></li>
 				<li><a href="editProfile.html" class="nav">Redigera min profil</a></li>
 			</ul>
 		</nav>

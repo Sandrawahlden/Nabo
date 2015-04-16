@@ -46,6 +46,10 @@ html {
     border-radius: 0px 5px 0px 0px;
 }
 
+#user {
+	float: right;
+}
+
 
 /* ----- Navigation ----- */
 
@@ -222,17 +226,16 @@ input {
 
 
 
-    #signin {
-        float: right;
-        width: 50%;
-        text-align: left;
-        padding-bottom: 20px;
-        padding-left: 30px;
-        padding-top: 20px;
-        background:rgba(115,115,115,0.5);
-        
-        
+#signin {
+	float: right;
+	width: 50%;
+	text-align: left;
+	padding-bottom: 20px;
+	padding-left: 30px;
+	padding-top: 20px;
+	background:rgba(115,115,115,0.5);
+	
+}
 
-    }
 
 
