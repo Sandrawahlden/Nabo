@@ -36,7 +36,7 @@
 
 		<div id="signUp">
 			<h3>Skapa andvändare</h3>	
-				<form action="/home/" method="POST" class="form">
+				<form action="/myProfile/" method="POST" class="form">
 				
 					<p class ="name">
 						<input required type="text" name="name" id="name" placeholder="Fornamn">	

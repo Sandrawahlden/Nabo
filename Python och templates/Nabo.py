@@ -1,5 +1,5 @@
 # coding: utf-8
-# Author: <Andre>
+# Author: <Andre, Hannes>
  
 from bottle import route, run, template, request, static_file
 username = ""
@@ -17,25 +17,8 @@ def start():
     """      
     return template("index")
 
-@route("/home/")
-def read_name():
-    """
-    list the sign in names
-    """
-    global username, email
-    
-    f = open("user/" + email + ".txt", "r")
-    text_file = f.readlines()
-    firstname = text_file[0]
-    surname = text_file[1]
-    username = firstname + surname
-    f.close()
-    
-      
-    return template("home", username=username)
 
-
-@route("/home/", method="POST")
+@route("/myProfile/", method="POST")
 def register_user():
     """Register user and saves the name, surename, adress, email and
     password in a document"""
@@ -58,27 +41,39 @@ def register_user():
 
     text_file.close()
 
-    read_name()
+    f = open("user/" + email + ".txt", "r")
+    text_file = f.readlines()
+    firstname = text_file[0]
+    surname = text_file[1]
+    username = firstname + surname
+    f.close()
     
-    return template("home", title=email, text=contact, username=username)
+    return template("myProfile", title=email, text=contact, username=username)
   
-##@route("/home/", method="POST")
-##def sign_in():
-##    """NOT WORKING!!!"""
-##    global username 
-##
-##    email = request.forms.mail
-##    pwd = request.forms.pwd
-##    
-##    f = open("user/" + email + ".txt", "r")
-##    text_file = f.readlines()
-##    pwd_2 = text_file[3]
-##
-##    if pwd == pwd_2:
-##      return poop
-##    else:
-##      read_name()
-##      return template("home", title=email, pwd=pwd, username=username)
+  
+@route("/home/", method="POST")
+def sign_in():
+    """Signing in existing user and goes to home"""
+    global username 
+
+    email = request.forms.mail
+    pwd = request.forms.pwd
+    
+    f = open("user/" + email + ".txt", "r")
+    text_file = f.readlines()
+    pwd_2 = text_file[3]
+    f.close()
+
+    if pwd == pwd_2:
+      return poop
+    else:
+      f = open("user/" + email + ".txt", "r")
+      text_file = f.readlines()
+      firstname = text_file[0]
+      surname = text_file[1]
+      username = firstname + surname
+      f.close()
+      return template("home", title=email, pwd=pwd, username=username)
     
 
 @route("/home/<name>")

@@ -7,20 +7,26 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	</head>
 
+
+	<div id="wrapper">
+
 	<header>
-		<p>Nabologga här</p>
+		<div id="logga">
+			<a href="home.html">
+			<img src="../Bilder/vitlogga.png" alt="Nabo logga" style="width:260px;height:82px;border:0"></a>
+		</div>
 		<p id="user">
 			<a href="/user/">{{username}}</a>
 		</p>
-		<p>
-			<a href="index">Logga ut</a>
-		</p>
+		<div id="loggaUt"
+			<a href="index.html">Logga ut</a>
+		</div>
 	</header>
 
-	<body>
+	<nav>
 		<nav id="profile">
 			<ul>
-				<li><a href="myProfile" class="nav">{{username}}</a>
+				<li><p id="user"><a href="/user/">{{username}}</a></p></li>
 				<li><a href="editProfile.html" class="nav">Redigera min profil</a>
 			</ul>
 		</nav>
@@ -43,14 +49,23 @@
 				<li><a href="nabos.html" class="nav">Nabos</a>
 			</ul>
 		</nav>
+	</nav>
 
-	</body>
+	<div id="content"
+		<div id="bodySquare">
+			<p>Här kommer vi fylla på med innehåll.
+			</p>
+		</div>
+	</div>
+	
 
 	<footer>
 		<a href="contact.html">Kontakta oss</a>
 		<a href="about.html">Om Nabo</a>
 		<a href="help.html">Hjälp</a>
 	</footer>
+
+	</div>
 </html>
 
 
