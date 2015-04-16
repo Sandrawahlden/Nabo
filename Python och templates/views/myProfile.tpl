@@ -46,14 +46,14 @@
 
 		<nav id="nabos">
 			<ul>
-				<li><a href="nabos.html" class="nav">Nabos</a></li>
+				<li><a href="nabos" class="nav">Nabos</a></li>
 			</ul>
 		</nav>
 	</nav>
 
 	<div id="content"
 		<div id="bodySquare">
-			<p>Här kommer vi fylla på med innehåll.
+			<p>My Profile
 			</p>
 		</div>
 	</div>

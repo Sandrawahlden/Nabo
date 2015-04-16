@@ -1,7 +1,8 @@
 # coding: utf-8
 # Author: <Andre, Hannes>
  
-from bottle import route, run, template, request, static_file
+from bottle import *
+from os import listdir
 username = ""
 email = ""
 
@@ -72,9 +73,26 @@ def sign_in():
   else:
     return "<p>Login Failed!</p>"
 
-@route("/home/<name>")
-def my_profile(name):
-  global username, email
+#Routen måste fixas till passande url
+@route("/nabos/")
+def nabolist():
+  """Appends usernames into name_list and prints it on the nabopage """
+  user_list = listdir("user")
+  name_list = []
+    
+  for user in user_list:
+    f = open("user/" + user, "r")
+    text_file = f.readlines()
+    firstname = text_file[0]
+    surname = text_file[1]
+    username = firstname + surname
+    name_list.append(username)
+    
+  return template("nabos", user_list=user_list, name_list=name_list)
+
+##@route("/home")
+##def my_profile(name):
+##  global username, email
 ##    
 ##  f = open("user/" + email + ".txt", "r")
 ##  text_file = f.readlines()
@@ -82,6 +100,6 @@ def my_profile(name):
 ##  surname = text_file[1]
 ##  name = firstname + surname
 ##  f.close()
-  return template("myProfile", username=username) 
+##  return template("myProfile", "nabos", username=username) 
  
 run(host='localhost', port=8080, debug=True, reloader=True)

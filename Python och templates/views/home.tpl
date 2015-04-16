@@ -39,21 +39,21 @@
 
 		<nav id="messages">
 			<ul>
-				<li><a href="inbox.html" class="nav">Mina meddelanden</a></li>
-				<li><a href="write.html" class="nav">Skriv nytt meddelande</a></li>
+				<li><a href="inbox" class="nav">Mina meddelanden</a></li>
+				<li><a href="write" class="nav">Skriv nytt meddelande</a></li>
 			</ul>
 		</nav>
 
 		<nav id="nabos">
 			<ul>
-				<li><a href="nabos.html" class="nav">Nabos</a></li>
+				<li><a href="nabos" class="nav">Nabos</a></li>
 			</ul>
 		</nav>
 	</nav>
 
 	<div id="content"
 		<div id="bodySquare">
-			<p>Här kommer vi fylla på med innehåll.<p>
+			<p>Home
 		</p>
 			</p>
 		</div>
