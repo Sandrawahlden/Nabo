@@ -128,20 +128,14 @@ a:active {
     top: 100px;
     left: 305px;
     width: 800px;
-    height: 500px;
+    
     border-radius: 10px 0px 10px 10px;
 
 }
 
+/* ----- PROFILSIDA ----- */
 
 
-/* ----- NABOSIDAN ----- */
-
-#naboRuta {
-    border: 1px solid black;
-    width: 200px;
-    margin: 10px;
-}
 
 
 
