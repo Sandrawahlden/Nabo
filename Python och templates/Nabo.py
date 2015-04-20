@@ -73,7 +73,10 @@ def register_user():
 	password in a document"""
 	global username, email
 
-	return template("myProfile", username=username)  
+	user = username.replace("\n", " ")
+        first = user.split(" ")
+        firstname = first[0]
+	return template("myProfile", username=username, firstname=firstname)  
   
 @route("/home/", method="POST")
 def sign_in():

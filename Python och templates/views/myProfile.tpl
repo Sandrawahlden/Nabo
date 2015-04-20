@@ -50,10 +50,18 @@
 			</nav>
 		</nav>
 
-		<div id="content"
+		<div id="content">
 			<div id="bodySquare">
-				<p>My Profile
-				</p>
+				<img src="/static/Bilder/avatar.png" alt="Bild på dig" style="width:150px;height:150px;padding:10px">
+				
+				<p id="name">{{username}}</p>
+				<p id="age">27 år</p>
+				<p id="apartment">Våning 6, loft 18</p>
+				<p id="phone">073-067 01 83</p>
+				<p id="sendMessage">Skicka meddelande till {{firstname}}</p>
+					
+				<p id="likes">{{firstname}} gillar</p>
+				
 			</div>
 		</div>
 		
