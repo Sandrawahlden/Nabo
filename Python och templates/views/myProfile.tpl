@@ -13,7 +13,7 @@
 	<header>
 		<div id="logga">
 			<a href="home">
-			<img src="../Bilder/vitlogga.png" alt="Nabologga" style="width:260px;height:82px;border:0"></a>
+			<img src="/static/Bilder/vitlogga.png" alt="Nabologga" style="width:260px;height:82px;border:0"></a>
 		</div>
 		<p id="user">
 			<a href="myProfile">{{username}}</a>
@@ -46,7 +46,7 @@
 
 		<nav id="nabos">
 			<ul>
-				<li><a href="nabos" class="nav">Nabos</a></li>
+				<li><a href="/nabos" class="nav">Nabos</a></li>
 			</ul>
 		</nav>
 	</nav>

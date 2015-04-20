@@ -6,89 +6,89 @@ from os import listdir
 username = ""
 email = ""
 
-@route("/static/<filename>")
-def server_static(filename):
-  """CSS"""
-  return static_file(filename, root="static")
+@route("/static/<filepath:path>")
+def server_static(filepath):
+	"""CSS"""
+	return static_file(filepath, root="static")
 
 @route("/")
 def start():
-  """
-  This is the sign in page.
-  """      
-  return template("index")
+	"""
+	This is the sign in page.
+	"""      
+	return template("index")
 
+@route("/nabos")
+def nabolist():
+	"""Appends usernames into name_list and prints it on the nabopage """
+        user_list = listdir("user")
+        name_list = []
+
+        for user in user_list:
+                f = open("user/" + user, "r")
+                text_file = f.readlines()
+                firstname = text_file[0]
+                surname = text_file[1]
+                username = firstname + surname
+                name_list.append(username)
+	return template("nabos", user_list=user_list, name_list=name_list)
 
 @route("/myProfile/", method="POST")
 def register_user():
-  """Register user and saves the name, surename, adress, email and
-  password in a document"""
-  global username, email
+	"""Register user and saves the name, surename, adress, email and
+	password in a document"""
+	global username, email
 
-  contact = []
-  name = request.forms.name
-  surname = request.forms.surname
-  adress = request.forms.adress
-  email = request.forms.email
-  pwd_1 = request.forms.pwd_1
+	contact = []
+	name = request.forms.name
+	surname = request.forms.surname
+	adress = request.forms.adress
+	email = request.forms.email
+	pwd_1 = request.forms.pwd_1
 
-  contact.extend((name, surname, adress, pwd_1))
+	contact.extend((name, surname, adress, pwd_1))
 
-  text_file = open("user/" + email + ".txt", "w")
+	text_file = open("user/" + email + ".txt", "w")
 
-  for i in contact:
-    text_file.write(i)
-    text_file.write("\n")
+	for i in contact:
+		text_file.write(i)
+		text_file.write("\n")
+	text_file.close()
 
-  text_file.close()
+	f = open("user/" + email + ".txt", "r")
+	text_file = f.readlines()
+	firstname = text_file[0]
+	surname = text_file[1]
+	username = firstname + surname
+	f.close()
 
-  f = open("user/" + email + ".txt", "r")
-  text_file = f.readlines()
-  firstname = text_file[0]
-  surname = text_file[1]
-  username = firstname + surname
-  f.close()
-    
-  return template("myProfile", title=email, text=contact, username=username)
+	return template("myProfile", title=email, text=contact, username=username)
   
   
 @route("/home/", method="POST")
 def sign_in():
-  """Signing in existing user and goes to home"""
-  global username 
+	"""Signing in existing user and goes to home"""
+	global username 
 
-  email = request.forms.mail
-  pwd_1 = request.forms.pwd
+	email = request.forms.mail
+	pwd_1 = request.forms.pwd
 
-  f = open("user/" + email + ".txt", "r")
-  text_file = f.readlines()
-  pwd_2 = text_file[3]
-
-  if pwd_1 == pwd_2:
-    firstname = text_file[0]
-    surname = text_file[1]
-    username = firstname + surname
-    f.close()
-    return template("home", username=username)
-  else:
-    return "<p>Login Failed!</p>"
+	f = open("user/" + email + ".txt", "r")
+	text_file = f.readlines()
+	print pwd_1
+	pwd_2 = text_file[3].replace("\n", "")
+        print pwd_2
+	if pwd_1 == pwd_2:
+		firstname = text_file[0]
+		surname = text_file[1]
+		username = firstname + surname
+		f.close()
+		return template("home", username=username)
+	else:
+		return "<p>Login Failed!</p>"
 
 #Routen måste fixas till passande url
-@route("/nabos/")
-def nabolist():
-  """Appends usernames into name_list and prints it on the nabopage """
-  user_list = listdir("user")
-  name_list = []
-    
-  for user in user_list:
-    f = open("user/" + user, "r")
-    text_file = f.readlines()
-    firstname = text_file[0]
-    surname = text_file[1]
-    username = firstname + surname
-    name_list.append(username)
-    
-  return template("nabos", user_list=user_list, name_list=name_list)
+
 
 ##@route("/home")
 ##def my_profile(name):
@@ -101,5 +101,5 @@ def nabolist():
 ##  name = firstname + surname
 ##  f.close()
 ##  return template("myProfile", "nabos", username=username) 
- 
+
 run(host='localhost', port=8080, debug=True, reloader=True)

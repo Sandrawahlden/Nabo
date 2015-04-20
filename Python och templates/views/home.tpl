@@ -46,7 +46,7 @@
 
 		<nav id="nabos">
 			<ul>
-				<li><a href="nabos" class="nav">Nabos</a></li>
+				<li><a href="/nabos" class="nav">Nabos</a></li>
 			</ul>
 		</nav>
 	</nav>
