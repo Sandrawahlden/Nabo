@@ -18,9 +18,11 @@ def start():
 	"""      
 	return template("index")
 
-@route("/nabos")
+@route("/nabos/")
 def nabolist():
 	"""Appends usernames into name_list and prints it on the nabopage """
+        global username
+        
         user_list = listdir("user")
         name_list = []
 
@@ -29,9 +31,10 @@ def nabolist():
                 text_file = f.readlines()
                 firstname = text_file[0]
                 surname = text_file[1]
-                username = firstname + surname
-                name_list.append(username)
-	return template("nabos", user_list=user_list, name_list=name_list)
+                nabos = firstname + surname
+                name_list.append(nabos)
+	return template("nabos", user_list=user_list, name_list=name_list, username=username)
+
 
 @route("/myProfile/", method="POST")
 def register_user():
@@ -63,7 +66,14 @@ def register_user():
 	f.close()
 
 	return template("myProfile", title=email, text=contact, username=username)
-  
+
+@route("/myProfile/")
+def register_user():
+	"""Register user and saves the name, surename, adress, email and
+	password in a document"""
+	global username, email
+
+	return template("myProfile", username=username)  
   
 @route("/home/", method="POST")
 def sign_in():
@@ -87,19 +97,11 @@ def sign_in():
 	else:
 		return "<p>Login Failed!</p>"
 
-#Routen måste fixas till passande url
 
+@route("/home/")
+def my_profile():
+        global username, email
 
-##@route("/home")
-##def my_profile(name):
-##  global username, email
-##    
-##  f = open("user/" + email + ".txt", "r")
-##  text_file = f.readlines()
-##  firstname = text_file[0]
-##  surname = text_file[1]
-##  name = firstname + surname
-##  f.close()
-##  return template("myProfile", "nabos", username=username) 
+        return template("home", username=username) 
 
 run(host='localhost', port=8080, debug=True, reloader=True)

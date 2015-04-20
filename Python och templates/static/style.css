@@ -1,11 +1,11 @@
-#logga, #loggaUt, #profile, #board, #messages, #nabos, #content, footer {
+#logga, #loggaUt, #profile, #board, #messages, #nabos, #content, #signIn, #signUp, footer {
     padding: 2px;
     margin-bottom: 2px;
     position: absolute;
 }
 
 html { 
-    background: url(../Bilder/f0840149.jpg) no-repeat center center fixed; 
+    background: url(/static/Bilder/f0840149.jpg) no-repeat center center fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -44,10 +44,6 @@ html {
     color: #ffffff;
     font-family: sans-serif;
     border-radius: 0px 5px 0px 0px;
-}
-
-#user {
-	float: right;
 }
 
 
@@ -132,20 +128,14 @@ a:active {
     top: 100px;
     left: 305px;
     width: 800px;
-    height: 500px;
+    
     border-radius: 10px 0px 10px 10px;
 
 }
 
+/* ----- PROFILSIDA ----- */
 
 
-/* ----- NABOSIDAN ----- */
-
-#naboRuta {
-    border: 1px solid black;
-    width: 200px;
-    margin: 10px;
-}
 
 
 
@@ -165,77 +155,80 @@ footer {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* ----- Inloggningssidan ----- */
 
 
+#indexWrapper {
+    min-height:500px;
+    width: 800px;
+    position:relative;
+    top: 100px;
+    margin: 0 auto;
+    border: 5px solid #4d6630;
+    background:rgba(115,115,115,0.7);
+    border-radius: 30px 30px 30px 30px;
+}
+
+#signIn {
+    top: 150px;
+    padding: 35px;
+}
+
+#signUp {
+    left: 400px;
+    top: 95px;
+    padding: 35px;
+}
+
+#indexPageText {
+    color: #fff;
+    font-family: sans-serif;
+    font-weight: bold;
+}
+    
+.submit input {
+    width: 100px; 
+    height: 40px;
+    background-color: #4d6630; 
+    color: #FFF;
+    border-radius: 3px;
+    float: right;     
+}
+
+.submitLong input {
+    width: 150px; 
+    height: 40px;
+    background-color: #4d6630; 
+    color: #FFF;
+    border-radius: 3px;
+    float: right;     
+}
 
 input {
-        padding: 10px;
-        border: 1px solid #E5E5E5;
-        width: 300px;
-        color: #999999;
-        box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 8px;
-        -moz-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 8px;
-        -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 8px;     
+    padding: 10px;
+    border: 1px solid #E5E5E5;
+    width: 300px;
+    color: #4d6630;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 8px;   
     }
 
-  
-    input:hover 
-    input:focus {
-        border-color: 1px solid #C9C9C9;
-        box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 8px;
-        -moz-box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 8px;
-        -webkit-box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 8px; 
-    }
-
-    .form label {
-        margin-left: 10px;
-        color: #999999;
-    }
-
-
-    .submit input {
-        width: 100px; 
-        height: 40px;
-        background-color: #8ac007; 
-        color: #FFF;
-        border-radius: 3px;
-        -moz-border-radius: 3px;
-        -webkit-border-radius: 3px;     
-    }
-
-
-
-#signin {
-	float: right;
-	width: 50%;
-	text-align: left;
-	padding-bottom: 20px;
-	padding-left: 30px;
-	padding-top: 20px;
-	background:rgba(115,115,115,0.5);
-	
+input:hover 
+input:focus {
+    border-color: 1px solid #4d6630;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 8px;
 }
+
+.form label {
+    margin-left: 10px;
+    color: #4d6630;
+}
+
+
+#naboruta a:link, a:visited {
+    text-decoration: none;
+    color: #000;
+}
+
 
 
 

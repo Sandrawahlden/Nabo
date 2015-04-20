@@ -6,15 +6,21 @@
 		<link rel="stylesheet" href="/static/style.css">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	</head>
-
-	<header>
-		<p>nabologga.... Fungerar inte med css.</p>
+	
+	<div id="indexWrapper">
+		<header>
+			<div id="logga">
+				<a href="/">
+					<img src="/static/Bilder/vitlogga.png" alt="Nabologga" style="width:260px;height:82px;border:0">
+				</a>
+			</div>
+		</header>
 	</header>
 
 	<body>
 		<div id="signin">
 
-			<h3>Logga in</h3>	
+			<p id="indexPageText">LOGGA IN</p>	
 				<form action="/home/" method="POST" class="form">
 				
 					<p class="email">
@@ -33,7 +39,7 @@
 
 
 		<div id="signUp">
-			<h3>Skapa andvändare</h3>	
+			<p id="indexPageText">SKAPA ANVÄNDARE</p>	
 				<form action="/myProfile/" method="POST" class="form">
 				
 					<p class ="name">
@@ -68,12 +74,6 @@
 
 
 	</body>
-
-	<footer>
-		<a href="contact.html">Kontakta oss</a>
-		<a href="about.html">Om Nabo</a>
-		<a href="help.html">Hjälp</a>
-	</footer>
 </html>
 
 

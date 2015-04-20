@@ -50,15 +50,11 @@
 			</nav>
 		</nav>
 
-		<div id="content">
-			%for name in name_list:	
-				<div id="naboRuta">
-					<img src="/static/Bilder/avatar.png" alt="Bild på en Nabo" style="width:60px;height:60px;padding:5px">
-					<a href="#">{{name}}</a>
-					<br>
-					<br>
-				</div>
-			%end
+		<div id="content"
+			<div id="bodySquare">
+				<p>Här kommer vi fylla på med innehåll.
+				</p>
+			</div>
 		</div>
 		
 		<footer>
@@ -66,6 +62,7 @@
 			<a href="/about/">Om Nabo</a>
 			<a href="/help/">Hjälp</a>
 		</footer>
-	
+
+
 	</div>
 </html>
