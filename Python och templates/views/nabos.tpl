@@ -53,7 +53,7 @@
 		<div id="content">
 			%for name in name_list:	
 				<div id="naboRuta">
-					<img src="/static/Bilder/avatar.png" alt="Bild på en Nabo" style="width:60px;height:60px;padding:5px">
+					<img src="{{profile_pic}}" alt="Bild på en Nabo" style="width:60px;height:60px;padding:5px">
 					<a href="#">{{name}}</a>
 					<br>
 					<br>

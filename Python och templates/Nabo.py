@@ -38,7 +38,7 @@ def register_user():
 	email = request.forms.email
 	pwd_1 = request.forms.pwd_1
 
-	contact.extend((name, surname, adress, pwd_1))
+	contact.extend((name, surname, adress, pwd_1, "/static/Bilder/avatar.png", "null", "null", "null", "null"))
 
         mail = email + ".txt"
         
@@ -106,7 +106,7 @@ def my_profile():
 @route("/nabos/")
 def nabolist():
 	"""Appends usernames into name_list and prints it on the nabopage """
-        global username
+        global username, profile_pic
         
         user_list = listdir("user")
         name_list = []
@@ -118,7 +118,14 @@ def nabolist():
                 surname = text_file[1]
                 nabos = firstname + surname
                 name_list.append(nabos)
-	return template("nabos", user_list=user_list, name_list=name_list, username=username)
+        if text_file[4] == "null":
+                profile_pic = "/static/Bilder/avatar.png"
+                print profile_pic
+        else:
+                profile_pic = text_file[4]
+                print profile_pic
+                        
+	return template("nabos", user_list=user_list, name_list=name_list, username=username, profile_pic=profile_pic)
 
 
 @route("/editProfile/")
