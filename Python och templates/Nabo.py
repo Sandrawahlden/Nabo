@@ -3,8 +3,14 @@
  
 from bottle import *
 from os import listdir
+
 username = ""
 email = ""
+profile_pic = ""
+age = ""
+lgh = ""
+tel_nr = ""
+likes = ""
 
 @route("/static/<filepath:path>")
 def server_static(filepath):
@@ -120,9 +126,26 @@ def edit_profile():
 	"""
 	This is the mail inbox
 	"""
-	global username
+	global username, profile_pic
+
+        contact = []
+	name = request.forms.name
+	surname = request.forms.surname
+	adress = request.forms.adress
+	email = request.forms.email
+	pwd_1 = request.forms.pwd_1
+        profile_pic = request.forms.profile_pic
+        """Age or birth date?"""
+        age = request.forms.age
+        lgh = request.forms.lgh
+        tel_nr = request.forms.tel_nr
+        """Likes in what form?"""
+        likes = request.forms.likes
+        
+	contact.extend((name, surname, adress, pwd_1, profile_pic, age, lgh, tel_nr, likes))
 	
-	return template("editProfile", username=username)
+	
+	return template("editProfile", username=username, profile_pic=profile_pic, age=age, lgh=lgh, tel_nr=tel_nr, likes=likes)
     
 
 @route("/inbox/")
