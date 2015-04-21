@@ -32,7 +32,7 @@
 
 			<nav id="board">
 				<ul>
-					<li><a href="/board/" class="nav">Anslagstavlan</a></li>
+					<li><a href="/home/" class="nav">Anslagstavlan</a></li>
 				</ul>
 			</nav>
 
