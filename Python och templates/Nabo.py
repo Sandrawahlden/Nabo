@@ -77,9 +77,7 @@ def sign_in():
 
 	f = open("user/" + email + ".txt", "r")
 	text_file = f.readlines()
-	print pwd_1
 	pwd_2 = text_file[3].replace("\n", "")
-        print pwd_2
 	if pwd_1 == pwd_2:
 		firstname = text_file[0]
 		surname = text_file[1]
@@ -101,13 +99,12 @@ def user_profile():
 	user = username.replace("\n", " ")
         first = user.split(" ")
         firstname = first[0]
-        print profile_pic
 
 	return template("myProfile", username=username, firstname=firstname, profile_pic=profile_pic)
 
 
 @route("/home/")
-def my_profile():
+def home():
         global username, email
 
         return template("home", username=username)
@@ -120,16 +117,16 @@ def nabolist():
         user_list = listdir("user")
         name_list = []
         pic_list = []
-        #FUCKING PICSHITLIST NOT WORKING
         for user in user_list:
                 f = open("user/" + user, "r")
                 text_file = f.readlines()
                 firstname = text_file[0]
                 surname = text_file[1]
                 profile_pic = text_file[4]
-                pic_list.append(profile_pic)
                 nabos = firstname + surname
                 name_list.append(nabos)
+                pic_list.append(profile_pic)
+
                         
 	return template("nabos", user_list=user_list, name_list=name_list, username=username, profile_pic=profile_pic, pic_list=pic_list)
 
@@ -166,6 +163,21 @@ def edit_profile():
 	
 	return template("editProfile", username=username, profile_pic=profile_pic, age=age, lgh=lgh, tel_nr=tel_nr, likes=likes)
     
+
+@route("/otherUser/")
+def other_user():
+	"""
+	This shows another user.
+	"""
+	global username, email
+
+        
+##        f = open("user/" + email + ".txt", "r")
+##	text_file = f.readlines()
+	
+	
+	return template("otherUser", username=username)
+
 
 @route("/inbox/")
 def inbox():

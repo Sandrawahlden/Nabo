@@ -50,22 +50,19 @@
 			</nav>
 		</nav>
 
-		<div id="content">
-			%for name, pic in zip(name_list, pic_list):
-				<div id="naboRuta">
-					<img src="{{pic}}" alt="{{name}}" style="width:60px;height:60px;padding:5px">
-					<a href="/otherUser/">{{name}}</a>
-					<br>
-					<br>
-				</div>
-			%end
+		<div id="content"
+			<div id="bodySquare">
+				<p>Här kommer vi fylla på med innehåll.
+				</p>
+			</div>
 		</div>
 		
+
 		<footer>
 			<a href="/contact/">Kontakta oss</a>
 			<a href="/about/">Om Nabo</a>
 			<a href="/help/">Hjälp</a>
 		</footer>
-	
+
 	</div>
 </html>
