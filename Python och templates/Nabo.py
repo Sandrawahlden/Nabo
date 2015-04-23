@@ -38,7 +38,7 @@ def register_user():
 	email = request.forms.email
 	pwd_1 = request.forms.pwd_1
 
-	contact.extend((name, surname, adress, pwd_1, "/static/Bilder/avatar.png", "null", "null", "null", "null"))
+	contact.extend((name, surname, adress, pwd_1, "/static/Bilder/avatar.png", "", "", "", ""))
 
         mail = email + ".txt"
         
@@ -116,13 +116,9 @@ def nabolist():
                 text_file = f.readlines()
                 firstname = text_file[0]
                 surname = text_file[1]
-                nabos = firstname + surname
-                name_list.append(nabos)
-        if text_file[4] == "null":
-                profile_pic = "/static/Bilder/avatar.png"
-                print profile_pic
-        else:
                 profile_pic = text_file[4]
+                nabos = firstname + surname + profile_pic
+                name_list.append(nabos)
                 print profile_pic
                         
 	return template("nabos", user_list=user_list, name_list=name_list, username=username, profile_pic=profile_pic)

@@ -57,6 +57,16 @@ def inbox():
 	return template("inbox", username=username)
 
 
+@route("/write/")
+def text_mail():
+	"""
+	This is where you write to other users
+	"""
+	global username
+	
+	return template("write", username=username)
+
+
 @route("/help/")
 def nabo_help():
 	"""
