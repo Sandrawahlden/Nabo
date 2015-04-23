@@ -4,6 +4,7 @@
 		<meta charset="utf-8">
 		<title>nabo</title>
 		<link rel="stylesheet" href="/static/style.css">
+		<script type="text/javascript" src=""/static/JS/Password check.js""></script>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	</head>
 	
@@ -37,10 +38,11 @@
 				</form>
 		</div>
 
+		
 
 		<div id="signUp">
 			<p id="indexPageText">SKAPA ANVÄNDARE</p>	
-				<form action="/myProfile/" method="POST" class="form">
+				<form action="/myProfile/" method="POST" class="form" onsubmit="return checkForm();>
 				
 					<p class ="name">
 						<input required type="text" name="name" id="name" placeholder="Förnamn">	
@@ -59,7 +61,7 @@
 					</p>
 
 					<p class="password">
-						<input type="password" required name="pwd_1" id="password" placeholder="Lösenord" onchange="form.pwd2.pattern = this.value;>	
+						<input type="password" required name="pwd_1" id="password" placeholder="Lösenord">	
 					</p>
 
 					<p class="password">
@@ -67,7 +69,7 @@
 					</p>
 					
 					<p class="submit">
-						<input name="register" type="submit" value="Registrera">
+						<input name="register" id="button1" type="submit" value="Registrera">
 					</p>
 				</form>
 		</div>

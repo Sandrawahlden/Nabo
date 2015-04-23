@@ -37,30 +37,34 @@ def register_user():
 	adress = request.forms.adress
 	email = request.forms.email
 	pwd_1 = request.forms.pwd_1
+        pwd_2 = request.forms.pwd_2
+	if pwd_1 == pwd_2:
+                contact.extend((name, surname, adress, pwd_1, "/static/Bilder/avatar.png", "null", "null", "null", "null"))
 
-	contact.extend((name, surname, adress, pwd_1, "/static/Bilder/avatar.png", "null", "null", "null", "null"))
-
-        mail = email + ".txt"
-        
-        if mail in listdir("user"):
+                mail = email + ".txt"
                 
-                return "user already exist"
-        
+                if mail in listdir("user"):
+                        
+                        return "user already exist"
+                
+                else:
+                        text_file = open("user/" + email + ".txt", "w")
+                        
+                        for i in contact:
+                                text_file.write(i)
+                                text_file.write("\n")
+                        text_file.close()
+
+                        f = open("user/" + email + ".txt", "r")
+                        text_file = f.readlines()
+                        firstname = text_file[0]
+                        surname = text_file[1]
+                        username = firstname + surname
+                        f.close()
+                        return template("myProfile", title=email, text=contact, firstname=firstname, username=username, pwd_1=pwd_1, pwd_2=pwd_2)
+                
         else:
-                text_file = open("user/" + email + ".txt", "w")
-                
-                for i in contact:
-                        text_file.write(i)
-                        text_file.write("\n")
-                text_file.close()
-
-                f = open("user/" + email + ".txt", "r")
-                text_file = f.readlines()
-                firstname = text_file[0]
-                surname = text_file[1]
-                username = firstname + surname
-                f.close()
-                return template("myProfile", title=email, text=contact, firstname=firstname, username=username)
+                return "Du skrev in fel när du skulle validera ditt lösenord, testa igen!!"
 
 
 @route("/myProfile/")
