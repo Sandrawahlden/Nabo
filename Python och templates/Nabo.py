@@ -110,22 +110,19 @@ def nabolist():
         
         user_list = listdir("user")
         name_list = []
-
+        pic_list = []
+        #FUCKING PICSHITLIST NOT WORKING
         for user in user_list:
                 f = open("user/" + user, "r")
                 text_file = f.readlines()
                 firstname = text_file[0]
                 surname = text_file[1]
+                profile_pic = text_file[4]
+                pic_list.append(profile_pic)
                 nabos = firstname + surname
                 name_list.append(nabos)
-        if text_file[4] == "null":
-                profile_pic = "/static/Bilder/avatar.png"
-                print profile_pic
-        else:
-                profile_pic = text_file[4]
-                print profile_pic
                         
-	return template("nabos", user_list=user_list, name_list=name_list, username=username, profile_pic=profile_pic)
+	return template("nabos", user_list=user_list, name_list=name_list, username=username, profile_pic=profile_pic, pic_list=pic_list)
 
 
 @route("/editProfile/")
