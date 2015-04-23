@@ -52,7 +52,7 @@
 
 		<div id="content">
 			<div id="bodySquare">
-				<img src="/static/Bilder/avatar.png" alt="Bild på dig" style="width:150px;height:150px;padding:10px">
+				<img src="{{profile_pic}}" alt="Bild på dig" style="width:150px;height:150px;padding:10px">
 				
 				<p id="name">{{username}}</p>
 				<p id="age">27 år</p>

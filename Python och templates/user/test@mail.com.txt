@@ -1,0 +1,9 @@
+test
+test
+Ronnblomsgatan 11
+hej
+/static/Bilder/avatar.png
+null
+null
+null
+null
