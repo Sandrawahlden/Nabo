@@ -2,7 +2,7 @@ Bert
 Karlsson
 Ronnblomsgatan 11
 hej
-/static/Bilder/avatar.png
+http://www.google.se/url?sa=i&source=images&cd=&ved=0CAUQjBw&url=http%3A%2F%2Fnojesguiden.se%2Fsites%2Fdefault%2Ffiles%2Fimage%2FMaja%2F18s32-bk-246_jpg_571613l.jpg&ei=8SM6VZqKBeqrygOU1ICAAw&psig=AFQjCNERM7PRRZgdD8qBZcMfmOWvsQQtvQ&ust=1429960049163666
 null
 null
 null
