@@ -52,8 +52,49 @@
 
 		<div id="content"
 			<div id="bodySquare">
-				<p>Här kommer vi fylla på med innehåll.
-				</p>
+				<div id="editProfile">
+					<p>Redigera Profil</p>	
+						<form action="/myProfile/" method="POST" class="form">
+						
+						<p class ="profile_pic">
+							<input required type="text" name="profile_pic" id="profile_pic" placeholder="URL till önskad bild:">	
+						</p>
+						
+						<p class ="name">
+							<input required type="text" name="name" id="name" placeholder="Förnamn:">	
+						</p>
+							
+						<p class="surname">
+							<input required type="text" name="surname" id="surname" placeholder="Efternamn:">	
+						</p>
+						
+						<p class="adress">
+							<input required type="text" name="street" id="street" placeholder="Gata och gatnummer:">	
+						</p>
+						
+						<p class="adress">
+							<input required type="text" name="city" id="city" placeholder="Stad:">	
+						</p>
+						
+						<p class="email">
+							<input required type="email" name="email" id="email" placeholder="Email:">			
+						</p>
+						<p>Byta lösenord</p>
+						<p class="password">
+							<input type="password" required name="old_pwd" id="password" placeholder="Gammalt lösenord:">	
+						</p>
+						<p class="password">
+							<input type="password" required name="pwd_1" id="password" placeholder="Nytt lösenord:">	
+						</p>
+
+						<p class="password">
+							<input type="password" required name="pwd_2" id="password" placeholder="Bekräfta nytt lösenord:">	
+						</p>
+						
+						<p class="submit">
+							<input name="update" type="submit" value="Uppdatera">
+						</p>
+				</form>
 			</div>
 		</div>
 		

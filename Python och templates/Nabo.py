@@ -141,7 +141,8 @@ def edit_profile():
         contact = []
 	name = request.forms.name
 	surname = request.forms.surname
-	adress = request.forms.adress
+	street = request.forms.street
+	city = request.forms.city
 	email = request.forms.email
 	pwd_1 = request.forms.pwd_1
         profile_pic = request.forms.profile_pic
@@ -152,7 +153,7 @@ def edit_profile():
         """Likes in what form?"""
         likes = request.forms.likes        
         
-	contact.extend((name, surname, adress, pwd_1, profile_pic, age, lgh, tel_nr, likes))
+	contact.extend((name, surname, pwd_1, profile_pic, age, lgh, tel_nr, likes))
 
 	text_file = open("user/" + email + ".txt", "w")
                         
@@ -164,8 +165,8 @@ def edit_profile():
 	return template("editProfile", username=username, profile_pic=profile_pic, age=age, lgh=lgh, tel_nr=tel_nr, likes=likes)
     
 
-@route("/otherUser/")
-def other_user():
+@route("/otherUser/<pagename>")
+def other_user(pagename):
 	"""
 	This shows another user.
 	"""

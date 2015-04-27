@@ -42,30 +42,30 @@
 
 		<div id="signUp">
 			<p id="indexPageText">SKAPA ANVÄNDARE</p>	
-				<form action="/myProfile/" method="POST" class="form" onsubmit="return checkForm();>
+				<form action="/myProfile/" method="POST" class="form">
 				
 					<p class ="name">
-						<input required type="text" name="name" id="name" placeholder="Förnamn">	
+						<input required type="text" name="name" id="name" placeholder="Förnamn:">	
 					</p>
 						
 					<p class="surname">
-						<input required type="text" name="surname" id="surname" placeholder="Efternamn">	
+						<input required type="text" name="surname" id="surname" placeholder="Efternamn:">	
 					</p>
 					
 					<p class="adress">
-						<input required type="text" name="adress" id="adress" placeholder="Adress">	
+						<input required type="text" name="adress" id="adress" placeholder="Gata och gatnumer:">	
 					</p>
 					
 					<p class="email">
-						<input required type="email" name="email" id="email" placeholder="Email">			
+						<input required type="email" name="email" id="email" placeholder="Email:">			
 					</p>
 
 					<p class="password">
-						<input type="password" required name="pwd_1" id="password" placeholder="Lösenord">	
+						<input type="password" required name="pwd_1" id="password" placeholder="Lösenord:">	
 					</p>
 
 					<p class="password">
-						<input type="password" required name="pwd_2" id="password" placeholder="Bekräfta lösenord">	
+						<input type="password" required name="pwd_2" id="password" placeholder="Bekräfta lösenord:">	
 					</p>
 					
 					<p class="submit">
