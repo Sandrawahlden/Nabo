@@ -12,7 +12,7 @@
 		<header>
 			<div id="logga">
 				<a href="/">
-					<img src="/static/Bilder/vitlogga.png" alt="Nabologga" style="width:260px;height:82px;border:0">
+					<img src="/static/Bilder/logotypnabo.jpg" alt="Nabologga" style="width:260px;height:82px;border:0">
 				</a>
 			</div>
 		</header>
