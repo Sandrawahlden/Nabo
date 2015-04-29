@@ -166,16 +166,32 @@ footer {
 
 /* ----- Inloggningssidan ----- */
 
+#mamaWrapper {
+    min-height:600px;
+    width: 1200px;
+    position:relative;
+    margin: 0 auto;
+}
 
 #indexWrapper {
-    min-height:500px;
-    width: 800px;
-    position:relative;
-    top: 100px;
-    margin: 0 auto;
+    height:500px;
+    width: 600px;
     border: 5px solid #4d6630;
-    background:rgba(115,115,115,0.7);
-    border-radius: 30px 30px 30px 30px;
+    border-right: 0px;
+    background:rgba(115,115,115,0.8);
+    border-radius: 30px 0px 0px 30px;
+    position: absolute;
+}
+
+#secondIndexWrapper {
+    height:500px;
+    width: 400px;
+    border: 5px solid #4d6630;
+    border-left: 0px;
+    background:rgba(115,115,115,0.8);
+    border-radius: 0px 30px 30px 0px;
+    position: absolute;
+    left: 610px;
 }
 
 #signin, #signUp, #welcomeText{
@@ -183,19 +199,20 @@ footer {
 }
 
 #signin {
-    left: 340px;
+    top: 150px;
+    left: 40px;
 
 }
 
 #signUp {
     left: 20px;
-    top: 120px;
+    top: 20px;
     padding: 35px;
 }
 
 #welcomeText {
-    top: 180px;
-    left: 450px;
+    top: 150px;
+    left: 300px;
     width: 300px;
 }
 
@@ -254,24 +271,13 @@ input {
     box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 8px;   
     }
 
-#name {
-    padding: 10px;
-    border: 1px solid #E5E5E5;
-    width: 120px;
-    color: #4d6630;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 8px;  
-}
-
-#surname {
-    padding: 10px;
-    border: 1px solid #E5E5E5;
-    width: 153px;
-    color: #4d6630;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 8px;  
- }
 
  #email, #password {
     width: 160px;
+ }
+
+ #passwordLI, #name, #surname {
+    width: 137px;
  }
 
 input:hover 
