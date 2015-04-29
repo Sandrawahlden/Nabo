@@ -12,7 +12,11 @@
 		<header>
 			<div id="logga">
 				<a href="/">
+<<<<<<< HEAD
 					<img src="/static/Bilder/logotypnabo.jpg" alt="Nabologga" style="width:260px;height:82px;border:0" >
+=======
+					<img src="/static/Bilder/logotypnabo.jpg" alt="Nabologga" style="width:260px;height:82px;border:0">
+>>>>>>> 104b04ece1a7101ab746d99cfee46c89a2957fa4
 				</a>
 			</div>
 		</header>
@@ -21,16 +25,15 @@
 	<body>
 		<div id="signin">
 
-			<p id="indexPageText">LOGGA IN</p>	
+			<div id="backgroundlogin">	
 				<form action="/home/" method="POST" class="form">
 				
 					<p class="email">
 						<input required type="email" name="mail" id="email" placeholder="Email">			
-					</p>
-
-					<p class="password">
+					
 						<input required type="password" name="pwd" id="password" placeholder="Lösenord">	
 					</p>
+			</div>
 
 					<p class="submit">
 						<input name="sign_in" type="submit" value="Logga in">
@@ -38,6 +41,10 @@
 				</form>
 		</div>
 
+		<div id="welcomeText">
+			<h1>Välkommen till Nabo!</h1>
+			<p id="welcomeTextFirstPage">Nabo hjälper dig att identifiera och interagera med grannarna i din trappuppgång. Låna en hammare, skaffa kattvakt eller bjud in till gårdsfest. Registrera i två enkla steg.</p>
+		</div>
 		
 
 		<div id="signUp">
@@ -45,27 +52,21 @@
 				<form action="/myProfile/" method="POST" class="form">
 				
 					<p class ="name">
-						<input required type="text" name="name" id="name" placeholder="Förnamn:">	
-					</p>
-						
-					<p class="surname">
-						<input required type="text" name="surname" id="surname" placeholder="Efternamn:">	
-					</p>
+						<input required type="text" name="name" id="name" placeholder="Förnamn">	
 					
-					<p class="adress">
-						<input required type="text" name="adress" id="adress" placeholder="Gata och gatnumer:">	
+						<input required type="text" name="surname" id="surname" placeholder="Efternamn">	
 					</p>
 					
 					<p class="email">
-						<input required type="email" name="email" id="email" placeholder="Email:">			
+						<input required type="email" name="email" id="emailLI" placeholder="Email">			
 					</p>
 
 					<p class="password">
-						<input type="password" required name="pwd_1" id="password" placeholder="Lösenord:">	
+						<input type="password" required name="pwd_1" id="passwordLI" placeholder="Lösenord">	
 					</p>
 
 					<p class="password">
-						<input type="password" required name="pwd_2" id="password" placeholder="Bekräfta lösenord:">	
+						<input type="password" required name="pwd_2" id="passwordLI" placeholder="Bekräfta lösenord">	
 					</p>
 					
 					<p class="submit">
