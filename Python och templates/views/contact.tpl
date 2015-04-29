@@ -13,7 +13,7 @@
 		<header>
 			<div id="logga">
 				<a href="/home/">
-				<img src="/static/Bilder/vitlogga.png" alt="Nabologga" style="width:260px;height:82px;border:0"></a>
+				<img src="/static/Bilder/logotypnabo.jpg" alt="Nabologga" style="width:260px;height:82px;border:0"></a>
 			</div>
 			<div id="loggaUt">
 				<p id="user">
