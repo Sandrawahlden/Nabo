@@ -12,7 +12,11 @@
 		<header>
 			<div id="logga">
 				<a href="/">
+<<<<<<< HEAD
+					<img src="/static/Bilder/logotypnabo.jpg" alt="Nabologga" style="width:260px;height:82px;border:0" >
+=======
 					<img src="/static/Bilder/logotypnabo.jpg" alt="Nabologga" style="width:260px;height:82px;border:0">
+>>>>>>> 104b04ece1a7101ab746d99cfee46c89a2957fa4
 				</a>
 			</div>
 		</header>
