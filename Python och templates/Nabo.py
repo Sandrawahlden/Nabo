@@ -12,6 +12,8 @@ age = ""
 lgh = ""
 tel_nr = ""
 likes = ""
+message = ""
+
 
 @route("/static/<filepath:path>")
 def server_static(filepath):
@@ -46,8 +48,9 @@ def register_user():
                 mail = email + ".txt"
                 
                 if mail in listdir("user"):
-                        
-                        return "user already exist"
+
+                        message = "Epostadress finns redan registrerad!"
+                        return template("registerProfileFail", message=message)
                 
                 else:
                         text_file = open("user/" + email + ".txt", "w")
@@ -66,28 +69,35 @@ def register_user():
                         return template("myProfile", title=email, text=contact, firstname=firstname, username=username, pwd_1=pwd_1, pwd_2=pwd_2, profile_pic=profile_pic)
                 
         else:
-                return "Du skrev in fel när du skulle validera ditt lösenord, testa igen!!"
+                message = "Passwordsen matchar inte varandra!"
+                return template("registerProfileFail", message=message)
   
   
 @route("/home/", method="POST")
 def sign_in():
 	"""Signing in existing user and goes to home"""
-	global username, email
+	global username, email, message
 
 	email = request.forms.mail
 	pwd_1 = request.forms.pwd
+	mailadress = email + ".txt"
+        if mailadress in listdir("user"):
+                f = open("user/" + email + ".txt", "r")
+                text_file = f.readlines()
+                pwd_2 = text_file[2].replace("\n", "")
+                if pwd_1 == pwd_2:
+                        firstname = text_file[0]
+                        surname = text_file[1]
+                        username = firstname + surname
+                        f.close()
+                        return template("home", username=username, email=email)
+                else:
+                        message = "Fel password!"
+                        return template("loginProfileFail", message=message)
 
-	f = open("user/" + email + ".txt", "r")
-	text_file = f.readlines()
-	pwd_2 = text_file[2].replace("\n", "")
-	if pwd_1 == pwd_2:
-		firstname = text_file[0]
-		surname = text_file[1]
-		username = firstname + surname
-		f.close()
-		return template("home", username=username, email=email)
-	else:
-		return "<p>Login Failed!</p>"
+        else:
+                message = "Epostadressen finns inte registrerad!"
+                return template("loginProfileFail", message=message)
 	
 
 @route("/myProfile/")
@@ -162,7 +172,7 @@ def edit_prof():
 	"""
 	Edit your profile!
 	"""
-	global username, profile_pic, email
+	global username, profile_pic, email, message
         contact = []
 	name = request.forms.name
 	surname = request.forms.surname
@@ -184,7 +194,7 @@ def edit_prof():
 	old_pwd_2 = text_file[2].replace("\n", "")
 	if old_pwd == old_pwd_2:
             
-                contact.extend((name, surname, pwd_1, profile_pic, age, street, city, lgh, tel_nr, likes))
+                contact.extend((name, surname, old_pwd, profile_pic, age, street, city, lgh, tel_nr, likes))
 
                 text_file = open("user/" + email + ".txt", "w")
                                 
@@ -192,21 +202,42 @@ def edit_prof():
                         text_file.write(i)
                         text_file.write("\n")
                 text_file.close()
-
-                return template("UpdatedProfile", username=username, profile_pic=profile_pic, age=age, lgh=lgh, tel_nr=tel_nr, likes=likes ,name=name)
+                message = "Din profil ar nu uppdaterad"
+                return template("updatedProfile", message=message, username=username, profile_pic=profile_pic, age=age, lgh=lgh, tel_nr=tel_nr, likes=likes ,name=name)
         else:
-                return template("UpdatedProfileFail", username=username, profile_pic=profile_pic)
+                message = "Du skrev fel password!"
+                return template("updatedProfile", message=message, username=username, profile_pic=profile_pic)
 
 
-@route("/UpdatedProfileFail/")
-def upd_user_fail():
+@route("/updatedProfile/")
+def upd_user():
 	"""
 	If wrong password in editUser
 	"""
-	global username, profile_pic, email
+	global username, profile_pic, email, message
 	
+	message = message
+	return template("updatedProfile", message=message, username=username, profile_pic=profile_pic)
+
+@route("/registerProfileFail/")
+def register_Profile_Fail():
+	"""
+	If wrong input in register user
+	"""
+	global message
 	
-	return template("UpdatedProfileFail", username=username, profile_pic=profile_pic)
+	message = message
+	return template("registerProfileFail", message=message)
+
+@route("/loginProfileFail/")
+def login_Profile_Fail():
+	"""
+	If wrong input in login user
+	"""
+	global message
+	
+	message = message
+	return template("loginProfileFail", message=message)
 
 
 @route("/otherUser/<pagename>")

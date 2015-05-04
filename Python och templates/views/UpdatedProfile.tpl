@@ -52,7 +52,7 @@
 
 		<div id="content"
 			<div id="bodySquare">
-				<h1>Dina användaruppgifter är nu uppdaterade</h1>
+				<h1>{{message}}</h1>
 			</div>
 		</div>
 		
