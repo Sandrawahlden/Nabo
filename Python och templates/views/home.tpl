@@ -50,53 +50,40 @@
 			</nav>
 		</nav>
 
-		<div id="content"
+		<div id="content">
 			<div id="bodySquare">
-				<p>Home
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				</p>
+				<div id="writeAPost">
+					<p id="picWhenPosting">
+					<img src="/Bilder/avatar.png" alt="Bild på en Nabo" style="width:60px;height:60px;padding:5px">
+					</p>
+
+					<form action="/board/" method="POST" class="form">
+
+					<p class="publishAPost">
+						<input required type="text" name="writtenPost" id="writtenPost" placeholder="Lämna ett meddelande på husets anslagstavla">			
+					</p>
+
+					<p class="submitPost">
+						<input name="submitPost" id="submitPost" type="submit" value="Sätt upp anslaget!">
+					</p>
+				</div>
+
+				<div class="publishedPosts">
+					<img src="/Bilder/avatar.png" alt="Bild på en Nabo" style="width:60px;height:60px;padding:5px">
+					<p id="publishedDate">XXXX-XX-XX</p>
+					<p id="publishedName">Här är namnet</p>
+					<p id="publishedText">Här står inläggets text. Här står inläggets text. Här står inläggets text. Här står inläggets text. Här står inläggets text. Här står inläggets text. Här står inläggets text. Här står inläggets text. Här står inläggets text.Här står inläggets text. Här står inläggets text. Här står inläggets text. Här står inläggets text. Här står inläggets text. Här står inläggets text. Här står inläggets text. Här står inläggets text. Här står inläggets text. Här står inläggets text. Här står inläggets text.</p>
+
+					<p id="replyToPost">
+						Svara på anslaget
+					</p>
+				</div>
+
 			</div>
 		</div>
 		
 
-		<footer>
-			<a href="/contact/">Kontakta oss</a>
-			<a href="/about/">Om Nabo</a>
-			<a href="/help/">Hjälp</a>
-		</footer>
+		
 
 	</div>
 </html>
-
-
