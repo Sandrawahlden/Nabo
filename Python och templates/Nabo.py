@@ -132,7 +132,7 @@ def nabolist():
 	return template("nabos", user_list=user_list, name_list=name_list, username=username, profile_pic=profile_pic, pic_list=pic_list)
 
 
-@route("/editProfile/")
+@route("/write/", method="POST")
 def edit_profile():
 	"""
 	Edit your profile!
@@ -151,7 +151,6 @@ def edit_profile():
         mail = email
         tel = text[8]
         like = text[9]
-        
         f.close()
     
         contact = []
@@ -178,7 +177,7 @@ def edit_profile():
                 text_file.write("\n")
         text_file.close()
 	
-	return template("editProfile", username=username, profile_pic=profile_pic, age=age, lgh=lgh, tel_nr=tel_nr, likes=likes, name=name, firstname=firstname, lastname=lastname, mail=mail, age_1=age_1, streetname=streetname, town=town, appartment=appartment, pic=pic, tel=tel, like=like)
+	return template("write", username=username, profile_pic=profile_pic, age=age, lgh=lgh, tel_nr=tel_nr, likes=likes, name=name, firstname=firstname, lastname=lastname, mail=mail, age_1=age_1, streetname=streetname, town=town, appartment=appartment, pic=pic, tel=tel, like=like)
     
 
 @route("/otherUser/<pagename>")

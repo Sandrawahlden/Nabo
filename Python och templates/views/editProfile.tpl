@@ -54,10 +54,10 @@
 			<div id="bodySquare">
 				<div id="editProfile">
 					<p>Redigera Profil</p>	
-						<form action="/myProfile/" method="POST" class="form">
+						<form action="/write/" method="POST" class="form">
 						
 						<p class ="profile_pic">URL till profilbild:
-							<input required type="text" name="profile_pic" id="profile_pic" value="{{pic}}:">	
+							<input type="text" name="profile_pic" id="profile_pic" value="{{pic}}">	
 						</p>
 						
 						<p class ="name">Namn:
@@ -69,7 +69,7 @@
 						</p>
 						
 						<p class="age">Ålder:
-							<input required type="text" name="age" id="age" value="{{age_1}}">
+							<input type="text" name="age" id="age" value="{{age_1}}">
 						</p>
 						
 						<p class="adress">Gatnamn och nummer:
@@ -81,7 +81,7 @@
 						</p>
 						
 						<p class="lgh">Lägenhetsnummer:
-							<input required type="text" name="lgh" id="lgh" value="{{appartment}}">			
+							<input  type="text" name="lgh" id="lgh" value="{{appartment}}">			
 						</p>
 						
 						<p class="email">Email:
@@ -89,23 +89,25 @@
 						</p>
 						
 						<p class="tel">Telnr:
-							<input required type="text" name="tel_nr" id="tel_nr" value="{{tel}}">			
+							<input type="text" name="tel_nr" id="tel_nr" value="{{tel}}">			
 						</p>
 						
 						<p class="likes">Om mig:
-							<input required type="text" name="likes" id="likes" value="{{like}}">			
+							<input type="text" name="likes" id="likes" value="{{like}}">			
 						</p>
 						
 						<p>Byta lösenord</p>
+						
 						<p class="password">
-							<input type="password" required name="old_pwd" id="password" placeholder="Gammalt lösenord:">	
+							<input type="password" name="old_pwd" id="password" placeholder="Gammalt lösenord:">	
 						</p>
+						
 						<p class="password">
-							<input type="password" required name="pwd_1" id="password" placeholder="Nytt lösenord:">	
+							<input type="password" name="pwd_1" id="password" placeholder="Nytt lösenord:">	
 						</p>
 
 						<p class="password">
-							<input type="password" required name="pwd_2" id="password" placeholder="Bekräfta nytt lösenord:">	
+							<input type="password" name="pwd_2" id="password" placeholder="Bekräfta nytt lösenord:">	
 						</p>
 						
 						<p class="submit">
