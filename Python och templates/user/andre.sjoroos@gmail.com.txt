@@ -1,7 +1,7 @@
 Andre
 Sjoroos
 hej
-/static/Bilder/avatar.png
+http://www.gratisjulkort.se/data/media/2/sot-hund.jpg
 Ronnblomsgatan 11
 Malmo
 null

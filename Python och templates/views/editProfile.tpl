@@ -54,7 +54,7 @@
 			<div id="bodySquare">
 				<div id="editProfile">
 					<p>Redigera Profil</p>	
-						<form action="/write/" method="POST" class="form">
+						<form action="/editProfile/" method="POST" class="form">
 						
 						<p class ="profile_pic">URL till profilbild:
 							<input type="text" name="profile_pic" id="profile_pic" value="{{pic}}">	
@@ -97,17 +97,18 @@
 						</p>
 						
 						<p>Byta lösenord</p>
-						
-						<p class="password">
-							<input type="password" name="old_pwd" id="password" placeholder="Gammalt lösenord:">	
-						</p>
-						
 						<p class="password">
 							<input type="password" name="pwd_1" id="password" placeholder="Nytt lösenord:">	
 						</p>
 
 						<p class="password">
 							<input type="password" name="pwd_2" id="password" placeholder="Bekräfta nytt lösenord:">	
+						</p>
+						
+						<p>Bekräfta ändringar genom att ange ditt lösenord</p>
+						
+						<p class="password">Gammalt lösenord:
+							<input type="password" required name="old_pwd" id="password" placeholder="Skriv ditt gamla lösenord:">	
 						</p>
 						
 						<p class="submit">

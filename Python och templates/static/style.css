@@ -143,6 +143,8 @@ a:active {
 
 }
 
+
+
 /* ----- PROFILSIDA ----- */
 
 
@@ -151,7 +153,7 @@ a:active {
 
 #bodySquare{
     width: 800px;
-    height: 
+    height: 100%;
     background:rgba(115,115,115,0.8);
 }
 #writeAPost {

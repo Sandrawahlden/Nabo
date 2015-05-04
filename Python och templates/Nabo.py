@@ -100,7 +100,7 @@ def user_profile():
 	profile_pic = text_file[3]
 	user = username.replace("\n", " ")
         first = user.split(" ")
-        firstname = first[0]
+        firstname = text_file[0]
 
 	return template("myProfile", username=username, firstname=firstname, profile_pic=profile_pic)
 
@@ -133,7 +133,7 @@ def nabolist():
 	return template("nabos", user_list=user_list, name_list=name_list, username=username, profile_pic=profile_pic, pic_list=pic_list)
 
 
-@route("/write/", method="POST")
+@route("/editProfile/")
 def edit_profile():
 	"""
 	Edit your profile!
@@ -144,6 +144,7 @@ def edit_profile():
         text = f.readlines()
         firstname = text[0]
         lastname = text[1]
+        pwd = text[2]
         pic = text[3]
         age_1 = text[4]
         streetname = text[5]
@@ -153,7 +154,15 @@ def edit_profile():
         tel = text[8]
         like = text[9]
         f.close()
-    
+	
+	return template("editProfile", username=username, profile_pic=profile_pic, age=age, lgh=lgh, tel_nr=tel_nr, likes=likes, firstname=firstname, lastname=lastname, pwd=pwd, mail=mail, age_1=age_1, streetname=streetname, town=town, appartment=appartment, pic=pic, tel=tel, like=like)
+
+@route("/editProfile/", method="POST")
+def edit_prof():
+	"""
+	Edit your profile!
+	"""
+	global username, profile_pic, email
         contact = []
 	name = request.forms.name
 	surname = request.forms.surname
@@ -161,25 +170,44 @@ def edit_profile():
 	city = request.forms.city
 	email = request.forms.email
 	pwd_1 = request.forms.pwd_1
+	old_pwd = request.forms.old_pwd
         profile_pic = request.forms.profile_pic
         """Age or birth date?"""
         age = request.forms.age
         lgh = request.forms.lgh
         tel_nr = request.forms.tel_nr
         """Likes in what form?"""
-        likes = request.forms.likes        
-        
-	contact.extend((name, surname, pwd_1, profile_pic, age, street, city, lgh, tel_nr, likes))
+        likes = request.forms.likes
 
-	text_file = open("user/" + email + ".txt", "a")
-                        
-        for i in contact:
-                text_file.write(i)
-                text_file.write("\n")
-        text_file.close()
+        f = open("user/" + email + ".txt", "r")
+	text_file = f.readlines()
+	old_pwd_2 = text_file[2].replace("\n", "")
+	if old_pwd == old_pwd_2:
+            
+                contact.extend((name, surname, pwd_1, profile_pic, age, street, city, lgh, tel_nr, likes))
+
+                text_file = open("user/" + email + ".txt", "w")
+                                
+                for i in contact:
+                        text_file.write(i)
+                        text_file.write("\n")
+                text_file.close()
+
+                return template("UpdatedProfile", username=username, profile_pic=profile_pic, age=age, lgh=lgh, tel_nr=tel_nr, likes=likes ,name=name)
+        else:
+                return template("UpdatedProfileFail", username=username, profile_pic=profile_pic)
+
+
+@route("/UpdatedProfileFail/")
+def upd_user_fail():
+	"""
+	If wrong password in editUser
+	"""
+	global username, profile_pic, email
 	
-	return template("write", username=username, profile_pic=profile_pic, age=age, lgh=lgh, tel_nr=tel_nr, likes=likes, name=name, firstname=firstname, lastname=lastname, mail=mail, age_1=age_1, streetname=streetname, town=town, appartment=appartment, pic=pic, tel=tel, like=like)
-    
+	
+	return template("UpdatedProfileFail", username=username, profile_pic=profile_pic)
+
 
 @route("/otherUser/<pagename>")
 def other_user(pagename):
