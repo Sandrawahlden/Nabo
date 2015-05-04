@@ -13,6 +13,7 @@ html {
     margin:0;
     padding:0;
     height:100%;
+    color: #ffffff;
 }
 
 
@@ -76,7 +77,7 @@ html {
 }
 
 #profile, #board, #messages, #nabos {
-    background-color: #fbfffa;
+    background: rgba(115,115,115,0.8);
     font-family: sans-serif;
     width: 240px;
 }
@@ -87,12 +88,12 @@ ul {
 
 a.nav:link {
     text-decoration: none;
-    color: #696969;
+    color: #ffffff;
 }
 
 a.nav:visited {
     text-decoration: none;
-    color: #696969;
+    color: #ffffff;
 }
 
 a.nav:hover {
@@ -130,14 +131,14 @@ a:active {
 /* ----- Stora rutan ----- */
 
 #content {
-    padding-bottom:100px; /* Måste vara större än footer-höjden */
-    background-color: #fbfffa;
-    color: #696969;
+    padding-bottom:100px; 
+    background:rgba(115,115,115,0.8);    
+    color: #ffffff;
     font-family: sans-serif;
     top: 100px;
     left: 305px;
     width: 800px;
-    
+    height: 700px;
     border-radius: 10px 0px 10px 10px;
 
 }
@@ -145,15 +146,63 @@ a:active {
 /* ----- PROFILSIDA ----- */
 
 
+/* ----- ANSLAGSTAVLAN ----- */
 
 
+#bodySquare{
+    width: 800px;
+    height: 
+    background:rgba(115,115,115,0.8);
+}
+#writeAPost {
+    width: 700px;
+    position: absolute;
+    top: 50px;
+    left: 50px;
+}
+
+#picWhenPosting {
+    width: 50px;
+
+}
+
+#writtenPost {
+    width: 600px;
+    height: 60px;
+    position: absolute;
+    top: 20px;
+    left: 75px;
+}
+
+#submitPost {
+    float: right;
+    width: 150px;
+    color: #ffffff;
+    background-color: #4d6630;
+}
+
+.publishedPosts {
+    width: 600px;
+    padding: 50px;
+    margin-left: 50px;
+    position: absolute;
+    top: 300px;
+    background-color: #ffffff;
+    color: #696969;
+}
+
+#replyToPost {
+    float: right;
+    font-style: italic;
+    color: #4d6630;
+}
 
 
 
 /* ----- Footer ----- OBS! FUNGERAR EJ - BEHÖVER ARBETE */
 
 footer {
-    background:#4d660;
+    background: #4d6660;
     width:1100px;
     height:30px;
     padding-top: 15px;
