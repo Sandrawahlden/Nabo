@@ -12,7 +12,7 @@
 		<header>
 			<div id="logga">
 				<a href="/">
-					<img src="/static/Bilder/logotypnabo.jpg" alt="Nabologga" style="width:260px;height:82px;border:0" >
+					<img src="../static/Bilder/logotypnabo.jpg" alt="Nabologga" style="width:260px;height:82px;border:0" >
 				</a>
 			</div>
 		</header>
@@ -24,7 +24,15 @@
 			<div id="signin">
 					<p id="indexPageText">LOGGA IN</p>
 
+<<<<<<< HEAD
 					<form action="/home/" method="POST" class="form">
+=======
+				<form action="/home/" method="POST" class="form">
+				
+					<p>
+						<input required type="email" name="mail" id="email" placeholder="Email">
+					</p>			
+>>>>>>> 8cda006331b6cb2734f15022ae31bedb03699c5d
 					
 						<p>
 							<input required type="email" name="mail" id="email" placeholder="Email">
