@@ -34,12 +34,13 @@ def register_user():
 	contact = []
 	name = request.forms.name
 	surname = request.forms.surname
-	adress = request.forms.adress
 	email = request.forms.email
 	pwd_1 = request.forms.pwd_1
         pwd_2 = request.forms.pwd_2
+        street = request.forms.adress
+        city = request.forms.city
 	if pwd_1 == pwd_2:
-                contact.extend((name, surname, adress, pwd_1, "/static/Bilder/avatar.png", "null", "null", "null", "null"))
+                contact.extend((name, surname, pwd_1, "/static/Bilder/avatar.png", street, city, "null", "null", "null", "null"))
 
                 mail = email + ".txt"
                 
@@ -77,7 +78,7 @@ def sign_in():
 
 	f = open("user/" + email + ".txt", "r")
 	text_file = f.readlines()
-	pwd_2 = text_file[3].replace("\n", "")
+	pwd_2 = text_file[2].replace("\n", "")
 	if pwd_1 == pwd_2:
 		firstname = text_file[0]
 		surname = text_file[1]
@@ -95,7 +96,7 @@ def user_profile():
 
         f = open("user/" + email + ".txt", "r")
 	text_file = f.readlines()
-	profile_pic = text_file[4]
+	profile_pic = text_file[3]
 	user = username.replace("\n", " ")
         first = user.split(" ")
         firstname = first[0]
@@ -122,7 +123,7 @@ def nabolist():
                 text_file = f.readlines()
                 firstname = text_file[0]
                 surname = text_file[1]
-                profile_pic = text_file[4]
+                profile_pic = text_file[3]
                 nabos = firstname + surname
                 name_list.append(nabos)
                 pic_list.append(profile_pic)
@@ -136,8 +137,23 @@ def edit_profile():
 	"""
 	Edit your profile!
 	"""
-	global username, profile_pic
-
+	global username, profile_pic, email
+        
+        f = open("user/" + email + ".txt", "r")
+        text = f.readlines()
+        firstname = text[0]
+        lastname = text[1]
+        pic = text[3]
+        age_1 = text[4]
+        streetname = text[5]
+        town = text[6]
+        appartment = text[7]
+        mail = email
+        tel = text[8]
+        like = text[9]
+        
+        f.close()
+    
         contact = []
 	name = request.forms.name
 	surname = request.forms.surname
@@ -153,16 +169,16 @@ def edit_profile():
         """Likes in what form?"""
         likes = request.forms.likes        
         
-	contact.extend((name, surname, pwd_1, profile_pic, age, lgh, tel_nr, likes))
+	contact.extend((name, surname, pwd_1, profile_pic, age, street, city, lgh, tel_nr, likes))
 
-	text_file = open("user/" + email + ".txt", "w")
+	text_file = open("user/" + email + ".txt", "a")
                         
         for i in contact:
                 text_file.write(i)
                 text_file.write("\n")
         text_file.close()
 	
-	return template("editProfile", username=username, profile_pic=profile_pic, age=age, lgh=lgh, tel_nr=tel_nr, likes=likes)
+	return template("editProfile", username=username, profile_pic=profile_pic, age=age, lgh=lgh, tel_nr=tel_nr, likes=likes, name=name, firstname=firstname, lastname=lastname, mail=mail, age_1=age_1, streetname=streetname, town=town, appartment=appartment, pic=pic, tel=tel, like=like)
     
 
 @route("/otherUser/<pagename>")

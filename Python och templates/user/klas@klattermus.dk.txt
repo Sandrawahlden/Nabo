@@ -1,9 +1,0 @@
-Klas
-Klattermus
-Ronnblomsgatan 11
-Hej
-/static/Bilder/avatar.png
-null
-null
-null
-null

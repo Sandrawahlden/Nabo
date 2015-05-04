@@ -12,15 +12,7 @@
 		<header>
 			<div id="logga">
 				<a href="/">
-<<<<<<< HEAD
-<<<<<<< HEAD
 					<img src="/static/Bilder/logotypnabo.jpg" alt="Nabologga" style="width:260px;height:82px;border:0" >
-=======
-					<img src="/static/Bilder/logotypnabo.jpg" alt="Nabologga" style="width:260px;height:82px;border:0">
->>>>>>> 104b04ece1a7101ab746d99cfee46c89a2957fa4
-=======
-					<img src="../static/Bilder/logotypnabo.jpg" alt="Nabologga" style="width:260px;height:82px;border:0">
->>>>>>> 308d4b52d4189cfa624d230c4ed66e0b9c873739
 				</a>
 			</div>
 		</header>
@@ -79,7 +71,7 @@
 					</p>
 
 					<p class="adress">
-						<input required type="text" name="adress" id="city" placeholder="Postort">	
+						<input required type="text" name="city" id="city" placeholder="Postort">	
 					</p>
 					
 					<p class="submit">
