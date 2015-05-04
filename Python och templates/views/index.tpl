@@ -12,7 +12,7 @@
 		<header>
 			<div id="logga">
 				<a href="/">
-					<img src="/static/Bilder/logotypnabo.jpg" alt="Nabologga" style="width:260px;height:82px;border:0" >
+					<img src="../static/Bilder/logotypnabo.jpg" alt="Nabologga" style="width:260px;height:82px;border:0" >
 				</a>
 			</div>
 		</header>
@@ -27,7 +27,7 @@
 				<form action="/home/" method="POST" class="form">
 				
 					<p>
-						<input required type="email" name="mail" id="email" placeholder="Email">s
+						<input required type="email" name="mail" id="email" placeholder="Email">
 					</p>			
 					
 					<p>
