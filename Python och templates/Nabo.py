@@ -90,7 +90,26 @@ def sign_in():
                         surname = text_file[1]
                         username = firstname + surname
                         f.close()
-                        return template("home", username=username, email=email)
+                        
+                        anslag_list = listdir("anslagsfolder")
+                        namn_list = []
+                        pict_list = []
+                        content_list = []
+                        time_list = []
+
+                        """prints anslag"""
+                        for anslag in reversed(anslag_list):
+                                f = open("anslagsfolder/" + anslag, "r")
+                                text_file = f.readlines()
+                                namn = text_file[0]
+                                pict = text_file[1]
+                                cont = text_file[2]
+                                time_list.append(anslag)
+                                namn_list.append(namn)
+                                pict_list.append(pict)
+                                content_list.append(cont)
+                                print time_list, namn_list, pict_list, content_list
+                        return template("home", username=username, email=email, anslag_list=anslag_list, namn_list=namn_list, pict_list=pict_list, content_list=content_list, time_list=time_list)
                 else:
                         message = "Fel password!"
                         return template("loginProfileFail", message=message)
@@ -118,8 +137,108 @@ def user_profile():
 @route("/home/")
 def home():
         global username, email
+        """Lists for all lines in anslag_file"""
+        anslag_list = listdir("anslagsfolder")
+        namn_list = []
+        pict_list = []
+        content_list = []
+        time_list = []
 
-        return template("home", username=username)
+        """prints anslag"""
+        for anslag in reversed(anslag_list):
+                f = open("anslagsfolder/" + anslag, "r")
+                text_file = f.readlines()
+                namn = text_file[0]
+                pict = text_file[1]
+                cont = text_file[2]
+                time_list.append(anslag)
+                namn_list.append(namn)
+                pict_list.append(pict)
+                content_list.append(cont)
+                print time_list, namn_list, pict_list, content_list
+        return template("home", username=username, email=email, anslag_list=anslag_list, namn_list=namn_list, pict_list=pict_list, content_list=content_list, time_list=time_list)
+
+@route("/home/", method="POST")
+def create_anslag():
+        """create anslag with date as filename"""
+        global username, email, profile_pic
+
+        anslag_title = datetime.now()
+        year = str(anslag_title.year)
+        month = str(anslag_title.month)
+        day = str(anslag_title.day)
+        hour = str(anslag_title.hour)
+        minute = str(anslag_title.minute)
+        if len(month) < 2:
+                month = "0" + month
+        if len(day) < 2:
+                day = "0" + day
+        if len(hour) < 2:
+                hour = "0" + hour
+        if len(day) < 2:
+                day = "0" + day
+
+        anslag_file = open("anslagsfolder/" + year + "-" + month + "-" + day + " kl." + hour + "." + minute + ".txt", "w") 
+        anslag_content = request.forms.writtenPost
+        
+        """writes name, pic and content in file"""
+        anslag_file.write(username)
+        anslag_file.write("\n")
+        anslag_file.write(profile_pic)
+        anslag_file.write("\n")
+        anslag_file.write(anslag_content)
+        anslag_file.close()
+
+        return template("board", username=username, email=email, profile_pic=profile_pic)
+
+@route("/board/")
+def board():
+        global username, email
+        """Lists for all lines in anslag_file"""
+        anslag_list = listdir("anslagsfolder")
+        namn_list = [""]
+        pict_list = [""]
+        content_list = [""]
+        time_list = [""]
+
+        """prints anslag"""
+        for anslag in reversed(anslag_list):
+                f = open("anslagsfolder/" + anslag, "r")
+                text_file = f.readlines()
+                namn = text_file[0]
+                pict = text_file[1]
+                cont = text_file[2]
+                time_list.append(anslag)
+                namn_list.append(namn)
+                pict_list.append(pict)
+                content_list.append(cont)
+
+        return template("board", username=username, email=email, anslag_list=anslag_list, namn_list=namn_list, pict_list=pict_list, content_list=content_list, time_list=time_list)
+
+        
+
+def anslag():
+        global username, email
+        """Lists for all lines in anslag_file"""
+        anslag_list = listdir("anslagsfolder")
+        namn_list = []
+        pict_list = []
+        content_list = []
+        time_list = []
+
+        """prints anslag"""
+        for anslag in anslag_list:
+                f = open("anslagsfolder/" + anslag, "r")
+                text_file = f.readlines()
+                namn = text_file[0]
+                pict = text_file[1]
+                cont = text_file[2]
+                time_list.append(anslag)
+                namn_list.append(namn)
+                pict_list.append(pict)
+                content_list.append(cont)
+
+
 
 @route("/nabos/")
 def nabolist():
