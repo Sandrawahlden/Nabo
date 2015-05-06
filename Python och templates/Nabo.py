@@ -275,9 +275,9 @@ def edit_profile():
         lastname = text[1]
         pwd = text[2]
         pic = text[3]
-        age_1 = text[4]
-        streetname = text[5]
-        town = text[6]
+        age_1 = text[6]
+        streetname = text[4]
+        town = text[5]
         appartment = text[7]
         mail = email
         tel = text[8]
