@@ -1,10 +1,10 @@
 Sara
 Andersson
 hejhej
-/static/Bilder/avatar.png
+http://www.elalmanaque.com/musica/flamenco/images/suenosbyn.jpg
 Ronnblomsgatan 11
 Malmo
-null
-null
-null
-null
+254
+88
+044853489
+I can sing like a pop star!

@@ -54,13 +54,13 @@
 			<div id="bodySquare">
 				<img src="{{profile_pic}}" alt="Bild på dig" style="width:150px;height:150px;padding:10px">
 				
-				<p id="name">{{username}}</p>
-				<p id="age">27 år</p>
-				<p id="apartment">Våning 6, loft 18</p>
-				<p id="phone">073-067 01 83</p>
-				<p id="sendMessage">Skicka meddelande till {{firstname}}</p>
+				<p id="name">Namn: {{username}}</p>
+				<p id="age">Ålder: {{age_1}}</p>
+				<p id="apartment">Lägenhetsnr:{{appartment}}</p>
+				<p id="phone">Telefonnr: {{tel}}</p>
 					
-				<p id="likes">{{firstname}} gillar</p>
+				<p id="likes">{{firstname}} gillar: <br>
+				{{like}}</p>
 				
 			</div>
 		</div>

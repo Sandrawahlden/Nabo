@@ -133,13 +133,16 @@ def user_profile():
 	global username, email, profile_pic
 
         f = open("user/" + email + ".txt", "r")
-	text_file = f.readlines()
-	profile_pic = text_file[3]
-	user = username.replace("\n", " ")
-        first = user.split(" ")
-        firstname = text_file[0]
+	text = f.readlines()
+	profile_pic = text[3]
+        firstname = text[0]
+        age_1 = text[6]
+        appartment = text[7]
+        tel = text[8]
+        like = text[9]
+        f.close()
 
-	return template("myProfile", username=username, firstname=firstname, profile_pic=profile_pic)
+	return template("myProfile", username=username, firstname=firstname, profile_pic=profile_pic, age_1=age_1, appartment=appartment, tel=tel, like=like)
 
 
 @route("/home/")
@@ -343,7 +346,7 @@ def edit_prof():
 	old_pwd_2 = text_file[2].replace("\n", "")
 	if old_pwd == old_pwd_2:
             
-                contact.extend((name, surname, old_pwd, profile_pic, age, street, city, lgh, tel_nr, likes))
+                contact.extend((name, surname, old_pwd, profile_pic, street, city, age, lgh, tel_nr, likes))
 
                 text_file = open("user/" + email + ".txt", "w")
                                 
