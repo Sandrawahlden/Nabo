@@ -76,7 +76,7 @@ def register_user():
 @route("/home/", method="POST")
 def sign_in():
 	"""Signing in existing user and goes to home"""
-	global username, email, message
+	global username, email, message, profile_pic
 
 	email = request.forms.mail
 	pwd_1 = request.forms.pwd
@@ -99,17 +99,25 @@ def sign_in():
 
                         """prints anslag"""
                         for anslag in reversed(anslag_list):
-                                f = open("anslagsfolder/" + anslag, "r")
-                                text_file = f.readlines()
-                                namn = text_file[0]
-                                pict = text_file[1]
-                                cont = text_file[2]
+                                f2 = open("anslagsfolder/" + anslag, "r")
+                                anslag_file = f2.readlines()
+                                try:
+                                    namn = anslag_file[0]
+                                except IndexError:
+                                    namn = "Namn saknas"
+                                try:
+                                    pict = anslag_file[1]
+                                except IndexError:
+                                    pict = "Bild saknas"
+                                try:
+                                    cont = anslag_file[2]
+                                except IndexError:
+                                    cont = "Content saknas"
                                 time_list.append(anslag)
                                 namn_list.append(namn)
                                 pict_list.append(pict)
                                 content_list.append(cont)
-                                print time_list, namn_list, pict_list, content_list
-                        return template("home", username=username, email=email, anslag_list=anslag_list, namn_list=namn_list, pict_list=pict_list, content_list=content_list, time_list=time_list)
+                        return template("home", username=username, email=email, profile_pic=profile_pic, anslag_list=anslag_list, namn_list=namn_list, pict_list=pict_list, content_list=content_list, time_list=time_list)
                 else:
                         message = "Fel password!"
                         return template("loginProfileFail", message=message)
@@ -136,6 +144,74 @@ def user_profile():
 
 @route("/home/")
 def home():
+        global username, email, profile_pic
+        """Lists for all lines in anslag_file"""
+        anslag_list = listdir("anslagsfolder")
+        namn_list = []
+        pict_list = []
+        content_list = []
+        time_list = []
+
+        """prints anslag"""
+        for anslag in reversed(anslag_list):
+                f = open("anslagsfolder/" + anslag, "r")
+                text_file = f.readlines()
+                try:
+                    namn = text_file[0]
+                except IndexError:
+                    namn = "Namn saknas"
+
+                try:
+                    pict = text_file[1]
+                except IndexError:
+                    pict = "Bild saknas"
+
+                try:
+                    cont = text_file[2]
+                except IndexError:
+                    cont = "Content saknas"
+                time_list.append(anslag)
+                namn_list.append(namn)
+                pict_list.append(pict)
+                content_list.append(cont)
+                print time_list, namn_list, pict_list, content_list
+        return template("home", username=username, email=email, profile_pic=profile_pic, anslag_list=anslag_list, namn_list=namn_list, pict_list=pict_list, content_list=content_list, time_list=time_list)
+
+##@route("/home/", method="POST")
+##def create_anslag():
+##        """create anslag with date as filename"""
+##        global username, email, profile_pic
+##
+##        anslag_title = datetime.now()
+##        year = str(anslag_title.year)
+##        month = str(anslag_title.month)
+##        day = str(anslag_title.day)
+##        hour = str(anslag_title.hour)
+##        minute = str(anslag_title.minute)
+##        if len(month) < 2:
+##                month = "0" + month
+##        if len(day) < 2:
+##                day = "0" + day
+##        if len(hour) < 2:
+##                hour = "0" + hour
+##        if len(day) < 2:
+##                day = "0" + day
+##
+##        anslag_file = open("anslagsfolder/" + year + "-" + month + "-" + day + " kl." + hour + "." + minute + ".txt", "w") 
+##        anslag_content = request.forms.writtenPost
+##        
+##        """writes name, pic and content in file"""
+##        anslag_file.write(username)
+##        anslag_file.write("\n")
+##        anslag_file.write(profile_pic)
+##        anslag_file.write("\n")
+##        anslag_file.write(anslag_content)
+##        anslag_file.close()
+##
+##        return template("board", username=username, email=email, profile_pic=profile_pic)
+
+@route("/board/")
+def board():
         global username, email
         """Lists for all lines in anslag_file"""
         anslag_list = listdir("anslagsfolder")
@@ -148,66 +224,20 @@ def home():
         for anslag in reversed(anslag_list):
                 f = open("anslagsfolder/" + anslag, "r")
                 text_file = f.readlines()
-                namn = text_file[0]
-                pict = text_file[1]
-                cont = text_file[2]
-                time_list.append(anslag)
-                namn_list.append(namn)
-                pict_list.append(pict)
-                content_list.append(cont)
-                print time_list, namn_list, pict_list, content_list
-        return template("home", username=username, email=email, anslag_list=anslag_list, namn_list=namn_list, pict_list=pict_list, content_list=content_list, time_list=time_list)
+                try:
+                    namn = text_file[0]
+                except IndexError:
+                    namn = "Namn saknas"
 
-@route("/home/", method="POST")
-def create_anslag():
-        """create anslag with date as filename"""
-        global username, email, profile_pic
+                try:
+                    pict = text_file[1]
+                except IndexError:
+                    pict = "Bild saknas"
 
-        anslag_title = datetime.now()
-        year = str(anslag_title.year)
-        month = str(anslag_title.month)
-        day = str(anslag_title.day)
-        hour = str(anslag_title.hour)
-        minute = str(anslag_title.minute)
-        if len(month) < 2:
-                month = "0" + month
-        if len(day) < 2:
-                day = "0" + day
-        if len(hour) < 2:
-                hour = "0" + hour
-        if len(day) < 2:
-                day = "0" + day
-
-        anslag_file = open("anslagsfolder/" + year + "-" + month + "-" + day + " kl." + hour + "." + minute + ".txt", "w") 
-        anslag_content = request.forms.writtenPost
-        
-        """writes name, pic and content in file"""
-        anslag_file.write(username)
-        anslag_file.write("\n")
-        anslag_file.write(profile_pic)
-        anslag_file.write("\n")
-        anslag_file.write(anslag_content)
-        anslag_file.close()
-
-        return template("board", username=username, email=email, profile_pic=profile_pic)
-
-@route("/board/")
-def board():
-        global username, email
-        """Lists for all lines in anslag_file"""
-        anslag_list = listdir("anslagsfolder")
-        namn_list = [""]
-        pict_list = [""]
-        content_list = [""]
-        time_list = [""]
-
-        """prints anslag"""
-        for anslag in reversed(anslag_list):
-                f = open("anslagsfolder/" + anslag, "r")
-                text_file = f.readlines()
-                namn = text_file[0]
-                pict = text_file[1]
-                cont = text_file[2]
+                try:
+                    cont = text_file[2]
+                except IndexError:
+                    cont = "Content saknas"
                 time_list.append(anslag)
                 namn_list.append(namn)
                 pict_list.append(pict)
@@ -217,26 +247,26 @@ def board():
 
         
 
-def anslag():
-        global username, email
-        """Lists for all lines in anslag_file"""
-        anslag_list = listdir("anslagsfolder")
-        namn_list = []
-        pict_list = []
-        content_list = []
-        time_list = []
-
-        """prints anslag"""
-        for anslag in anslag_list:
-                f = open("anslagsfolder/" + anslag, "r")
-                text_file = f.readlines()
-                namn = text_file[0]
-                pict = text_file[1]
-                cont = text_file[2]
-                time_list.append(anslag)
-                namn_list.append(namn)
-                pict_list.append(pict)
-                content_list.append(cont)
+##def anslag():
+##        global username, email
+##        """Lists for all lines in anslag_file"""
+##        anslag_list = listdir("anslagsfolder")
+##        namn_list = []
+##        pict_list = []
+##        content_list = []
+##        time_list = []
+##
+##        """prints anslag"""
+##        for anslag in anslag_list:
+##                f = open("anslagsfolder/" + anslag, "r")
+##                text_file = f.readlines()
+##                namn = text_file[0]
+##                pict = text_file[1]
+##                cont = text_file[2]
+##                time_list.append(anslag)
+##                namn_list.append(namn)
+##                pict_list.append(pict)
+##                content_list.append(cont)
 
 
 
