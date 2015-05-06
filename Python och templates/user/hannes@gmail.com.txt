@@ -1,10 +1,10 @@
 Hannes
 Dernbrant
 hej
-/static/Bilder/avatar.png
+https://themcelebrity.files.wordpress.com/2012/01/david-hasselhoff-19.jpg
 Ronnblomsgatan 11
 Malmo
 null
-null
-null
-null
+16
+040123456
+Samlar lite pinnar
