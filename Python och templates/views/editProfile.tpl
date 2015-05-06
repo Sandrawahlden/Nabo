@@ -13,7 +13,7 @@
 		<header>
 			<div id="logga">
 				<a href="/home/">
-				<img src="/static/Bilder/vitlogga.png" alt="Nabologga" style="width:260px;height:82px;border:0"></a>
+				<img src="/static/Bilder/logotypnabo.jpg" alt="Nabologga" style="width:260px;height:82px;border:0"></a>
 			</div>
 			<div id="loggaUt">
 				<p id="user">
@@ -54,41 +54,61 @@
 			<div id="bodySquare">
 				<div id="editProfile">
 					<p>Redigera Profil</p>	
-						<form action="/myProfile/" method="POST" class="form">
+						<form action="/editProfile/" method="POST" class="form">
 						
-						<p class ="profile_pic">
-							<input required type="text" name="profile_pic" id="profile_pic" placeholder="URL till önskad bild:">	
+						<p class ="profile_pic">URL till profilbild:
+							<input type="text" name="profile_pic" id="profile_pic" value="{{pic}}">	
 						</p>
 						
-						<p class ="name">
-							<input required type="text" name="name" id="name" placeholder="Förnamn:">	
+						<p class ="name">Namn:
+							<input required type="text" name="name" id="name" value="{{firstname}}">	
 						</p>
 							
-						<p class="surname">
-							<input required type="text" name="surname" id="surname" placeholder="Efternamn:">	
+						<p class="surname">Efternamn:
+							<input required type="text" name="surname" id="surname" value="{{lastname}}">	
 						</p>
 						
-						<p class="adress">
-							<input required type="text" name="street" id="street" placeholder="Gata och gatnummer:">	
+						<p class="age">Ålder:
+							<input type="text" name="age" id="age" value="{{age_1}}">
 						</p>
 						
-						<p class="adress">
-							<input required type="text" name="city" id="city" placeholder="Stad:">	
+						<p class="adress">Gatnamn och nummer:
+							<input required type="text" name="street" id="street" value="{{streetname}}">	
 						</p>
 						
-						<p class="email">
-							<input required type="email" name="email" id="email" placeholder="Email:">			
+						<p class="adress">Stad:
+							<input required type="text" name="city" id="city" value="{{town}}">
 						</p>
+						
+						<p class="lgh">Lägenhetsnummer:
+							<input  type="text" name="lgh" id="lgh" value="{{appartment}}">			
+						</p>
+						
+						<p class="email">Email:
+							<input required type="email" name="email" id="email" value="{{mail}}">			
+						</p>
+						
+						<p class="tel">Telnr:
+							<input type="text" name="tel_nr" id="tel_nr" value="{{tel}}">			
+						</p>
+						
+						<p class="likes">Om mig:
+							<input type="text" name="likes" id="likes" value="{{like}}">			
+						</p>
+						
 						<p>Byta lösenord</p>
 						<p class="password">
-							<input type="password" required name="old_pwd" id="password" placeholder="Gammalt lösenord:">	
-						</p>
-						<p class="password">
-							<input type="password" required name="pwd_1" id="password" placeholder="Nytt lösenord:">	
+							<input type="password" name="pwd_1" id="password" placeholder="Nytt lösenord:">	
 						</p>
 
 						<p class="password">
-							<input type="password" required name="pwd_2" id="password" placeholder="Bekräfta nytt lösenord:">	
+							<input type="password" name="pwd_2" id="password" placeholder="Bekräfta nytt lösenord:">	
+						</p>
+						
+						<p>Bekräfta ändringar genom att ange ditt lösenord</p>
+						
+						<p class="password">Gammalt lösenord:
+							<input type="password" required name="old_pwd" id="password" placeholder="Skriv ditt gamla lösenord:">	
 						</p>
 						
 						<p class="submit">

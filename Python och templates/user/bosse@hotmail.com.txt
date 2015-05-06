@@ -1,8 +1,9 @@
-Klara
-Hertzell
-Ronnblomsgatan 11
-snopp
+Bosse
+Bass
+hej
 /static/Bilder/avatar.png
+Ronnblomsgatan 11
+Malmo
 null
 null
 null

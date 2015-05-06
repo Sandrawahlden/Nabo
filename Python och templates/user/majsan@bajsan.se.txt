@@ -1,8 +1,9 @@
-test
-test
-Ronnblomsgatan 11
-hej
+Maja
+Bajja
+hejhej
 /static/Bilder/avatar.png
+Ronneblomsgatan 11
+Malmo
 null
 null
 null

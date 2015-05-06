@@ -12,37 +12,41 @@
 		<header>
 			<div id="logga">
 				<a href="/">
-					<img src="../static/Bilder/logotypnabo.jpg" alt="Nabologga" style="width:260px;height:82px;border:0">
+					<img src="/static/Bilder/logotypnabo.jpg" alt="Nabologga" style="width:260px;height:82px;border:0" >
 				</a>
 			</div>
 		</header>
 	</header>
 
 	<body>
+
+	<div id="mamaWrapper">
 		<div id="signin">
+				<p id="indexPageText">LOGGA IN</p>
+				<h2>{{message}}</h2>
 
-			<div id="backgroundlogin">	
-				<form action="/home/" method="POST" class="form">
-				
-					<p class="email">
-						<input required type="email" name="mail" id="email" placeholder="Email">			
+					<form action="/home/" method="POST" class="form">
 					
-						<input required type="password" name="pwd" id="password" placeholder="Lösenord">	
-					</p>
-			</div>
-
-					<p class="submit">
-						<input name="sign_in" type="submit" value="Logga in">
-					</p>
-				</form>
+						<p>
+							<input required type="email" name="mail" id="email" placeholder="Email">
+						</p>			
+						
+						<p>
+							<input required type="password" name="pwd" id="password" placeholder="Lösenord">	
+						</p>
+				
+						<p class="submit">
+							<input name="sign_in" type="submit" value="Logga in">
+						</p>
+					</form>
 		</div>
 
 		<div id="welcomeText">
 			<h1>Välkommen till Nabo!</h1>
-			<p id="welcomeTextFirstPage">Nabo hjälper dig att identifiera och interagera med grannarna i din trappuppgång. Låna en hammare, skaffa kattvakt eller bjud in till gårdsfest. Registrera i två enkla steg.</p>
-		</div>
+			<p id="welcomeTextFirstPage">Nabo hjälper dig att identifiera och interagera med grannarna i din trappuppgång. Låna en hammare, skaffa kattvakt eller bjud in till gårdsfest. </p>
+	</div>
 		
-
+	<div id="secondIndexWrapper">
 		<div id="signUp">
 			<p id="indexPageText">SKAPA ANVÄNDARE</p>	
 				<form action="/myProfile/" method="POST" class="form">
@@ -59,10 +63,16 @@
 
 					<p class="password">
 						<input type="password" required name="pwd_1" id="passwordLI" placeholder="Lösenord">	
+					
+						<input type="password" required name="pwd_2" id="passwordLI" placeholder="Bekräfta lösenord">	
 					</p>
 
-					<p class="password">
-						<input type="password" required name="pwd_2" id="passwordLI" placeholder="Bekräfta lösenord">	
+					<p class="adress">
+						<input required type="text" name="adress" id="adress" placeholder="Gatuadress">	
+					</p>
+
+					<p class="adress">
+						<input required type="text" name="city" id="city" placeholder="Postort">	
 					</p>
 					
 					<p class="submit">
@@ -70,9 +80,10 @@
 					</p>
 				</form>
 		</div>
+	</div>
+</div>
+		
 
 
 	</body>
 </html>
-
-

@@ -1,8 +1,9 @@
-Klas
-Klattermus
-Ronnblomsgatan 11
-Hej
+Sara
+Andersson
+hejhej
 /static/Bilder/avatar.png
+Ronnblomsgatan 11
+Malmo
 null
 null
 null

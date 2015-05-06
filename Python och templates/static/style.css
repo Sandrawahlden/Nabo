@@ -1,3 +1,5 @@
+@media screen and (min-width: 1101px) {
+
 #logga, #loggaUt, #profile, #board, #messages, #nabos, #content, #signIn, #signUp, footer {
     padding: 2px;
     margin-bottom: 2px;
@@ -5,7 +7,7 @@
 }
 
 html { 
-    background: url(/static/Bilder/f0840149.jpg) no-repeat center center fixed; 
+    background: url(../static/Bilder/f0840149.jpg) no-repeat center center fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -13,6 +15,7 @@ html {
     margin:0;
     padding:0;
     height:100%;
+    color: #ffffff;
 }
 
 
@@ -29,11 +32,20 @@ html {
 
 #logga {
     background-color: #4d6630;
+<<<<<<< HEAD
     padding-right: 50px;
+    padding-left: 20px;
+=======
+    padding-right: 40px;
+    padding-left: 50px;
+>>>>>>> 104b04ece1a7101ab746d99cfee46c89a2957fa4
     padding-top: 20px;
     padding-bottom: 20px;
     border-radius: 20px 5px 90px 0px;
+    
 }
+
+
 
 #loggaUt {
     left: 270px;
@@ -67,7 +79,7 @@ html {
 }
 
 #profile, #board, #messages, #nabos {
-    background-color: #fbfffa;
+    background: rgba(115,115,115,0.8);
     font-family: sans-serif;
     width: 240px;
 }
@@ -78,12 +90,12 @@ ul {
 
 a.nav:link {
     text-decoration: none;
-    color: #696969;
+    color: #ffffff;
 }
 
 a.nav:visited {
     text-decoration: none;
-    color: #696969;
+    color: #ffffff;
 }
 
 a.nav:hover {
@@ -121,30 +133,80 @@ a:active {
 /* ----- Stora rutan ----- */
 
 #content {
-    padding-bottom:100px; /* Måste vara större än footer-höjden */
-    background-color: #fbfffa;
-    color: #696969;
+    padding-bottom:100px; 
+    background:rgba(115,115,115,0.8);    
+    color: #ffffff;
     font-family: sans-serif;
     top: 100px;
     left: 305px;
     width: 800px;
-    
+    height: 700px;
     border-radius: 10px 0px 10px 10px;
 
 }
 
+
+
 /* ----- PROFILSIDA ----- */
 
 
+/* ----- ANSLAGSTAVLAN ----- */
 
 
+#bodySquare{
+    width: 800px;
+    height: 100%;
+    background:rgba(115,115,115,0.8);
+}
+#writeAPost {
+    width: 700px;
+    position: absolute;
+    top: 50px;
+    left: 50px;
+}
+
+#picWhenPosting {
+    width: 50px;
+
+}
+
+#writtenPost {
+    width: 600px;
+    height: 60px;
+    position: absolute;
+    top: 20px;
+    left: 75px;
+}
+
+#submitPost {
+    float: right;
+    width: 150px;
+    color: #ffffff;
+    background-color: #4d6630;
+}
+
+.publishedPosts {
+    width: 600px;
+    padding: 50px;
+    margin-left: 50px;
+    position: absolute;
+    top: 300px;
+    background-color: #ffffff;
+    color: #696969;
+}
+
+#replyToPost {
+    float: right;
+    font-style: italic;
+    color: #4d6630;
+}
 
 
 
 /* ----- Footer ----- OBS! FUNGERAR EJ - BEHÖVER ARBETE */
 
 footer {
-    background:#4d6630;
+    background: #4d6660;
     width:1100px;
     height:30px;
     padding-top: 15px;
@@ -157,33 +219,80 @@ footer {
 
 /* ----- Inloggningssidan ----- */
 
-
-#indexWrapper {
-    min-height:500px;
-    width: 800px;
+#mamaWrapper {
+    min-height:600px;
+    width: 1200px;
     position:relative;
-    top: 100px;
     margin: 0 auto;
-    border: 5px solid #4d6630;
-    background:rgba(115,115,115,0.7);
-    border-radius: 30px 30px 30px 30px;
 }
 
-#signIn {
+#indexWrapper {
+    height:500px;
+    width: 600px;
+    border: 5px solid #4d6630;
+    border-right: 0px;
+    background:rgba(115,115,115,0.8);
+    border-radius: 30px 0px 0px 30px;
+    position: absolute;
+}
+
+#secondIndexWrapper {
+    height:500px;
+    width: 400px;
+    border: 5px solid #4d6630;
+    border-left: 0px;
+    background:rgba(115,115,115,0.8);
+    border-radius: 0px 30px 30px 0px;
+    position: absolute;
+    left: 610px;
+}
+
+#signin, #signUp, #welcomeText{
+    position: absolute;
+}
+
+#signin {
     top: 150px;
-    padding: 35px;
+    left: 40px;
+
 }
 
 #signUp {
-    left: 400px;
-    top: 95px;
+    left: 20px;
+    top: 20px;
     padding: 35px;
 }
 
-#indexPageText {
-    color: #fff;
+#welcomeText {
+    top: 150px;
+    left: 300px;
+    width: 300px;
+}
+
+h1 {
+    color: white;
     font-family: sans-serif;
-    font-weight: bold;
+    font-size: 25px;
+}
+
+#welcomeTextFirstPage {
+    color: white;
+    font-family: sans-serif;
+    font-size: 20px;
+}
+
+#indexPageText{
+    color: white;
+    font-family: sans-serif;
+}
+#backgroundlogin {
+    background-color: #4d6630;
+    padding-top: 2px;
+    padding-bottom: 5px;
+    padding-left: 50px;
+    padding-right: 40px;
+    border: 1px solid #4d6630;
+    border-radius: 0px 23px 0px 0px;
 }
     
 .submit input {
@@ -192,7 +301,8 @@ footer {
     background-color: #4d6630; 
     color: #FFF;
     border-radius: 3px;
-    float: right;     
+    float: right;
+
 }
 
 .submitLong input {
@@ -204,6 +314,8 @@ footer {
     float: right;     
 }
 
+
+
 input {
     padding: 10px;
     border: 1px solid #E5E5E5;
@@ -211,6 +323,15 @@ input {
     color: #4d6630;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 8px;   
     }
+
+
+ #email, #password {
+    width: 160px;
+ }
+
+ #passwordLI, #name, #surname {
+    width: 137px;
+ }
 
 input:hover 
 input:focus {
@@ -229,6 +350,34 @@ input:focus {
     color: #000;
 }
 
+
+}
+
+@media screen and (max-width: 1100px) and (min-width: 770px) {
+}
+
+@media screen and (max-width: 769px) {
+
+
+html { 
+    background: url(../static/Bilder/f0840149.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    margin:0;
+    padding:0;
+    height:100%;
+    color: #ffffff;
+}
+ 
+
+#signin, #secondIndexWrapper, #welcomeText {
+    background: rgba(115,115,115,0.8);
+    font-family: sans-serif;
+}
+
+}
 
 
 

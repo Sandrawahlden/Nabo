@@ -3,6 +3,7 @@
  
 from bottle import *
 from os import listdir
+from datetime import datetime
 
 username = ""
 email = ""
@@ -11,6 +12,8 @@ age = ""
 lgh = ""
 tel_nr = ""
 likes = ""
+message = ""
+
 
 @route("/static/<filepath:path>")
 def server_static(filepath):
@@ -34,18 +37,20 @@ def register_user():
 	contact = []
 	name = request.forms.name
 	surname = request.forms.surname
-	adress = request.forms.adress
 	email = request.forms.email
 	pwd_1 = request.forms.pwd_1
         pwd_2 = request.forms.pwd_2
+        street = request.forms.adress
+        city = request.forms.city
 	if pwd_1 == pwd_2:
-                contact.extend((name, surname, adress, pwd_1, "/static/Bilder/avatar.png", "null", "null", "null", "null"))
+                contact.extend((name, surname, pwd_1, "/static/Bilder/avatar.png", street, city, "null", "null", "null", "null"))
 
                 mail = email + ".txt"
                 
                 if mail in listdir("user"):
-                        
-                        return "user already exist"
+
+                        message = "Epostadress finns redan registrerad!"
+                        return template("registerProfileFail", message=message)
                 
                 else:
                         text_file = open("user/" + email + ".txt", "w")
@@ -64,28 +69,54 @@ def register_user():
                         return template("myProfile", title=email, text=contact, firstname=firstname, username=username, pwd_1=pwd_1, pwd_2=pwd_2, profile_pic=profile_pic)
                 
         else:
-                return "Du skrev in fel när du skulle validera ditt lösenord, testa igen!!"
+                message = "Passwordsen matchar inte varandra!"
+                return template("registerProfileFail", message=message)
   
   
 @route("/home/", method="POST")
 def sign_in():
 	"""Signing in existing user and goes to home"""
-	global username, email
+	global username, email, message
 
 	email = request.forms.mail
 	pwd_1 = request.forms.pwd
+	mailadress = email + ".txt"
+        if mailadress in listdir("user"):
+                f = open("user/" + email + ".txt", "r")
+                text_file = f.readlines()
+                pwd_2 = text_file[2].replace("\n", "")
+                if pwd_1 == pwd_2:
+                        firstname = text_file[0]
+                        surname = text_file[1]
+                        username = firstname + surname
+                        f.close()
+                        
+                        anslag_list = listdir("anslagsfolder")
+                        namn_list = []
+                        pict_list = []
+                        content_list = []
+                        time_list = []
 
-	f = open("user/" + email + ".txt", "r")
-	text_file = f.readlines()
-	pwd_2 = text_file[3].replace("\n", "")
-	if pwd_1 == pwd_2:
-		firstname = text_file[0]
-		surname = text_file[1]
-		username = firstname + surname
-		f.close()
-		return template("home", username=username, email=email)
-	else:
-		return "<p>Login Failed!</p>"
+                        """prints anslag"""
+                        for anslag in reversed(anslag_list):
+                                f = open("anslagsfolder/" + anslag, "r")
+                                text_file = f.readlines()
+                                namn = text_file[0]
+                                pict = text_file[1]
+                                cont = text_file[2]
+                                time_list.append(anslag)
+                                namn_list.append(namn)
+                                pict_list.append(pict)
+                                content_list.append(cont)
+                                print time_list, namn_list, pict_list, content_list
+                        return template("home", username=username, email=email, anslag_list=anslag_list, namn_list=namn_list, pict_list=pict_list, content_list=content_list, time_list=time_list)
+                else:
+                        message = "Fel password!"
+                        return template("loginProfileFail", message=message)
+
+        else:
+                message = "Epostadressen finns inte registrerad!"
+                return template("loginProfileFail", message=message)
 	
 
 @route("/myProfile/")
@@ -95,10 +126,10 @@ def user_profile():
 
         f = open("user/" + email + ".txt", "r")
 	text_file = f.readlines()
-	profile_pic = text_file[4]
+	profile_pic = text_file[3]
 	user = username.replace("\n", " ")
         first = user.split(" ")
-        firstname = first[0]
+        firstname = text_file[0]
 
 	return template("myProfile", username=username, firstname=firstname, profile_pic=profile_pic)
 
@@ -106,8 +137,108 @@ def user_profile():
 @route("/home/")
 def home():
         global username, email
+        """Lists for all lines in anslag_file"""
+        anslag_list = listdir("anslagsfolder")
+        namn_list = []
+        pict_list = []
+        content_list = []
+        time_list = []
 
-        return template("home", username=username)
+        """prints anslag"""
+        for anslag in reversed(anslag_list):
+                f = open("anslagsfolder/" + anslag, "r")
+                text_file = f.readlines()
+                namn = text_file[0]
+                pict = text_file[1]
+                cont = text_file[2]
+                time_list.append(anslag)
+                namn_list.append(namn)
+                pict_list.append(pict)
+                content_list.append(cont)
+                print time_list, namn_list, pict_list, content_list
+        return template("home", username=username, email=email, anslag_list=anslag_list, namn_list=namn_list, pict_list=pict_list, content_list=content_list, time_list=time_list)
+
+@route("/home/", method="POST")
+def create_anslag():
+        """create anslag with date as filename"""
+        global username, email, profile_pic
+
+        anslag_title = datetime.now()
+        year = str(anslag_title.year)
+        month = str(anslag_title.month)
+        day = str(anslag_title.day)
+        hour = str(anslag_title.hour)
+        minute = str(anslag_title.minute)
+        if len(month) < 2:
+                month = "0" + month
+        if len(day) < 2:
+                day = "0" + day
+        if len(hour) < 2:
+                hour = "0" + hour
+        if len(day) < 2:
+                day = "0" + day
+
+        anslag_file = open("anslagsfolder/" + year + "-" + month + "-" + day + " kl." + hour + "." + minute + ".txt", "w") 
+        anslag_content = request.forms.writtenPost
+        
+        """writes name, pic and content in file"""
+        anslag_file.write(username)
+        anslag_file.write("\n")
+        anslag_file.write(profile_pic)
+        anslag_file.write("\n")
+        anslag_file.write(anslag_content)
+        anslag_file.close()
+
+        return template("board", username=username, email=email, profile_pic=profile_pic)
+
+@route("/board/")
+def board():
+        global username, email
+        """Lists for all lines in anslag_file"""
+        anslag_list = listdir("anslagsfolder")
+        namn_list = [""]
+        pict_list = [""]
+        content_list = [""]
+        time_list = [""]
+
+        """prints anslag"""
+        for anslag in reversed(anslag_list):
+                f = open("anslagsfolder/" + anslag, "r")
+                text_file = f.readlines()
+                namn = text_file[0]
+                pict = text_file[1]
+                cont = text_file[2]
+                time_list.append(anslag)
+                namn_list.append(namn)
+                pict_list.append(pict)
+                content_list.append(cont)
+
+        return template("board", username=username, email=email, anslag_list=anslag_list, namn_list=namn_list, pict_list=pict_list, content_list=content_list, time_list=time_list)
+
+        
+
+def anslag():
+        global username, email
+        """Lists for all lines in anslag_file"""
+        anslag_list = listdir("anslagsfolder")
+        namn_list = []
+        pict_list = []
+        content_list = []
+        time_list = []
+
+        """prints anslag"""
+        for anslag in anslag_list:
+                f = open("anslagsfolder/" + anslag, "r")
+                text_file = f.readlines()
+                namn = text_file[0]
+                pict = text_file[1]
+                cont = text_file[2]
+                time_list.append(anslag)
+                namn_list.append(namn)
+                pict_list.append(pict)
+                content_list.append(cont)
+
+
 
 @route("/nabos/")
 def nabolist():
@@ -122,7 +253,7 @@ def nabolist():
                 text_file = f.readlines()
                 firstname = text_file[0]
                 surname = text_file[1]
-                profile_pic = text_file[4]
+                profile_pic = text_file[3]
                 nabos = firstname + surname
                 name_list.append(nabos)
                 pic_list.append(profile_pic)
@@ -136,8 +267,31 @@ def edit_profile():
 	"""
 	Edit your profile!
 	"""
-	global username, profile_pic
+	global username, profile_pic, email
+        
+        f = open("user/" + email + ".txt", "r")
+        text = f.readlines()
+        firstname = text[0]
+        lastname = text[1]
+        pwd = text[2]
+        pic = text[3]
+        age_1 = text[4]
+        streetname = text[5]
+        town = text[6]
+        appartment = text[7]
+        mail = email
+        tel = text[8]
+        like = text[9]
+        f.close()
+	
+	return template("editProfile", username=username, profile_pic=profile_pic, age=age, lgh=lgh, tel_nr=tel_nr, likes=likes, firstname=firstname, lastname=lastname, pwd=pwd, mail=mail, age_1=age_1, streetname=streetname, town=town, appartment=appartment, pic=pic, tel=tel, like=like)
 
+@route("/editProfile/", method="POST")
+def edit_prof():
+	"""
+	Edit your profile!
+	"""
+	global username, profile_pic, email, message
         contact = []
 	name = request.forms.name
 	surname = request.forms.surname
@@ -145,25 +299,65 @@ def edit_profile():
 	city = request.forms.city
 	email = request.forms.email
 	pwd_1 = request.forms.pwd_1
+	old_pwd = request.forms.old_pwd
         profile_pic = request.forms.profile_pic
         """Age or birth date?"""
         age = request.forms.age
         lgh = request.forms.lgh
         tel_nr = request.forms.tel_nr
         """Likes in what form?"""
-        likes = request.forms.likes        
-        
-	contact.extend((name, surname, pwd_1, profile_pic, age, lgh, tel_nr, likes))
+        likes = request.forms.likes
 
-	text_file = open("user/" + email + ".txt", "w")
-                        
-        for i in contact:
-                text_file.write(i)
-                text_file.write("\n")
-        text_file.close()
+        f = open("user/" + email + ".txt", "r")
+	text_file = f.readlines()
+	old_pwd_2 = text_file[2].replace("\n", "")
+	if old_pwd == old_pwd_2:
+            
+                contact.extend((name, surname, old_pwd, profile_pic, age, street, city, lgh, tel_nr, likes))
+
+                text_file = open("user/" + email + ".txt", "w")
+                                
+                for i in contact:
+                        text_file.write(i)
+                        text_file.write("\n")
+                text_file.close()
+                message = "Din profil ar nu uppdaterad"
+                return template("updatedProfile", message=message, username=username, profile_pic=profile_pic, age=age, lgh=lgh, tel_nr=tel_nr, likes=likes ,name=name)
+        else:
+                message = "Du skrev fel password!"
+                return template("updatedProfile", message=message, username=username, profile_pic=profile_pic)
+
+
+@route("/updatedProfile/")
+def upd_user():
+	"""
+	If wrong password in editUser
+	"""
+	global username, profile_pic, email, message
 	
-	return template("editProfile", username=username, profile_pic=profile_pic, age=age, lgh=lgh, tel_nr=tel_nr, likes=likes)
-    
+	message = message
+	return template("updatedProfile", message=message, username=username, profile_pic=profile_pic)
+
+@route("/registerProfileFail/")
+def register_Profile_Fail():
+	"""
+	If wrong input in register user
+	"""
+	global message
+	
+	message = message
+	return template("registerProfileFail", message=message)
+
+@route("/loginProfileFail/")
+def login_Profile_Fail():
+	"""
+	If wrong input in login user
+	"""
+	global message
+	
+	message = message
+	return template("loginProfileFail", message=message)
+
 
 @route("/otherUser/<pagename>")
 def other_user(pagename):

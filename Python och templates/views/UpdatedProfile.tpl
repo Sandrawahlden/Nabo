@@ -50,40 +50,18 @@
 			</nav>
 		</nav>
 
-		<div id="content">
+		<div id="content"
 			<div id="bodySquare">
-				<div id="writeAPost">
-					<p id="picWhenPosting">
-					<img src="{{profile_pic}}" alt="Bild på en Nabo" style="width:60px;height:60px;padding:5px">
-					</p>
-
-					<form action="/board/" method="POST" class="form">
-
-					<p class="publishAPost">
-						<input required type="text" name="writtenPost" id="writtenPost" placeholder="Lämna ett meddelande på husets anslagstavla">			
-					</p>
-
-					<p class="submitPost">
-						<input name="submitPost" id="submitPost" type="submit" value="Sätt upp anslaget!">
-					</p>
-				</div>
-			%for namn, picture, content, time in zip(namn_list, pict_list, content_list, time_list):
-				<div class="publishedPosts">
-					<img src="{{picture}}" alt="Bild på en Nabo" style="width:60px;height:60px;padding:5px">
-					<p id="publishedDate">Postat: {{time[:-4]}}</p>
-					<p id="publishedName">{{namn}}</p>
-					<p id="publishedText">{{content}}</p>
-
-					<p id="replyToPost">
-						Svara på anslaget
-					</p>
-				</div>
-			%end
+				<h1>{{message}}</h1>
 			</div>
 		</div>
 		
 
-		
+		<footer>
+			<a href="/contact/">Kontakta oss</a>
+			<a href="/about/">Om Nabo</a>
+			<a href="/help/">Hjälp</a>
+		</footer>
 
 	</div>
 </html>
