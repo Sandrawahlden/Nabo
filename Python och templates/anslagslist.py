@@ -46,9 +46,20 @@ def show_anslag():
     for anslag in anslag_list:
         f = open("anslagsfolder/" + anslag, "r")
         text_file = f.readlines()
-        name = text_file[0]
-        pic = text_file[1]
-        content = text_file[2]
+	try:
+            name = text_file[0]
+        except IndexError:
+            name = "Namn saknas"
+
+        try:
+            pic = text_file[1]
+        except IndexError:
+            pic = "Bild saknas"
+
+        try:
+            content = text_file[2]
+        except IndexError:
+            content = "Content saknas"
         time_list.append(anslag)
         name_list.append(name)
         pic_list.append(pic)
