@@ -1,10 +1,10 @@
 André
 Sjöroos
 hej
-/static/Bilder/avatar.png
+https://33.media.tumblr.com/50973210f3d538645976979084a6681d/tumblr_mp8p4jRH8f1s8rjdlo1_400.gif
 Rönnblomsgatan 11
 Malmö
--
--
--
--
+23
+3
+0734562333
+Jag är lite coolare än vad Hannes är i alla fall. Kolla bara in min profilbild liksom! (Om ni undrar så var det jag som knäckte koden för nabosidan och att visa andra användare. Hannes satt bara och tittade på medans jag haxxade).

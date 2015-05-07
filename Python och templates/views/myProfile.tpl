@@ -56,7 +56,7 @@
 				
 				<p id="name">Namn: {{username}}</p>
 				<p id="age">Ålder: {{age_1}}</p>
-				<p id="apartment">Våning:{{appartment}}</p>
+				<p id="apartment">Våning: {{appartment}}</p>
 				<p id="phone">Telefonnr: {{tel}}</p>
 					
 				<p id="likes">Om {{firstname}}: <br>

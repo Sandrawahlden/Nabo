@@ -51,10 +51,10 @@
 		</nav>
 
 		<div id="content">
-			%for name, pic in zip(name_list, pic_list):
+			%for name, pic, user in zip(name_list, pic_list, user_list):
 				<div id="naboRuta">
 					<img src="{{pic}}" alt="{{name}}" style="width:60px;height:60px;padding:5px">
-					<a href="/otherUser/">{{name}}</a>
+					<a href="/otherUser/{{user}}">{{name}}</a>
 					<br>
 					<br>
 				</div>

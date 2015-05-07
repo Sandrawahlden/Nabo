@@ -258,29 +258,6 @@ def board():
 
         return template("board", username=username, email=email, anslag_list=anslag_list, namn_list=namn_list, pict_list=pict_list, content_list=content_list, time_list=time_list)
 
-        
-
-##def anslag():
-##        global username, email
-##        """Lists for all lines in anslag_file"""
-##        anslag_list = listdir("anslagsfolder")
-##        namn_list = []
-##        pict_list = []
-##        content_list = []
-##        time_list = []
-##
-##        """prints anslag"""
-##        for anslag in anslag_list:
-##                f = open("anslagsfolder/" + anslag, "r")
-##                text_file = f.readlines()
-##                namn = text_file[0]
-##                pict = text_file[1]
-##                cont = text_file[2]
-##                time_list.append(anslag)
-##                namn_list.append(namn)
-##                pict_list.append(pict)
-##                content_list.append(cont)
-
 
 
 @route("/nabos/")
@@ -292,7 +269,8 @@ def nabolist():
         name_list = []
         pic_list = []
         for user in user_list:
-                f = codecs.open("user/" + email + ".txt", "r", "utf-8")
+                f = codecs.open("user/" + user, "r", "utf-8")
+                epost = user
                 text_file = f.readlines()
                 firstname = text_file[0]
                 surname = text_file[1]
@@ -302,7 +280,7 @@ def nabolist():
                 pic_list.append(profile_pic)
 
                         
-	return template("nabos", user_list=user_list, name_list=name_list, username=username, profile_pic=profile_pic, pic_list=pic_list)
+	return template("nabos", user=user, user_list=user_list, name_list=name_list, username=username, profile_pic=profile_pic, pic_list=pic_list)
 
 
 @route("/editProfile/")
@@ -427,13 +405,19 @@ def other_user(pagename):
 	This shows another user.
 	"""
 	global username, email
-
         
-##        f = open("user/" + email + ".txt", "r")
-##	text_file = f.readlines()
+        f = codecs.open("user/" + pagename, "r", "utf-8")
+	text = f.readlines()
+	prof_pic = text[3]
+        first = text[0]
+        last = text[1]
+        age_2 = text[6]
+        apa = text[7]
+        tele = text[8]
+        likees = text[9]
+        f.close()
 	
-	
-	return template("otherUser", username=username)
+	return template("otherUser", username=username, name=pagename, text=text, first=first, last=last, prof_pic=prof_pic, age_2=age_2, apa=apa, tele=tele, likees=likees)
 
 
 @route("/inbox/")

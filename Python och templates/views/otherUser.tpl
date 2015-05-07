@@ -52,8 +52,16 @@
 
 		<div id="content"
 			<div id="bodySquare">
-				<p>Här kommer vi fylla på med innehåll.
-				</p>
+				<img src="{{prof_pic}}" alt="Bild på {{first}}" style="width:150px;height:150px;padding:10px">
+				
+				<p id="name">Namn: {{first}} {{last}}</p>
+				<p id="age">Ålder: {{age_2}}</p>
+				<p id="apartment">Våning: {{apa}}</p>
+				<p id="phone">Telefonnr: {{tele}}</p>
+					
+				<p id="likes">Om {{first}}: <br>
+				{{likees}}</p>
+				
 			</div>
 		</div>
 		
