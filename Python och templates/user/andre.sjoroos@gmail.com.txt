@@ -1,10 +1,10 @@
-Andre
-Sjoroos
+André
+Sjöroos
 hej
-http://media0.giphy.com/media/jUwpNzg9IcyrK/giphy.gif
-Ronnblomsgatan 11
-Malmo
-23
-336
-0771123123
-kul att koda om det fungerar
+/static/Bilder/avatar.png
+Rönnblomsgatan 11
+Malmö
+Du har inte angivit din alder annu
+Vilken vaning bor du pa?
+Ange ditt telefonnummer
+JAG ÄÄÄÄÄR COOLARE ÄN ER!!! JAG GILLAR ÅÅÅÄÄÄÖÖÖ!!!
