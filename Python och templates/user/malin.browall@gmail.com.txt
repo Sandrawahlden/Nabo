@@ -1,0 +1,10 @@
+Malin
+Browall
+hejhej
+/static/Bilder/avatar.png
+Ronnblommsgatan 11
+Malmo
+Du har inte angivit din ålder ännu
+Vilken våning bor du på?
+Ange ditt telefonnummer
+Vad gillar du?
