@@ -1,9 +1,10 @@
-# coding: utf-8
+# encoding: utf-8
 # Author: <Andre, Hannes>
  
 from bottle import *
 from os import listdir
 from datetime import datetime
+import codecs
 
 username = ""
 email = ""
@@ -53,7 +54,7 @@ def register_user():
         street = request.forms.adress
         city = request.forms.city
 	if pwd_1 == pwd_2:
-                contact.extend((name, surname, pwd_1, "/static/Bilder/avatar.png", street, city, "Du har inte angivit din ålder ännu", "Vilken våning bor du på?", "Ange ditt telefonnummer", "Vad gillar du?"))
+                contact.extend((name, surname, pwd_1, "/static/Bilder/avatar.png", street, city, "Du har inte angivit din alder annu", "Vilken vaning bor du pa?", "Ange ditt telefonnummer", "Vad gillar du?"))
 
                 mail = email + ".txt"
                 
@@ -63,14 +64,14 @@ def register_user():
                         return template("registerProfileFail", message=message)
                 
                 else:
-                        text_file = open("user/" + email + ".txt", "w")
+                        text_file = codecs.open("user/" + email + ".txt", "w", "utf-8")
                         
                         for i in contact:
                                 text_file.write(i)
                                 text_file.write("\n")
                         text_file.close()
 
-                        f = open("user/" + email + ".txt", "r")
+                        f = codecs.open("user/" + email + ".txt", "r", "utf-8")
                         text_file = f.readlines()
                         firstname = text_file[0]
                         surname = text_file[1]
@@ -92,7 +93,7 @@ def sign_in():
 	pwd_1 = request.forms.pwd
 	mailadress = email + ".txt"
         if mailadress in listdir("user"):
-                f = open("user/" + email + ".txt", "r")
+                f = codecs.open("user/" + email + ".txt", "r", "utf-8")
                 text_file = f.readlines()
                 pwd_2 = text_file[2].replace("\n", "")
                 if pwd_1 == pwd_2:
@@ -109,7 +110,7 @@ def sign_in():
 
                         """prints anslag"""
                         for anslag in reversed(anslag_list):
-                                f2 = open("anslagsfolder/" + anslag, "r")
+                                f2 = codecs.open("user/" + email + ".txt", "r", "utf-8")
                                 anslag_file = f2.readlines()
                                 try:
                                     namn = anslag_file[0]
@@ -142,7 +143,7 @@ def user_profile():
 	"""Shows the userprofile"""
 	global username, email, profile_pic
 
-        f = open("user/" + email + ".txt", "r")
+        f = codecs.open("user/" + email + ".txt", "r", "utf-8")
 	text = f.readlines()
 	profile_pic = text[3]
         firstname = text[0]
@@ -167,7 +168,7 @@ def home():
 
         """prints anslag"""
         for anslag in reversed(anslag_list):
-                f = open("anslagsfolder/" + anslag, "r")
+                f = codecs.open("user/" + email + ".txt", "r", "utf-8")
                 text_file = f.readlines()
                 try:
                     namn = text_file[0]
@@ -235,7 +236,7 @@ def board():
 
         """prints anslag"""
         for anslag in reversed(anslag_list):
-                f = open("anslagsfolder/" + anslag, "r")
+                f = codecs.open("user/" + email + ".txt", "r", "utf-8")
                 text_file = f.readlines()
                 try:
                     namn = text_file[0]
@@ -292,7 +293,7 @@ def nabolist():
         name_list = []
         pic_list = []
         for user in user_list:
-                f = open("user/" + user, "r")
+                f = codecs.open("user/" + email + ".txt", "r", "utf-8")
                 text_file = f.readlines()
                 firstname = text_file[0]
                 surname = text_file[1]
@@ -312,7 +313,7 @@ def edit_profile():
 	"""
 	global username, profile_pic, email
         
-        f = open("user/" + email + ".txt", "r")
+        f = codecs.open("user/" + email + ".txt", "r", "utf-8")
         text = f.readlines()
         firstname = text[0]
         lastname = text[1]
@@ -352,7 +353,7 @@ def edit_prof():
         """Likes in what form?"""
         likes = request.forms.likes
 
-        f = open("user/" + email + ".txt", "r")
+        f = codecs.open("user/" + email + ".txt", "r", "utf-8")
 	text_file = f.readlines()
 	old_pwd_2 = text_file[2].replace("\n", "")
 	if old_pwd == old_pwd_2:
@@ -360,7 +361,7 @@ def edit_prof():
                         
                         contact.extend((name, surname, old_pwd, profile_pic, street, city, age, lgh, tel_nr, likes))
 
-                        text_file = open("user/" + email + ".txt", "w")
+                        text_file = codecs.open("user/" + email + ".txt", "w", "utf-8")
                                         
                         for i in contact:
                                 text_file.write(i)
@@ -372,7 +373,7 @@ def edit_prof():
                 if pwd_1 == pwd_2:
                         contact.extend((name, surname, pwd_1, profile_pic, street, city, age, lgh, tel_nr, likes))
 
-                        text_file = open("user/" + email + ".txt", "w")
+                        text_file = codecs.open("user/" + email + ".txt", "w", "utf-8")
                                         
                         for i in contact:
                                 text_file.write(i)
