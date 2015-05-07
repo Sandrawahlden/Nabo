@@ -80,7 +80,7 @@
 							<input required type="text" name="city" id="city" value="{{town}}">
 						</p>
 						
-						<p class="lgh">Lägenhetsnummer:
+						<p class="lgh">Våning:
 							<input  type="text" name="lgh" id="lgh" value="{{appartment}}">			
 						</p>
 						

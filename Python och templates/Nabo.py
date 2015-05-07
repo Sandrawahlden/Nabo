@@ -13,6 +13,16 @@ lgh = ""
 tel_nr = ""
 likes = ""
 message = ""
+firstname = ""
+lastname = ""
+pwd = ""
+pic = ""
+age_1 = ""
+streetname = ""
+town = ""
+appartment = ""
+tel = ""
+like = ""
 
 
 @route("/static/<filepath:path>")
@@ -32,7 +42,7 @@ def start():
 def register_user():
 	"""Register user and saves the name, surename, adress, email and
 	password in a document"""
-	global username, email
+	global username, email, lastname, pwd, age_1, streetname, town, appartment, tel, like
 
 	contact = []
 	name = request.forms.name
@@ -43,7 +53,7 @@ def register_user():
         street = request.forms.adress
         city = request.forms.city
 	if pwd_1 == pwd_2:
-                contact.extend((name, surname, pwd_1, "/static/Bilder/avatar.png", street, city, "null", "null", "null", "null"))
+                contact.extend((name, surname, pwd_1, "/static/Bilder/avatar.png", street, city, "Du har inte angivit din ålder ännu", "Vilken våning bor du på?", "Ange ditt telefonnummer", "Vad gillar du?"))
 
                 mail = email + ".txt"
                 
@@ -66,7 +76,7 @@ def register_user():
                         surname = text_file[1]
                         username = firstname + surname
                         f.close()
-                        return template("myProfile", title=email, text=contact, firstname=firstname, username=username, pwd_1=pwd_1, pwd_2=pwd_2, profile_pic=profile_pic)
+                        return template("myProfile", title=email, text=contact, firstname=firstname, username=username, pwd_1=pwd_1, pwd_2=pwd_2, profile_pic=profile_pic, lastname=lastname, age_1=age_1, streetname=streetname, town=town, appartment=appartment, tel=tel, like=like)
                 
         else:
                 message = "Passwordsen matchar inte varandra!"
@@ -317,7 +327,7 @@ def edit_profile():
         like = text[9]
         f.close()
 	
-	return template("editProfile", username=username, profile_pic=profile_pic, age=age, lgh=lgh, tel_nr=tel_nr, likes=likes, firstname=firstname, lastname=lastname, pwd=pwd, mail=mail, age_1=age_1, streetname=streetname, town=town, appartment=appartment, pic=pic, tel=tel, like=like)
+	return template("editProfile", email=email, username=username, profile_pic=profile_pic, age=age, lgh=lgh, tel_nr=tel_nr, likes=likes, firstname=firstname, lastname=lastname, pwd=pwd, mail=mail, age_1=age_1, streetname=streetname, town=town, appartment=appartment, pic=pic, tel=tel, like=like)
 
 @route("/editProfile/", method="POST")
 def edit_prof():
@@ -332,6 +342,7 @@ def edit_prof():
 	city = request.forms.city
 	email = request.forms.email
 	pwd_1 = request.forms.pwd_1
+	pwd_2 = request.forms.pwd_2
 	old_pwd = request.forms.old_pwd
         profile_pic = request.forms.profile_pic
         """Age or birth date?"""
@@ -345,17 +356,31 @@ def edit_prof():
 	text_file = f.readlines()
 	old_pwd_2 = text_file[2].replace("\n", "")
 	if old_pwd == old_pwd_2:
-            
-                contact.extend((name, surname, old_pwd, profile_pic, street, city, age, lgh, tel_nr, likes))
+                if pwd_1 and pwd_2 is None:
+                        
+                        contact.extend((name, surname, old_pwd, profile_pic, street, city, age, lgh, tel_nr, likes))
 
-                text_file = open("user/" + email + ".txt", "w")
-                                
-                for i in contact:
-                        text_file.write(i)
-                        text_file.write("\n")
-                text_file.close()
-                message = "Din profil ar nu uppdaterad"
-                return template("updatedProfile", message=message, username=username, profile_pic=profile_pic, age=age, lgh=lgh, tel_nr=tel_nr, likes=likes ,name=name)
+                        text_file = open("user/" + email + ".txt", "w")
+                                        
+                        for i in contact:
+                                text_file.write(i)
+                                text_file.write("\n")
+                        text_file.close()
+                        message = "Din profil ar nu uppdaterad"
+                        return template("updatedProfile", message=message, username=username, profile_pic=profile_pic, age=age, lgh=lgh, tel_nr=tel_nr, likes=likes ,name=name)
+
+                if pwd_1 == pwd_2:
+                        contact.extend((name, surname, pwd_1, profile_pic, street, city, age, lgh, tel_nr, likes))
+
+                        text_file = open("user/" + email + ".txt", "w")
+                                        
+                        for i in contact:
+                                text_file.write(i)
+                                text_file.write("\n")
+                        text_file.close()
+                        message = "Din profil ar nu uppdaterad"
+                        return template("updatedProfile", message=message, username=username, profile_pic=profile_pic, age=age, lgh=lgh, tel_nr=tel_nr, likes=likes ,name=name)
+
         else:
                 message = "Du skrev fel password!"
                 return template("updatedProfile", message=message, username=username, profile_pic=profile_pic)
