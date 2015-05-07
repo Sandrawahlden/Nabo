@@ -270,7 +270,6 @@ def nabolist():
         pic_list = []
         for user in user_list:
                 f = codecs.open("user/" + user, "r", "utf-8")
-                epost = user
                 text_file = f.readlines()
                 firstname = text_file[0]
                 surname = text_file[1]
