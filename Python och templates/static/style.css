@@ -28,22 +28,14 @@ html {
 
 
 
-/* ----- Header ----- */
+/* ----- Header ----- (fixa till detta) */ 
 
 #logga {
     background-color: #4d6630;
-<<<<<<< HEAD
     padding-right: 50px;
     padding-left: 20px;
     border: 100px;
     border-radius: 5px 0px 20px 0px;
-=======
-    padding-right: 40px;
-    padding-left: 0px;
->>>>>>> 104b04ece1a7101ab746d99cfee46c89a2957fa4
-    /*padding-top: 20px;
-    padding-bottom: 20px;
-    border-radius: 2px 5px 90px 0px;*/
 
     
 }
@@ -241,6 +233,7 @@ footer {
 }
 
 #secondIndexWrapper {
+    top: -4px;
     height:500px;
     width: 400px;
     border: 5px solid #4d6630;
