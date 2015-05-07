@@ -1,5 +1,5 @@
-Bosse
-Bass
+test
+Morgon
 hej
 /static/Bilder/avatar.png
 Ronnblomsgatan 11
