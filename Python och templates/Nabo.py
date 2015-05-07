@@ -443,16 +443,34 @@ def inbox():
 	"""
 	global username
 	
+	
 	return template("inbox", username=username)
 
 @route("/write/")
-def about_us():
+def write_message():
 	"""
-	This is the mail inbox
+	This is the write message function
 	"""
-	global username
-	
-	return template("write", username=username)
+        #!!!!NEEDS TO BE FIXED/ADJUSTED WHEN HTML IS IN PLACE!!!!
+
+        global username, profile_pic
+        
+        user_list = listdir("user")
+        name_list = []
+        pic_list = []
+        for user in user_list:
+                f = codecs.open("user/" + email + ".txt", "r", "utf-8")
+                text_file = f.readlines()
+                firstname = text_file[0]
+                surname = text_file[1]
+                profile_pic = text_file[3]
+                nabos = firstname + surname
+                name_list.append(nabos)
+                pic_list.append(profile_pic)
+
+        #!!!!NEEDS TO BE FIXED/ADJUSTED WHEN HTML IS IN PLACE!!!!
+                        
+	return template("write", user_list=user_list, name_list=name_list, username=username, profile_pic=profile_pic, pic_list=pic_list)
 
 
 @route("/help/")
