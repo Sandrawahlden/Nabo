@@ -59,7 +59,7 @@
 				<p id="apartment">Våning:{{appartment}}</p>
 				<p id="phone">Telefonnr: {{tel}}</p>
 					
-				<p id="likes">{{firstname}} Gillar: <br>
+				<p id="likes">Om {{firstname}}: <br>
 				{{like}}</p>
 				
 			</div>

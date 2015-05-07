@@ -46,7 +46,7 @@ def show_anslag():
     for anslag in anslag_list:
         f = open("anslagsfolder/" + anslag, "r")
         text_file = f.readlines()
-	try:
+        try:
             name = text_file[0]
         except IndexError:
             name = "Namn saknas"
