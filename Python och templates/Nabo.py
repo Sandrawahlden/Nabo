@@ -356,30 +356,34 @@ def edit_prof():
 	text_file = f.readlines()
 	old_pwd_2 = text_file[2].replace("\n", "")
 	if old_pwd == old_pwd_2:
-                if len(pwd_1) and len(pwd_2) < 2:
+##                if len(pwd_1) and len(pwd_2) < 2:
                         
-                        contact.extend((name, surname, old_pwd, profile_pic, street, city, age, lgh, tel_nr, likes))
+                contact.extend((name, surname, old_pwd, profile_pic, street, city, age, lgh, tel_nr, likes))
 
-                        text_file = codecs.open("user/" + email + ".txt", "w", "utf-8")
-                                        
-                        for i in contact:
-                                text_file.write(i)
-                                text_file.write("\n")
-                        text_file.close()
-                        message = "Din profil är nu uppdaterad"
-                        return template("updatedProfile", message=message, username=username, profile_pic=profile_pic, age=age, lgh=lgh, tel_nr=tel_nr, likes=likes ,name=name)
-                ##fel på kod här
-                elif pwd_1 == pwd_2:
-                        contact.extend((name, surname, pwd_1, profile_pic, street, city, age, lgh, tel_nr, likes))
-
-                        text_file = codecs.open("user/" + email + ".txt", "w", "utf-8")
-                                        
-                        for i in contact:
-                                text_file.write(i)
-                                text_file.write("\n")
-                        text_file.close()
-                        message = "Din profil är nu uppdaterad"
-                        return template("updatedProfile", message=message, username=username, profile_pic=profile_pic, age=age, lgh=lgh, tel_nr=tel_nr, likes=likes ,name=name)
+                text_file = codecs.open("user/" + email + ".txt", "w", "utf-8")
+                                
+                for i in contact:
+                        text_file.write(i)
+                        text_file.write("\n")
+                text_file.close()
+                message = "Din profil är nu uppdaterad"
+                return template("updatedProfile", message=message, username=username, profile_pic=profile_pic, age=age, lgh=lgh, tel_nr=tel_nr, likes=likes ,name=name)
+                
+##                else:
+##                        if pwd_1 == pwd_2:
+##                                contact.extend((name, surname, pwd_1, profile_pic, street, city, age, lgh, tel_nr, likes))
+##
+##                                text_file = codecs.open("user/" + email + ".txt", "w", "utf-8")
+##                                                
+##                                for i in contact:
+##                                        text_file.write(i)
+##                                        text_file.write("\n")
+##                                text_file.close()
+##                                message = "Din profil är nu uppdaterad"
+##                                return template("updatedProfile", message=message, username=username, profile_pic=profile_pic, age=age, lgh=lgh, tel_nr=tel_nr, likes=likes ,name=name)
+##                        else:
+##                                message = "Lösenorden du skrev matchar inte!"
+##                                return template("updatedProfile", message=message, username=username, profile_pic=profile_pic)
 
         else:
                 message = "Du skrev fel lösenord!"
