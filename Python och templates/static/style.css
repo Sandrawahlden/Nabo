@@ -380,6 +380,33 @@ html {
     font-family: sans-serif;
 }
 
+
+
+
+nav {
+        width: 80%%;
+        font-family: sans-serif;
+        
+
+    }
+
+    nav ul {
+        list-style: none;
+
+    }
+
+    nav ul a {
+        display: block;
+        background: rgba(115,115,115,0.8);
+        padding: 1%;
+        margin-bottom: 1px;
+        text-decoration: none;
+        color: #ffffff;     
+    }
+
+    nav ul ul {
+        display: none;
+
 }
 
 
