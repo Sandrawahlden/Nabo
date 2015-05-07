@@ -54,7 +54,7 @@ def register_user():
         street = request.forms.adress
         city = request.forms.city
 	if pwd_1 == pwd_2:
-                contact.extend((name, surname, pwd_1, "/static/Bilder/avatar.png", street, city, "Du har inte angivit din alder annu", "Vilken vaning bor du pa?", "Ange ditt telefonnummer", "Vad gillar du?"))
+                contact.extend((name, surname, pwd_1, "/static/Bilder/avatar.png", street, city, "-", "-", "-", "-"))
 
                 mail = email + ".txt"
                 
@@ -80,7 +80,7 @@ def register_user():
                         return template("myProfile", title=email, text=contact, firstname=firstname, username=username, pwd_1=pwd_1, pwd_2=pwd_2, profile_pic=profile_pic, lastname=lastname, age_1=age_1, streetname=streetname, town=town, appartment=appartment, tel=tel, like=like)
                 
         else:
-                message = "Passwordsen matchar inte varandra!"
+                message = "Lösenorden matchar inte!"
                 return template("registerProfileFail", message=message)
   
   
@@ -130,7 +130,7 @@ def sign_in():
                                 content_list.append(cont)
                         return template("home", username=username, email=email, profile_pic=profile_pic, anslag_list=anslag_list, namn_list=namn_list, pict_list=pict_list, content_list=content_list, time_list=time_list)
                 else:
-                        message = "Fel password!"
+                        message = "Fel lösenord!"
                         return template("loginProfileFail", message=message)
 
         else:
@@ -168,7 +168,7 @@ def home():
 
         """prints anslag"""
         for anslag in reversed(anslag_list):
-                f = codecs.open("user/" + email + ".txt", "r", "utf-8")
+                f = codecs.open("anslagsfolder/" + anslag, "r", "utf-8")
                 text_file = f.readlines()
                 try:
                     namn = text_file[0]
@@ -183,12 +183,11 @@ def home():
                 try:
                     cont = text_file[2]
                 except IndexError:
-                    cont = "Content saknas"
+                    cont = "Innehåll saknas"
                 time_list.append(anslag)
                 namn_list.append(namn)
                 pict_list.append(pict)
                 content_list.append(cont)
-                print time_list, namn_list, pict_list, content_list
         return template("home", username=username, email=email, profile_pic=profile_pic, anslag_list=anslag_list, namn_list=namn_list, pict_list=pict_list, content_list=content_list, time_list=time_list)
 
 ##@route("/home/", method="POST")
@@ -236,7 +235,7 @@ def board():
 
         """prints anslag"""
         for anslag in reversed(anslag_list):
-                f = codecs.open("user/" + email + ".txt", "r", "utf-8")
+                f = codecs.open("anslagsfolder/" + anslag, "r", "utf-8")
                 text_file = f.readlines()
                 try:
                     namn = text_file[0]
@@ -357,7 +356,7 @@ def edit_prof():
 	text_file = f.readlines()
 	old_pwd_2 = text_file[2].replace("\n", "")
 	if old_pwd == old_pwd_2:
-                if pwd_1 and pwd_2 is None:
+                if len(pwd_1) and len(pwd_2) < 2:
                         
                         contact.extend((name, surname, old_pwd, profile_pic, street, city, age, lgh, tel_nr, likes))
 
@@ -367,10 +366,10 @@ def edit_prof():
                                 text_file.write(i)
                                 text_file.write("\n")
                         text_file.close()
-                        message = "Din profil ar nu uppdaterad"
+                        message = "Din profil är nu uppdaterad"
                         return template("updatedProfile", message=message, username=username, profile_pic=profile_pic, age=age, lgh=lgh, tel_nr=tel_nr, likes=likes ,name=name)
-
-                if pwd_1 == pwd_2:
+                ##fel på kod här
+                elif pwd_1 == pwd_2:
                         contact.extend((name, surname, pwd_1, profile_pic, street, city, age, lgh, tel_nr, likes))
 
                         text_file = codecs.open("user/" + email + ".txt", "w", "utf-8")
@@ -379,11 +378,11 @@ def edit_prof():
                                 text_file.write(i)
                                 text_file.write("\n")
                         text_file.close()
-                        message = "Din profil ar nu uppdaterad"
+                        message = "Din profil är nu uppdaterad"
                         return template("updatedProfile", message=message, username=username, profile_pic=profile_pic, age=age, lgh=lgh, tel_nr=tel_nr, likes=likes ,name=name)
 
         else:
-                message = "Du skrev fel password!"
+                message = "Du skrev fel lösenord!"
                 return template("updatedProfile", message=message, username=username, profile_pic=profile_pic)
 
 
