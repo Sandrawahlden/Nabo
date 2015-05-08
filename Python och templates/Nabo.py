@@ -190,42 +190,50 @@ def home():
                 content_list.append(cont)
         return template("home", username=username, email=email, profile_pic=profile_pic, anslag_list=anslag_list, namn_list=namn_list, pict_list=pict_list, content_list=content_list, time_list=time_list)
 
-##@route("/home/", method="POST")
-##def create_anslag():
-##        """create anslag with date as filename"""
-##        global username, email, profile_pic
-##
-##        anslag_title = datetime.now()
-##        year = str(anslag_title.year)
-##        month = str(anslag_title.month)
-##        day = str(anslag_title.day)
-##        hour = str(anslag_title.hour)
-##        minute = str(anslag_title.minute)
-##        if len(month) < 2:
-##                month = "0" + month
-##        if len(day) < 2:
-##                day = "0" + day
-##        if len(hour) < 2:
-##                hour = "0" + hour
-##        if len(day) < 2:
-##                day = "0" + day
-##
-##        anslag_file = open("anslagsfolder/" + year + "-" + month + "-" + day + " kl." + hour + "." + minute + ".txt", "w") 
-##        anslag_content = request.forms.writtenPost
-##        
-##        """writes name, pic and content in file"""
-##        anslag_file.write(username)
-##        anslag_file.write("\n")
-##        anslag_file.write(profile_pic)
-##        anslag_file.write("\n")
-##        anslag_file.write(anslag_content)
-##        anslag_file.close()
-##
-##        return template("board", username=username, email=email, profile_pic=profile_pic)
+
+#FUNKAR INTE - FUNKAR INTE - FUNKAR INTE - FUNKAR INTE - FUNKAR INTE - FUNKAR INTE - FUNKAR INTE - FUNKAR INTE
+@route("/board/", method="POST")
+def create_anslag():
+        """create anslag with date as filename"""
+        global username, email, profile_pic
+
+        namn_list = []
+        pict_list = []
+        content_list = []
+        time_list = []
+
+        anslag_title = datetime.now()
+        year = str(anslag_title.year)
+        month = str(anslag_title.month)
+        day = str(anslag_title.day)
+        hour = str(anslag_title.hour)
+        minute = str(anslag_title.minute)
+        if len(month) < 2:
+                month = "0" + month
+        if len(day) < 2:
+                day = "0" + day
+        if len(hour) < 2:
+                hour = "0" + hour
+        if len(minute) < 2:
+                minute = "0" + day
+
+        anslag_file = codecs.open("anslagsfolder/" + year + "-" + month + "-" + day + " kl." + hour + "." + minute + ".txt", "w", "utf-8") 
+        anslag_content = request.forms.writtenPost
+        
+        """writes name, pic and content in file"""
+        anslag_file.write(username)
+        anslag_file.write("\n")
+        anslag_file.write(profile_pic)
+        anslag_file.write("\n")
+        anslag_file.write(anslag_content)
+        anslag_file.close()
+
+        return template("board", username=username, profile_pic=profile_pic, email=email, namn_list=namn_list, pict_list=pict_list, content_list=content_list, time_list=time_list)
+
 
 @route("/board/")
 def board():
-        global username, email
+        global username, email, profile_pic
         """Lists for all lines in anslag_file"""
         anslag_list = listdir("anslagsfolder")
         namn_list = []
@@ -256,8 +264,8 @@ def board():
                 pict_list.append(pict)
                 content_list.append(cont)
 
-        return template("board", username=username, email=email, anslag_list=anslag_list, namn_list=namn_list, pict_list=pict_list, content_list=content_list, time_list=time_list)
-
+        return template("board", username=username, profile_pic=profile_pic, email=email, anslag_list=anslag_list, namn_list=namn_list, pict_list=pict_list, content_list=content_list, time_list=time_list)
+#FUNKAR INTE - FUNKAR INTE - FUNKAR INTE - FUNKAR INTE - FUNKAR INTE - FUNKAR INTE - FUNKAR INTE - FUNKAR INTE
 
 
 @route("/nabos/")
