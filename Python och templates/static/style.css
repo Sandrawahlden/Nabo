@@ -217,15 +217,18 @@ footer {
 /* ----- Inloggningssidan ----- */
 
 #mamaWrapper {
-    min-height:600px;
-    width: 1200px;
-    position:relative;
-    margin: 0 auto;
+    height:60%;
+    width: 90%;
+    position:absolute;
+    margin: auto;
 }
 
 #indexWrapper {
-    height:500px;
-    width: 600px;
+    top:10%;
+    margin-left: 13%;
+    margin-right: auto;
+    height:62%;
+    width: 42%;
     border: 5px solid #4d6630;
     background: rgba(140, 140, 140, 0.6);
     border-radius: 20px 20px 20px 20px;
@@ -234,13 +237,13 @@ footer {
 
 #secondIndexWrapper {
     top: -4px;
-    height:500px;
-    width: 400px;
+    height: 167%;
+    width: 80%;
     border: 5px solid #4d6630;
     background: rgba(140, 140, 140, 0.6);
     border-radius: 20px 20px 20px 20px;
     position: absolute;
-    left: 620px;
+    left: 115%;
 }
 
 #signin, #signUp, #welcomeText{
@@ -248,21 +251,24 @@ footer {
 }
 
 #signin {
-    top: 150px;
-    left: 40px;
+    top: 44%;
+    left: 7%;
+    padding: 2%;
 
 }
 
 #signUp {
-    left: 20px;
-    top: 20px;
-    padding: 35px;
+    left: 7%;
+    top: 7%;
+    padding: 5%;
+    margin: auto;
 }
 
 #welcomeText {
-    top: 150px;
-    left: 300px;
-    width: 300px;
+    top: 45%;
+    left: 47%;
+    width: 60%;
+    padding-left: 3%;
 }
 
 h1 {
@@ -280,6 +286,8 @@ h1 {
 #indexPageText{
     color: white;
     font-family: sans-serif;
+    font-weight: bold;
+    margin-bottom: -3%;
 }
 #backgroundlogin {
     background-color: #4d6630;
@@ -298,6 +306,8 @@ h1 {
     color: #FFF;
     border-radius: 3px;
     float: right;
+    font-weight: bold;
+    font-size: 12px;
 
 }
 
@@ -308,6 +318,30 @@ h1 {
     color: #FFF;
     border-radius: 3px;
     float: right;     
+}
+
+#mamaWrapper #signin  h2 {
+    padding: 1%;
+    font-size: 14px;
+    font-family: sans-serif;
+    border: 1px solid;
+    top:-3s%;
+    background-color: #4d6630;
+    width: 63%;
+
+
+}
+
+#mamaWrapper #signUp h2 {
+    padding: 1%;
+    font-size: 14px;
+    font-family: sans-serif;
+    border: 1px solid;
+    top:-3s%;
+    background-color: #4d6630;
+    width: 97%;
+
+
 }
 
 

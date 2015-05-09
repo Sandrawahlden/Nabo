@@ -42,7 +42,7 @@
 
 			<div id="welcomeText">
 				<h1>Välkommen till Nabo!</h1>
-				<p id="welcomeTextFirstPage">Nabo hjälper dig att identifiera och interagera med grannarna i din trappuppgång. Låna en hammare, skaffa kattvakt eller bjud in till gårdsfest. </p>
+				<p id="welcomeTextFirstPage">Nabo hjälper dig att identifiera och interagera med grannarna i din trappuppgång. Låna en hammare, ordna kattvakt eller bjud in till gårdsfest. </p>
 			</div>
 			
 			<div id="secondIndexWrapper">
