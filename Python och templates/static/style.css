@@ -146,6 +146,22 @@ a:active {
 
 /* ----- PROFILSIDA ----- */
 
+/* ----- REDIGERA PROFIL -----*/
+
+#editProfileText{
+    font-weight: bold;
+    font-size: 18px;
+}
+
+#editProfile {
+    padding-left: 20%;
+    padding-right: 20%;
+    width: 80%;
+}
+
+#acceptChange {
+    float: right;
+}
 
 /* ----- ANSLAGSTAVLAN ----- */
 
@@ -203,14 +219,21 @@ a:active {
 /* ----- Footer ----- OBS! FUNGERAR EJ - BEHÖVER ARBETE */
 
 footer {
-    background: #4d6660;
+    
     width:1100px;
     height:30px;
     padding-top: 15px;
     bottom:0;
-    left:0;
+    margin: 0px auto 0px auto;
     font-family: sans-serif;
     text-align: center;
+    position: absolute;
+    top: 190%;
+    background-color: #4d6630;
+    padding-right: 50px;
+    padding-left: 20px;
+    border: 100px;
+    border-radius: 5px 0px 20px 0px;
 }
 
 
