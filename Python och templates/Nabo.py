@@ -84,7 +84,7 @@ def register_user():
                 return template("registerProfileFail", message=message)
   
   
-@route("/home/", method="POST")
+@route("/", method="POST")
 def sign_in():
 	"""Signing in existing user and goes to home"""
 	global username, email, message, profile_pic
@@ -99,6 +99,7 @@ def sign_in():
                 if pwd_1 == pwd_2:
                         firstname = text_file[0]
                         surname = text_file[1]
+                        profile_pic = text_file[3]
                         username = firstname + surname
                         f.close()
                         
@@ -110,20 +111,28 @@ def sign_in():
 
                         """prints anslag"""
                         for anslag in reversed(anslag_list):
-                                f2 = codecs.open("user/" + email + ".txt", "r", "utf-8")
-                                anslag_file = f2.readlines()
+                                f = codecs.open("anslagsfolder/" + anslag, "r", "utf-8")
+                                text_file = f.readlines()
                                 try:
-                                    namn = anslag_file[0]
+                                    firstnamn = text_file[0].replace("\n", " ")
+                                    eftnamn = text_file[1].replace("\n", "")
+                                    namn = firstnamn + eftnamn
                                 except IndexError:
                                     namn = "Namn saknas"
+
                                 try:
-                                    pict = anslag_file[1]
+                                    pict = text_file[3]
                                 except IndexError:
                                     pict = "Bild saknas"
+
                                 try:
-                                    cont = anslag_file[2]
+                                    cont = text_file[5]
                                 except IndexError:
-                                    cont = "Content saknas"
+                                    cont = "Innehåll saknas"
+
+                                print namn
+                                print pict
+                                print cont
                                 time_list.append(anslag)
                                 namn_list.append(namn)
                                 pict_list.append(pict)
@@ -155,53 +164,10 @@ def user_profile():
 
 	return template("myProfile", username=username, firstname=firstname, profile_pic=profile_pic, age_1=age_1, appartment=appartment, tel=tel, like=like)
 
-
-@route("/home/")
-def home():
-        global username, email, profile_pic
-        """Lists for all lines in anslag_file"""
-        anslag_list = listdir("anslagsfolder")
-        namn_list = []
-        pict_list = []
-        content_list = []
-        time_list = []
-
-        """prints anslag"""
-        for anslag in reversed(anslag_list):
-                f = codecs.open("anslagsfolder/" + anslag, "r", "utf-8")
-                text_file = f.readlines()
-                try:
-                    namn = text_file[0]
-                except IndexError:
-                    namn = "Namn saknas"
-
-                try:
-                    pict = text_file[1]
-                except IndexError:
-                    pict = "Bild saknas"
-
-                try:
-                    cont = text_file[2]
-                except IndexError:
-                    cont = "Innehåll saknas"
-                time_list.append(anslag)
-                namn_list.append(namn)
-                pict_list.append(pict)
-                content_list.append(cont)
-        return template("home", username=username, email=email, profile_pic=profile_pic, anslag_list=anslag_list, namn_list=namn_list, pict_list=pict_list, content_list=content_list, time_list=time_list)
-
-
-#FUNKAR INTE - FUNKAR INTE - FUNKAR INTE - FUNKAR INTE - FUNKAR INTE - FUNKAR INTE - FUNKAR INTE - FUNKAR INTE
-@route("/board/", method="POST")
-def create_anslag():
-        """create anslag with date as filename"""
-        global username, email, profile_pic
-
-        namn_list = []
-        pict_list = []
-        content_list = []
-        time_list = []
-
+@route("/home/", method="POST")
+def post_anslag():
+        global username, email, message, profile_pic
+        
         anslag_title = datetime.now()
         year = str(anslag_title.year)
         month = str(anslag_title.month)
@@ -215,7 +181,7 @@ def create_anslag():
         if len(hour) < 2:
                 hour = "0" + hour
         if len(minute) < 2:
-                minute = "0" + day
+                minute = "0" + minute
 
         anslag_file = codecs.open("anslagsfolder/" + year + "-" + month + "-" + day + " kl." + hour + "." + minute + ".txt", "w", "utf-8") 
         anslag_content = request.forms.writtenPost
@@ -228,11 +194,41 @@ def create_anslag():
         anslag_file.write(anslag_content)
         anslag_file.close()
 
-        return template("board", username=username, profile_pic=profile_pic, email=email, namn_list=namn_list, pict_list=pict_list, content_list=content_list, time_list=time_list)
+        anslag_list = listdir("anslagsfolder")
+        namn_list = []
+        pict_list = []
+        content_list = []
+        time_list = []
+        for anslag in reversed(anslag_list):
+                f = codecs.open("anslagsfolder/" + anslag, "r", "utf-8")
+                text_file = f.readlines()
+                try:
+                    firstnamn = text_file[0].replace("\n", " ")
+                    eftnamn = text_file[1].replace("\n", "")
+                    namn = firstnamn + eftnamn
+                except IndexError:
+                    namn = "Namn saknas"
 
+                try:
+                    pict = text_file[3]
+                except IndexError:
+                    pict = "Bild saknas"
 
-@route("/board/")
-def board():
+                try:
+                    cont = text_file[5]
+                except IndexError:
+                    cont = "Innehåll saknas"
+
+                
+                time_list.append(anslag)
+                namn_list.append(namn)
+                pict_list.append(pict)
+                content_list.append(cont)
+                return template("home", username=username, email=email, profile_pic=profile_pic, anslag_list=anslag_list, namn_list=namn_list, pict_list=pict_list, content_list=content_list, time_list=time_list)
+                
+
+@route("/home/")
+def home():
         global username, email, profile_pic
         """Lists for all lines in anslag_file"""
         anslag_list = listdir("anslagsfolder")
@@ -241,31 +237,140 @@ def board():
         content_list = []
         time_list = []
 
+
         """prints anslag"""
         for anslag in reversed(anslag_list):
                 f = codecs.open("anslagsfolder/" + anslag, "r", "utf-8")
                 text_file = f.readlines()
                 try:
-                    namn = text_file[0]
+                    firstnamn = text_file[0].replace("\n", " ")
+                    eftnamn = text_file[1].replace("\n", "")
+                    namn = firstnamn + eftnamn
                 except IndexError:
                     namn = "Namn saknas"
 
                 try:
-                    pict = text_file[1]
+                    pict = text_file[3]
                 except IndexError:
                     pict = "Bild saknas"
 
                 try:
-                    cont = text_file[2]
+                    cont = text_file[5]
                 except IndexError:
-                    cont = "Content saknas"
+                    cont = "Innehåll saknas"
+
+        
                 time_list.append(anslag)
                 namn_list.append(namn)
                 pict_list.append(pict)
                 content_list.append(cont)
+        return template("home", username=username, email=email, profile_pic=profile_pic, anslag_list=anslag_list, namn_list=namn_list, pict_list=pict_list, content_list=content_list, time_list=time_list)
 
-        return template("board", username=username, profile_pic=profile_pic, email=email, anslag_list=anslag_list, namn_list=namn_list, pict_list=pict_list, content_list=content_list, time_list=time_list)
+
 #FUNKAR INTE - FUNKAR INTE - FUNKAR INTE - FUNKAR INTE - FUNKAR INTE - FUNKAR INTE - FUNKAR INTE - FUNKAR INTE
+##@route("/board/", method="POST")
+##def create_anslag():
+##        """create anslag with date as filename"""
+##        global username, email, profile_pic
+##
+##        anslag_list = listdir("anslagsfolder")
+##        namn_list = []
+##        pict_list = []
+##        content_list = []
+##        time_list = []
+##
+##        """prints anslag"""
+##        for anslag in reversed(anslag_list):
+##                f = codecs.open("anslagsfolder/" + anslag, "r", "utf-8")
+##                text_file = f.readlines()
+##                try:
+##                    firstnamn = text_file[0].replace("\n", " ")
+##                    eftnamn = text_file[1].replace("\n", "")
+##                    namn = firstnamn + eftnamn
+##                except IndexError:
+##                    namn = "Namn saknas"
+##
+##                try:
+##                    pict = text_file[3]
+##                except IndexError:
+##                    pict = "Bild saknas"
+##
+##                try:
+##                    cont = text_file[5]
+##                except IndexError:
+##                    cont = "Innehåll saknas"
+##
+##                
+##                time_list.append(anslag)
+##                namn_list.append(namn)
+##                pict_list.append(pict)
+##                content_list.append(cont)
+##
+##
+##        anslag_title = datetime.now()
+##        year = str(anslag_title.year)
+##        month = str(anslag_title.month)
+##        day = str(anslag_title.day)
+##        hour = str(anslag_title.hour)
+##        minute = str(anslag_title.minute)
+##        if len(month) < 2:
+##                month = "0" + month
+##        if len(day) < 2:
+##                day = "0" + day
+##        if len(hour) < 2:
+##                hour = "0" + hour
+##        if len(minute) < 2:
+##                minute = "0" + minute
+##
+##        anslag_file = codecs.open("anslagsfolder/" + year + "-" + month + "-" + day + " kl." + hour + "." + minute + ".txt", "w", "utf-8") 
+##        anslag_content = request.forms.writtenPost
+##        
+##        """writes name, pic and content in file"""
+##        anslag_file.write(username)
+##        anslag_file.write("\n")
+##        anslag_file.write(profile_pic)
+##        anslag_file.write("\n")
+##        anslag_file.write(anslag_content)
+##        anslag_file.close()
+##
+##        return template("board", username=username, profile_pic=profile_pic, email=email, namn_list=namn_list, pict_list=pict_list, content_list=content_list, time_list=time_list)
+##
+##
+##@route("/board/")
+##def board():
+##        global username, email, profile_pic
+##        """Lists for all lines in anslag_file"""
+##        anslag_list = listdir("anslagsfolder")
+##        namn_list = []
+##        pict_list = []
+##        content_list = []
+##        time_list = []
+##
+##        """prints anslag"""
+##        for anslag in reversed(anslag_list):
+##                f = codecs.open("anslagsfolder/" + anslag, "r", "utf-8")
+##                text_file = f.readlines()
+##                try:
+##                    namn = text_file[0]
+##                except IndexError:
+##                    namn = "Namn saknas"
+##
+##                try:
+##                    pict = text_file[1]
+##                except IndexError:
+##                    pict = "Bild saknas"
+##
+##                try:
+##                    cont = text_file[5]
+##                except IndexError:
+##                    cont = "Content saknas"
+##                time_list.append(anslag)
+##                namn_list.append(namn)
+##                pict_list.append(pict)
+##                content_list.append(cont)
+##
+##        return template("board", username=username, profile_pic=profile_pic, email=email, anslag_list=anslag_list, namn_list=namn_list, pict_list=pict_list, content_list=content_list, time_list=time_list)
+###FUNKAR INTE - FUNKAR INTE - FUNKAR INTE - FUNKAR INTE - FUNKAR INTE - FUNKAR INTE - FUNKAR INTE - FUNKAR INTE
 
 
 @route("/nabos/")

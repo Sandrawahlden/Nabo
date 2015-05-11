@@ -57,7 +57,7 @@
 					<img src="{{profile_pic}}" alt="Bild på en Nabo" style="width:60px;height:60px;padding:5px">
 					</p>
 
-					<form action="/board/" method="POST" class="form">
+					<form action="/home/" method="POST" class="form">
 
 					<p class="publishAPost">
 						<input required type="text" name="writtenPost" id="writtenPost" placeholder="Lämna ett meddelande på husets anslagstavla">			
