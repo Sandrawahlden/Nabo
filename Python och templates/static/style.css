@@ -1,13 +1,13 @@
-@media screen and (min-width: 1101px) {
 
-#logga, #loggaUt, #profile, #board, #messages, #nabos, #content, #signIn, #signUp, footer {
+
+#logga, #loggaUt, .profile, .profileClick, .board, .boardClick, .messages, .messagesClick, .nabos, .nabosClick, #content, #signIn, #signUp, footer {
     padding: 2px;
     margin-bottom: 2px;
     position: absolute;
 }
 
 html { 
-    background: url(../static/Bilder/f0840149.jpg) no-repeat center center fixed; 
+    background: url(/static/Bilder/f0840149.jpg) no-repeat center center fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -20,73 +20,101 @@ html {
 
 
 #wrapper {
-    min-height:100%;
     width: 1200px;
+    height: auto;
     position:relative;
-    margin: 0 auto;
+    margin: 0px auto;
 }
 
 
 
-/* ----- Header ----- */
+/* ----- Header ----- */ 
 
 #logga {
     background-color: #4d6630;
-<<<<<<< HEAD
     padding-right: 50px;
     padding-left: 20px;
     border: 100px;
-    border-radius: 5px 0px 20px 0px;
-=======
-    padding-right: 40px;
-    padding-left: 0px;
->>>>>>> 104b04ece1a7101ab746d99cfee46c89a2957fa4
-    /*padding-top: 20px;
-    padding-bottom: 20px;
-    border-radius: 2px 5px 90px 0px;*/
+    border-radius: 5px 0px 0px 5px;
 
     
 }
 
 
-
-
-
 #loggaUt {
     left: 270px;
     width: 800px;
+    height: 50px;
     text-align: right;
     padding: 20px;
     background-color: #4d6630;
     color: #ffffff;
     font-family: sans-serif;
-    border-radius: 0px 5px 0px 0px;
+    border-radius: 0px 5px 5px 0px;
+}
+
+#loggaUt a {
+    color: #ffffff;
+
+}
+
+#loggaUt a:hover {
+    color: rgba(115,115,115,0.8);
+    font-weight: bold;
+
+}
+
+#loggaUt a:active {
+    font-weight: bold;
+    font-size: 16px;
+
+}
+
+#adress {
+    float: left;
+    padding-left: 17px;
+    font-size: 20px;
 }
 
 
 /* ----- Navigation ----- */
 
 
-#profile, #board, #messages, #nabos {
-    top: 132px;
+.profile, .board, .messages, .nabos, .profileClick, .boardClick, .messagesClick, .nabosClick {
+    top: 101px;
 }
 
-#board, #messages, #nabos {
-    top: 212px;
+.board, .messages, .nabos, .boardClick, .messagesClick, .nabosClick {
+    top: 198px;
 }
 
-#messages, #nabos {
-    top: 274px;
+.messages, .nabos, .messagesClick, .nabosClick {
+    top: 262px;
 }
 
-#nabos {
-    top: 354px;
+.nabos, .nabosClick {
+    top: 343px;
 }
 
-#profile, #board, #messages, #nabos {
+.profile, .board, .messages, .nabos {
     background: rgba(115,115,115,0.8);
     font-family: sans-serif;
     width: 240px;
+}
+
+.profileClick, .boardClick, .messagesClick, .nabosClick {
+    background: rgba(115,115,115,0.8);
+    font-family: sans-serif;
+    width: 240px;
+    padding-right: 63px;
+}
+
+.messages li:last-child {
+    font-size: 13px;
+}
+
+.profile li:last-child {
+    font-size: 13px;
 }
 
 ul {
@@ -138,15 +166,14 @@ a:active {
 /* ----- Stora rutan ----- */
 
 #content {
-    padding-bottom:100px; 
     background:rgba(115,115,115,0.8);    
     color: #ffffff;
     font-family: sans-serif;
-    top: 100px;
+    top: 101px;
     left: 305px;
     width: 800px;
     height: 700px;
-    border-radius: 10px 0px 10px 10px;
+    border-radius: 0px 0px 10px 10px;
 
 }
 
@@ -154,50 +181,88 @@ a:active {
 
 /* ----- PROFILSIDA ----- */
 
+#profilePic {
+    float: right;
+}
+
+#age, #apartment, #phone {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 10px;
+    padding-left: 40px;
+}
+
+#name, #likes {
+    padding-top: 40px;
+    padding-bottom: 10px;
+    padding-right: 10px;
+    padding-left: 40px;
+}
+
+#clickToEditProfile{
+    padding-left: 40px;
+    font-style: italic;
+    text-decoration: underline;
+    font-size: smaller;
+}
+
+/* ----- REDIGERA PROFIL -----*/
+
+#editProfileText{
+    font-weight: bold;
+    font-size: 18px;
+}
+
+#editProfile {
+    padding-left: 20%;
+    padding-right: 20%;
+    width: 80%;
+}
+
+#acceptChange {
+    float: right;
+}
 
 /* ----- ANSLAGSTAVLAN ----- */
 
-
-#bodySquare{
-    width: 800px;
-    height: 100%;
-    background:rgba(115,115,115,0.8);
-}
 #writeAPost {
-    width: 700px;
-    position: absolute;
-    top: 50px;
-    left: 50px;
+    margin: 0 auto;
+    width: 80%;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-bottom: 40px;
+    margin-top: 40px;
+    background-color: #4d6630;
+    border-radius: 5px 5px 5px 5px;
 }
 
 #picWhenPosting {
-    width: 50px;
-
-}
-
-#writtenPost {
-    width: 600px;
-    height: 60px;
-    position: absolute;
-    top: 20px;
-    left: 75px;
+    padding-left: 15px;
+    width: 10%;
+    float: left;
 }
 
 #submitPost {
-    float: right;
-    width: 150px;
-    color: #ffffff;
-    background-color: #4d6630;
+    width: 20%;
+    margin-top: 0;
+    margin-bottom: 15px;
+    margin-left: 495px;
+    color: #4d6630;
+    background-color: #ffffff;
+    border-radius: 5px 5px 5px 5px;
+    font-weight: bold;
 }
 
+
 .publishedPosts {
-    width: 600px;
-    padding: 50px;
-    margin-left: 50px;
-    position: absolute;
-    top: 300px;
+    width: 80%;
+    margin: 0 auto;
+    padding: 10px;
     background-color: #ffffff;
     color: #696969;
+    
+    
 }
 
 #replyToPost {
@@ -208,32 +273,151 @@ a:active {
 
 
 
-/* ----- Footer ----- OBS! FUNGERAR EJ - BEHÖVER ARBETE */
+/* ----- Mina meddelanden ----- */
+
+.from {
+    width: 50%;
+    float: left;
+    padding: 8px;
+    background-color: #696969;
+    border-radius: 10px 10px 10px 10px;
+}
+
+.me {
+    width: 50%;
+    float: right;
+    padding: 10px;
+    background-color: green;
+    border-radius: 10px 10px 10px 10px;
+}
+
+#fakeWrite {
+    width: 87%;
+    padding: 5px;
+    float: left;
+    background-color: #ffffff;
+    border-radius: 2px 2px 2px 2px;
+    color: #696969;
+    font-style: italic;
+}
+
+#fakeSend {
+    width: 10%;
+    padding: 5px;
+    float: right;
+    background-color: green;
+    border-radius: 2px 2px 2px 2px;
+    text-align: center;
+}
+
+#currentMessage {
+    width: 97%;
+    background-color: #595959;
+    padding: 10px;
+    float: left;
+}
+
+.inboxMessages {
+    width: 97%;
+    background-color: #797979;
+    padding: 10px;
+    float: left;
+}
+
+
+/* ----- Skriv meddelande ----- */
+
+#listOfContacts {
+    width: 40%;
+    float: left;
+    padding: 10px;  
+}
+
+#writeANewMessage {
+    width: 40%;
+    float: right;
+    background-color: #ffffff;
+    color: #696969;
+    border-radius: 5px 5px 5px 5px;
+    padding: 10px;
+    margin-right: 20px;
+    font-style: italic;
+    font-size: smaller;
+}
+
+#writeYourMessageHere {
+    width: 40%;
+    float: right;
+    background-color: #ffffff;
+    color: #696969;
+    border-radius: 5px 5px 5px 5px;
+    padding: 10px;
+    margin-right: 20px;
+    font-style: italic;
+    padding-bottom: 200px;
+    font-size: smaller;
+}
+
+#sendYourMessageButton {
+    width: 20%%;
+    float: right;
+    background-color: #4d6630;
+    color: #ffffff;
+    border-radius: 5px 5px 5px 5px;
+    padding: 10px;
+    margin-right: 20px;
+    margin-left: 400px;
+    text-align: center;
+    
+}
+
+
+/* ----- Footer ----- */
 
 footer {
-    background: #4d6660;
-    width:1100px;
-    height:30px;
+    width: 1100px;
+    height: 30px;
+    background-color: #4d6630;
     padding-top: 15px;
-    bottom:0;
-    left:0;
+    padding-bottom: 5px;
     font-family: sans-serif;
+    text-decoration: none;
     text-align: center;
+    bottom: 0;
+    position: fixed;
+    border-radius: 5px 5px 0px 0px; 
+    left: auto;
+    right: auto;
+    
+}
+
+footer a {
+    color: #ffffff;
+    text-decoration: none;
+    margin: 0px 10px 0px 10px;
+        
+}
+
+footer a:hover {
+    color: #ababab;
 }
 
 
 /* ----- Inloggningssidan ----- */
 
 #mamaWrapper {
-    min-height:600px;
-    width: 1200px;
-    position:relative;
-    margin: 0 auto;
+    height:60%;
+    width: 90%;
+    position:absolute;
+    margin: auto;
 }
 
 #indexWrapper {
-    height:500px;
-    width: 600px;
+    top:10%;
+    margin-left: 13%;
+    margin-right: auto;
+    height:62%;
+    width: 42%;
     border: 5px solid #4d6630;
     background: rgba(140, 140, 140, 0.6);
     border-radius: 20px 20px 20px 20px;
@@ -241,13 +425,14 @@ footer {
 }
 
 #secondIndexWrapper {
-    height:500px;
-    width: 400px;
+    top: -4px;
+    height: 167%;
+    width: 80%;
     border: 5px solid #4d6630;
     background: rgba(140, 140, 140, 0.6);
     border-radius: 20px 20px 20px 20px;
     position: absolute;
-    left: 620px;
+    left: 115%;
 }
 
 #signin, #signUp, #welcomeText{
@@ -255,21 +440,24 @@ footer {
 }
 
 #signin {
-    top: 150px;
-    left: 40px;
+    top: 44%;
+    left: 7%;
+    padding: 2%;
 
 }
 
 #signUp {
-    left: 20px;
-    top: 20px;
-    padding: 35px;
+    left: 7%;
+    top: 7%;
+    padding: 5%;
+    margin: auto;
 }
 
 #welcomeText {
-    top: 150px;
-    left: 300px;
-    width: 300px;
+    top: 45%;
+    left: 47%;
+    width: 60%;
+    padding-left: 3%;
 }
 
 h1 {
@@ -287,6 +475,8 @@ h1 {
 #indexPageText{
     color: white;
     font-family: sans-serif;
+    font-weight: bold;
+    margin-bottom: -3%;
 }
 #backgroundlogin {
     background-color: #4d6630;
@@ -305,6 +495,8 @@ h1 {
     color: #FFF;
     border-radius: 3px;
     float: right;
+    font-weight: bold;
+    font-size: 12px;
 
 }
 
@@ -315,6 +507,30 @@ h1 {
     color: #FFF;
     border-radius: 3px;
     float: right;     
+}
+
+#mamaWrapper #signin  h2 {
+    padding: 1%;
+    font-size: 14px;
+    font-family: sans-serif;
+    border: 1px solid;
+    top:-3s%;
+    background-color: #4d6630;
+    width: 63%;
+
+
+}
+
+#mamaWrapper #signUp h2 {
+    padding: 1%;
+    font-size: 14px;
+    font-family: sans-serif;
+    border: 1px solid;
+    top:-3s%;
+    background-color: #4d6630;
+    width: 97%;
+
+
 }
 
 
@@ -356,58 +572,29 @@ input:focus {
 
 }
 
-@media screen and (max-width: 1100px) and (min-width: 770px) {
-}
-
-@media screen and (max-width: 769px) {
-
-
-html { 
-    background: url(../static/Bilder/f0840149.jpg) no-repeat center center fixed; 
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    margin:0;
-    padding:0;
-    height:100%;
-    color: #ffffff;
-}
- 
-
-#signin, #secondIndexWrapper, #welcomeText {
-    background: rgba(115,115,115,0.8);
-    font-family: sans-serif;
-}
 
 
 
 
-nav {
-        width: 80%%;
-        font-family: sans-serif;
-        
 
-    }
 
-    nav ul {
-        list-style: none;
 
-    }
 
-    nav ul a {
-        display: block;
-        background: rgba(115,115,115,0.8);
-        padding: 1%;
-        margin-bottom: 1px;
-        text-decoration: none;
-        color: #ffffff;     
-    }
 
-    nav ul ul {
-        display: none;
 
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

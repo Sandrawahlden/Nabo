@@ -16,6 +16,7 @@
 				<img src="/static/Bilder/logotypnabo.jpg" alt="Nabologga" style="width:260px;height:82px;border:0"></a>
 			</div>
 			<div id="loggaUt">
+				<p id="adress"> Rönnblommsgatan 11</p>
 				<p id="user">
 				<a href="/myProfile/">{{username}}</a>
 				<a href="/">Logga ut</a>
@@ -23,38 +24,46 @@
 		</header>
 
 		<nav>
-			<nav id="profile">
+			<nav class="profile">
 				<ul>
 					<li><p id="user"><a href="/myProfile/">{{username}}</a></p></li>
 					<li><a href="/editProfile/" class="nav">Redigera min profil</a></li>
 				</ul>
 			</nav>
 
-			<nav id="board">
+			<nav class="board">
 				<ul>
 					<li><a href="/home/" class="nav">Anslagstavlan</a></li>
 				</ul>
 			</nav>
 
-			<nav id="messages">
+			<nav class="messagesClick">
 				<ul>
 					<li><a href="/inbox/" class="nav">Mina meddelanden</a></li>
 					<li><a href="/write/" class="nav">Skriv nytt meddelande</a></li>
 				</ul>
 			</nav>
 
-			<nav id="nabos">
+			<nav class="nabos">
 				<ul>
 					<li><a href="/nabos/" class="nav">Nabos</a></li>
 				</ul>
 			</nav>
 		</nav>
 
-		<div id="content"
-			<div id="bodySquare">
-				<p>Här kommer vi fylla på med innehåll.
+		<div id="content">
+				<p id="listOfContacts">Här kommer listan med Nabos
 				</p>
-			</div>
+
+				<p id="writeANewMessage">Till
+				</p>
+
+				<p id="writeYourMessageHere">Meddelande
+				</p>
+
+				<p id="sendYourMessageButton">Skicka!
+				</p>
+			
 		</div>
 		
 		<footer>
