@@ -52,8 +52,15 @@
 		</nav>
 
 		<div id="content">
-				<p id="listOfContacts">Här kommer listan med Nabos
-				</p>
+			%for name, pic, user in zip(name_list, pic_list, user_list):
+				<div id="naboRutaWrite">
+					<img src="{{pic}}" alt="{{name}}" style="width:50px;height:50px;padding:5px">
+					<a href="/otherUser/{{user}}">{{name}}</a>
+					<br>
+					<br>
+				</div>
+			%end
+				
 
 				<p id="writeANewMessage">Till
 				</p>

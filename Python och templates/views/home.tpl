@@ -52,20 +52,19 @@
 		</nav>
 
 		<div id="content">
-			<div id="bodySquare">
-				<div id="writeAPost">
+				<div class="writeAPost">
 					<p id="picWhenPosting">
 					<img src="{{profile_pic}}" alt="Bild på en Nabo" style="width:60px;height:60px;padding:5px">
 					</p>
 
-					<form action="/home/" method="POST" class="form">
+					<form action="/board/" method="POST" class="form">
 
 					<p class="publishAPost">
 						<input required type="text" name="writtenPost" id="writtenPost" placeholder="Lämna ett meddelande på husets anslagstavla">			
 					</p>
 
 					<p class="submitPost">
-						<input name="submitPost" id="submitPost" type="submit" value="Sätt upp anslaget!">
+					<input type="image" src="/static/Bilder/1431441645_MapMarker_PushPin_Left_Chartreuse.png" alt="Häftstift att trycka på för att publicera" name="submitPost" id="submitPost" style="width:35px;height:35px;padding:1px">
 					</p>
 				</div>
 			%for namn, picture, content, time in zip(namn_list, pict_list, content_list, time_list):
@@ -74,17 +73,16 @@
 					<p id="publishedDate">Postat: {{time[:-4]}}</p>
 					<p id="publishedName">{{namn}}</p>
 					<p id="publishedText">{{content}}</p>
-
-					<p id="replyToPost">
-						Svara på anslaget
-					</p>
+					<p id="replyToPost">Svara på anslaget</p>
 				</div>
 			%end
-			</div>
 		</div>
 		
-
-		
+		<footer>
+			<a href="/contact/">Kontakta oss</a>
+			<a href="/about/">Om Nabo</a>
+			<a href="/help/">Hjälp</a>
+		</footer>	
 
 	</div>
 </html>

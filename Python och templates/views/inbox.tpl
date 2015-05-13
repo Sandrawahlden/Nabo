@@ -51,7 +51,7 @@
 			</nav>
 		</nav>
 
-		<div id="content">
+			<div id="content">
 				
 
 				<p class="inboxMessage"><a href="/messageView/"><span style="font-weight:bold"> Lasse Löpare</span><br>05:30? Så har man det gjort :)
@@ -71,10 +71,7 @@
 
 				<p class="inboxMessages"><span style="font-weight:bold"> Malin Browall</span><br>Yes!
 				</p>
-
-
 			</div>
-		</div>
 	
 
 		<footer>
