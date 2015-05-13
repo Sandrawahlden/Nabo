@@ -33,7 +33,7 @@
 
 			<nav class="boardClick">
 				<ul>
-					<li><a href="/home/" class="nav">Anslagstavlan</a></li>
+					<li><a href="/home/" class="nav"><span style="color: #4d6630">Anslagstavlan</span></a></li>
 				</ul>
 			</nav>
 

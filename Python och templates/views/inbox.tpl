@@ -39,7 +39,7 @@
 
 			<nav class="messagesClick">
 				<ul>
-					<li><a href="/inbox/" class="nav">Mina meddelanden</a></li>
+					<li><a href="/inbox/" class="nav"><span style="color: #4d6630"><span style="font-weight: bold">Mina meddelanden</span></span></a></li>
 					<li><a href="/write/" class="nav">Skriv nytt meddelande</a></li>
 				</ul>
 			</nav>
@@ -52,29 +52,24 @@
 		</nav>
 
 		<div id="content">
-				<p class="from">Hej! Jag bor precis ovanför dig. Har sett att du ofta är ute och springer på morgonen. Jag springer ultralopp. Säg till om du vill spriga tillsammans någon gång :)
+				
+
+				<p class="inboxMessage"><a href="/messageView/"><span style="font-weight:bold"> Lasse Löpare</span><br>05:30? Så har man det gjort :)
+				</a></p>
+
+				<p class="inboxMessages"><span style="font-weight:bold"> Martin Chard</span><br>Supersnällt att du matar katterna i helgen!
 				</p>
 
-				<p class="me">Tja tja, det låter ju supernice. Jag har precis gjort min första mara. Hade varit schysst med sällskap på distanspassen. 
+				<p class="inboxMessages"><span style="font-weight:bold"> Hannes Dernbrant</span><br>Gårdsfest på lördag!
 				</p>
 
-				<p class="from">Grattis! Hoppas loppet gick bra. Jag brukar ha ett distanspass på söndagar. Ca 35 km. Sugen?
+				<p class="inboxMessages"><span style="font-weight:bold"> André Sjöroos</span><br>Tack för lånet av borrmaskinen!
 				</p>
 
-				<p class="me">Fett. Tid?
+				<p class="inboxMessages"><span style="font-weight:bold"> Klara Hertzell</span><br>Jag är tyvärr i Sthlm då...
 				</p>
 
-				<p class="from">05:30? Så har man det gjort :)
-				</p>
-
-				<p id="fakeWrite">Svara</p>
-
-				<p id="fakeSend">Skicka</p>
-
-				<p id="currentMessage"><span style="font-weight:bold"> Lasse Löpare</span><br>05:30? Så har man det gjort :)
-				</p>
-
-				<p class="inboxMessages"><span style="font-weight:bold"> Martin Chard</span><br>Supersnällt att du matar katten i helgen!
+				<p class="inboxMessages"><span style="font-weight:bold"> Malin Browall</span><br>Yes!
 				</p>
 
 

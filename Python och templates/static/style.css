@@ -80,6 +80,11 @@ html {
 /* ----- Navigation ----- */
 
 
+#user {
+    color: #4d6630;
+    font-weight: bold;
+}
+
 .profile, .board, .messages, .nabos, .profileClick, .boardClick, .messagesClick, .nabosClick {
     top: 101px;
 }
@@ -172,17 +177,45 @@ a:active {
     top: 101px;
     left: 305px;
     width: 800px;
-    height: 700px;
     border-radius: 0px 0px 10px 10px;
+    padding-bottom: 40px;
+    margin-bottom: 40px;
 
 }
 
+
+
+
+/* ----- LÄNKAR ----- */
+
+a:link {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+a:visited {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+a:hover {
+    color: #4d6630;
+    font-weight: bold;
+}
+
+a:active {
+    text-decoration: none;
+
+}
+ 
 
 
 /* ----- PROFILSIDA ----- */
 
 #profilePic {
     float: right;
+    padding: 20px;
+    margin: 20px;
 }
 
 #age, #apartment, #phone {
@@ -228,11 +261,6 @@ a:active {
 #writeAPost {
     margin: 0 auto;
     width: 80%;
-    padding-top: 10px;
-    padding-left: 10px;
-    padding-right: 10px;
-    margin-bottom: 40px;
-    margin-top: 40px;
     background-color: #4d6630;
     border-radius: 5px 5px 5px 5px;
 }
@@ -241,6 +269,16 @@ a:active {
     padding-left: 15px;
     width: 10%;
     float: left;
+}
+
+#writtenPost {
+    width: 78%;
+    float: right;
+    margin-top: 35px;
+    margin-right: 25px;
+    
+   
+
 }
 
 #submitPost {
@@ -252,6 +290,7 @@ a:active {
     background-color: #ffffff;
     border-radius: 5px 5px 5px 5px;
     font-weight: bold;
+    margin-top: 0;
 }
 
 
@@ -310,18 +349,12 @@ a:active {
     text-align: center;
 }
 
-#currentMessage {
-    width: 97%;
-    background-color: #595959;
-    padding: 10px;
-    float: left;
-}
 
 .inboxMessages {
-    width: 97%;
-    background-color: #797979;
-    padding: 10px;
-    float: left;
+    width: 80%;
+    padding: 20px;
+    border-bottom: 2px solid #4d6630;
+    margin: 0 auto;
 }
 
 
@@ -562,17 +595,6 @@ input:focus {
     margin-left: 10px;
     color: #4d6630;
 }
-
-
-#naboruta a:link, a:visited {
-    text-decoration: none;
-    color: #000;
-}
-
-
-}
-
-
 
 
 

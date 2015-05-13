@@ -30,13 +30,13 @@
 				</ul>
 			</nav>
 
-			<nav class="board">
+			<nav class="boardClick">
 				<ul>
-					<li><a href="/home/" class="nav">Anslagstavlan</a></li>
+					<li><a href="/home/" class="nav"><span style="color: #4d6630">Anslagstavlan</span></a></li>
 				</ul>
 			</nav>
 
-			<nav class="messagesClick">
+			<nav class="messages">
 				<ul>
 					<li><a href="/inbox/" class="nav">Mina meddelanden</a></li>
 					<li><a href="/write/" class="nav">Skriv nytt meddelande</a></li>
@@ -51,7 +51,6 @@
 		</nav>
 
 		<div id="content">
-			<div id="bodySquare">
 				<div id="writeAPost">
 					<p id="picWhenPosting">
 					<img src="{{profile_pic}}" alt="Bild på en Nabo" style="width:60px;height:60px;padding:5px">
@@ -64,7 +63,7 @@
 					</p>
 
 					<p class="submitPost">
-						<input name="submitPost" id="submitPost" type="submit" value="Sätt upp anslaget!">
+					<img src="/static/Bilder/1431441645_MapMarker_PushPin_Left_Chartreuse.png" alt="Häftstift att trycka på för att publicera" style="">
 					</p>
 				</div>
 			%for namn, picture, content, time in zip(namn_list, pict_list, content_list, time_list):

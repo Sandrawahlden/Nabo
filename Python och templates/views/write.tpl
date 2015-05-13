@@ -40,7 +40,7 @@
 			<nav class="messagesClick">
 				<ul>
 					<li><a href="/inbox/" class="nav">Mina meddelanden</a></li>
-					<li><a href="/write/" class="nav">Skriv nytt meddelande</a></li>
+					<li><a href="/write/" class="nav"><span style="color: #4d6630">Skriv nytt meddelande</span></a></li>
 				</ul>
 			</nav>
 

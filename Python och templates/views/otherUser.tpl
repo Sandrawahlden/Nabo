@@ -43,9 +43,9 @@
 				</ul>
 			</nav>
 
-			<nav id="nabos">
+			<nav id="nabosClick">
 				<ul>
-					<li><a href="/nabos/" class="nav">Nabos</a></li>
+					<li><a href="/nabos/" class="nav"><span style="color: #4d6630">Nabos</span></a></li>
 				</ul>
 			</nav>
 		</nav>
