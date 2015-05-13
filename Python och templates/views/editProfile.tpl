@@ -16,7 +16,6 @@
 				<img src="/static/Bilder/logotypnabo.jpg" alt="Nabologga" style="width:260px;height:82px;border:0"></a>
 			</div>
 			<div id="loggaUt">
-				<p id="adress"> Rönnblommsgatan 11</p>
 				<p id="user">
 				<a href="/myProfile/">{{username}}</a>
 				<a href="/">Logga ut</a>
@@ -24,32 +23,25 @@
 		</header>
 
 		<nav>
-			<nav class="profileClick">
+			<nav id="profile">
 				<ul>
 					<li><p id="user"><a href="/myProfile/">{{username}}</a></p></li>
-					<li><a href="/editProfile/" class="nav"><span style="color: #4d6630">Redigera min profil</span></a></li>
+					<li><a href="/editProfile/" class="nav">Redigera min profil</a></li>
 				</ul>
 			</nav>
 
-			<nav class="board">
+			<nav id="board">
 				<ul>
 					<li><a href="/home/" class="nav">Anslagstavlan</a></li>
 				</ul>
 			</nav>
 
-			<nav class="messages">
+			<nav id="messages">
 				<ul>
 					<li><a href="/inbox/" class="nav">Mina meddelanden</a></li>
 					<li><a href="/write/" class="nav">Skriv nytt meddelande</a></li>
 				</ul>
 			</nav>
-
-			<nav class="nabos">
-				<ul>
-					<li><a href="/nabos/" class="nav">Nabos</a></li>
-				</ul>
-			</nav>
-		</nav>
 
 			<nav id="nabos">
 				<ul>
@@ -61,68 +53,70 @@
 		<div id="content"
 			<div id="bodySquare">
 				<div id="editProfile">
-					<p>Redigera Profil</p>	
+					<p id="editProfileText">Redigera Profil</p>	
+					<button id="move" type="button">Jag har flyttat!</button>
 						<form action="/editProfile/" method="POST" class="form">
 						
-						<p class ="profile_pic">URL till profilbild:
-							<input type="text" name="profile_pic" id="profile_pic" value="{{pic}}">	
-						</p>
-						
-						<p class ="name">Namn:
-							<input required type="text" name="name" id="name" value="{{firstname}}">	
-						</p>
+							<p class ="profile_pic">URL till profilbild: </p>
+								<input type="text" name="profile_pic" id="profile_pic" value="{{pic}}">	
 							
-						<p class="surname">Efternamn:
-							<input required type="text" name="surname" id="surname" value="{{lastname}}">	
-						</p>
-						
-						<p class="age">Ålder:
-							<input type="text" name="age" id="age" value="{{age_1}}">
-						</p>
-						
-						<p class="adress">Gatnamn och nummer:
-							<input required type="text" name="street" id="street" value="{{streetname}}">	
-						</p>
-						
-						<p class="adress">Stad:
-							<input required type="text" name="city" id="city" value="{{town}}">
-						</p>
-						
-						<p class="lgh">Våning:
-							<input  type="text" name="lgh" id="lgh" value="{{appartment}}">			
-						</p>
-						
-						<p class="email">Email:
-							<input required type="email" name="email" id="email" value="{{mail}}">			
-						</p>
-						
-						<p class="tel">Telnr:
-							<input type="text" name="tel_nr" id="tel_nr" value="{{tel}}">			
-						</p>
-						
-						<p class="likes">Om mig:
-							<input type="text" name="likes" id="likes" value="{{like}}">			
-						</p>
-						
-						<p>Byta lösenord</p>
-						<p class="password">
-							<input type="password" name="pwd_1" id="password" placeholder="Nytt lösenord:">	
-						</p>
+							<p> Förnamn: </p>
+							<p class ="name">
+								<input required type="text" name="name" id="name" value="{{firstname}}">	
+							</p>
+								
+							<p> Efternamn: </p>
+							<p class="surname">
+								<input required type="text" name="surname" id="surname" value="{{lastname}}">	
+							</p>
+							
+							<p> Ålder: </p>
+							<p class="age">
+								<input type="text" name="age" id="age" value="{{age_1}}">
+							</p>
+							
+							<p> Våning: </p>
+							<p class="lgh">
+								<input  type="text" name="lgh" id="lgh" value="{{appartment}}">			
+							</p>
+							
+							<p> Email: </p>
+							<p class="email">
+								<input required type="email" name="email" id="email" value="{{mail}}">			
+							</p>
+							
+							<p> Telnr: </p>
+							<p class="tel">
+								<input type="text" name="tel_nr" id="tel_nr" value="{{tel}}">			
+							</p>
+							
+							<p> Om mig: </p>
+							<p class="likes">
+								<input type="text" name="likes" id="likes" value="{{like}}">			
+							</p>
+							
+							<p>Byta lösenord</p>
+							<p class="password">
+								<input type="password" name="pwd_1" id="password" placeholder="Nytt lösenord:">	
+							</p>
 
-						<p class="password">
-							<input type="password" name="pwd_2" id="password" placeholder="Bekräfta nytt lösenord:">	
-						</p>
-						
-						<p>Bekräfta ändringar genom att ange ditt lösenord</p>
-						
-						<p class="password">Gammalt lösenord:
-							<input type="password" required name="old_pwd" id="password" placeholder="Skriv ditt gamla lösenord:">	
-						</p>
-						
-						<p class="submit">
-							<input name="update" type="submit" value="Uppdatera">
-						</p>
-				</form>
+							<p class="password">
+								<input type="password" name="pwd_2" id="password" placeholder="Bekräfta nytt lösenord:">	
+							</p>
+							
+							<div id="acceptChange">
+								<p>Bekräfta ändringar genom att ange ditt lösenord</p>
+								
+								<p class="password">Gammalt lösenord:
+									<input type="password" required name="old_pwd" id="password" placeholder="Skriv ditt gamla lösenord:">	
+								</p>
+							
+								<p class="submit">
+									<input name="update" type="submit" value="Uppdatera">
+								</p>
+							</div>
+						</form>
+				</div>	
 			</div>
 		</div>
 		

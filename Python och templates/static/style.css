@@ -244,16 +244,34 @@ a:active {
 #editProfileText{
     font-weight: bold;
     font-size: 18px;
+    padding-top: 25px;
+    padding-bottom: 10px;
 }
 
 #editProfile {
-    padding-left: 20%;
-    padding-right: 20%;
+    padding-left: 10%;
+    padding-right: auto;
     width: 80%;
+}
+
+#editProfile p {
+    margin: 3px;
 }
 
 #acceptChange {
     float: right;
+}
+
+#move {
+    width: 120px; 
+    height: 40px;
+    background-color: #4d6630; 
+    color: #FFF;
+    border-radius: 3px;
+    float: right;
+    font-weight: bold;
+    font-size: 12px;
+
 }
 
 /* ----- ANSLAGSTAVLAN ----- */
