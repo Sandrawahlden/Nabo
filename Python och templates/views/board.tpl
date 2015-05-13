@@ -63,7 +63,7 @@
 					</p>
 
 					<p class="submitPost">
-					<img src="/static/Bilder/1431441645_MapMarker_PushPin_Left_Chartreuse.png" alt="Häftstift att trycka på för att publicera" style="">
+					<input type="image" src="/static/Bilder/1431441645_MapMarker_PushPin_Left_Chartreuse.png" alt="Häftstift att trycka på för att publicera" name="submitPost" id="submitPost" style="width:35px;height:35px;padding:1px">
 					</p>
 				</div>
 			%for namn, picture, content, time in zip(namn_list, pict_list, content_list, time_list):
@@ -72,17 +72,16 @@
 					<p id="publishedDate">Postat: {{time[:-4]}}</p>
 					<p id="publishedName">{{namn}}</p>
 					<p id="publishedText">{{content}}</p>
-
-					<p id="replyToPost">
-						Svara på anslaget
-					</p>
+					<p id="replyToPost">Svara på anslaget</p>
 				</div>
 			%end
-			</div>
 		</div>
 		
-
-		
+		<footer>
+			<a href="/contact/">Kontakta oss</a>
+			<a href="/about/">Om Nabo</a>
+			<a href="/help/">Hjälp</a>
+		</footer>	
 
 	</div>
 </html>
