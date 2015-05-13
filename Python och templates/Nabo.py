@@ -78,7 +78,6 @@ def register_user():
                         firstname = text_file[0]
                         surname = text_file[1]
                         username = firstname + surname
-                        profile_pic = text_file[3]
                         f.close()
 
                         anslag_title = datetime.now()
@@ -495,12 +494,12 @@ def write_message():
         #!!!!NEEDS TO BE FIXED/ADJUSTED WHEN HTML IS IN PLACE!!!!
 
         global username
-        
+
         user_list = listdir("user")
         name_list = []
         pic_list = []
         for user in user_list:
-                f = codecs.open("user/" + email + ".txt", "r", "utf-8")
+                f = codecs.open("user/" + user, "r", "utf-8")
                 text_file = f.readlines()
                 firstname = text_file[0]
                 surname = text_file[1]
@@ -509,9 +508,18 @@ def write_message():
                 name_list.append(nabos)
                 pic_list.append(profile_pic)
 
-        #!!!!NEEDS TO BE FIXED/ADJUSTED WHEN HTML IS IN PLACE!!!!
                         
-	return template("write", user_list=user_list, name_list=name_list, username=username, profile_pic=profile_pic, pic_list=pic_list)
+	return template("write", user=user, user_list=user_list, name_list=name_list, username=username, profile_pic=profile_pic, pic_list=pic_list)
+
+
+@route("/messageView/")
+def message():
+	"""
+	This is the nabo help.
+	"""
+	global username
+	
+	return template("messageView", username=username)
 
 
 @route("/help/")
