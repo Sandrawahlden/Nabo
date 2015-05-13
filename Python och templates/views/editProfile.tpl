@@ -27,7 +27,7 @@
 			<nav class="profileClick">
 				<ul>
 					<li><p id="user"><a href="/myProfile/">{{username}}</a></p></li>
-					<li><a href="/editProfile/" class="nav">Redigera min profil</a></li>
+					<li><a href="/editProfile/" class="nav"><span style="color: #4d6630">Redigera min profil</span></a></li>
 				</ul>
 			</nav>
 

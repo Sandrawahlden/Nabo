@@ -55,11 +55,10 @@
 			<div id="bodySquare">
 				<img src="{{profile_pic}}" alt="Bild på dig" id="profilePic" style="width:150px;height:150px;padding:10px">
 				
-				<p id="name"><span style="font-weight:bold">Namn:</span> {{username}}</p>
-				<p id="age"><span style="font-weight:bold">Ålder:</span> {{age_1}}</p>
+				<p id="name"><span style="font-weight:bold">{{username}}</span></p>
+				<p id="age">{{age_1}} år</p>
 				<p id="apartment"><span style="font-weight:bold">Våning:</span> {{appartment}}</p>
-				<p id="phone"><span style="font-weight:bold">Telefonnr:</span> {{tel}}</p>
-					
+				<p id="phone"><span style="font-weight:bold">Telefon:</span> {{tel}}</p>	
 				<p id="likes"><span style="font-weight:bold">Om {{firstname}}:</span> <br>
 				{{like}}</p>
 				
