@@ -24,7 +24,7 @@
 			<div id="signin">
 					<p id="indexPageText">LOGGA IN</p>
 
-					<form action="/home/" method="POST" class="form">
+					<form action="/" method="POST" class="form">
 					
 						<p>
 							<input required type="email" name="mail" id="email" placeholder="Email">

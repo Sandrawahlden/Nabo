@@ -8,7 +8,7 @@ import codecs
 
 username = ""
 email = ""
-profile_pic = ""
+
 age = ""
 lgh = ""
 tel_nr = ""
@@ -53,8 +53,9 @@ def register_user():
         pwd_2 = request.forms.pwd_2
         street = request.forms.adress
         city = request.forms.city
+        profile_pic = "/static/Bilder/avatar.png"
 	if pwd_1 == pwd_2:
-                contact.extend((name, surname, pwd_1, "/static/Bilder/avatar.png", street, city, "-", "-", "-", "-"))
+                contact.extend((name, surname, pwd_1, profile_pic, street, city, "-", "-", "-", "-"))
 
                 mail = email + ".txt"
                 
@@ -64,6 +65,7 @@ def register_user():
                         return template("registerProfileFail", message=message)
                 
                 else:
+                        
                         text_file = codecs.open("user/" + email + ".txt", "w", "utf-8")
                         
                         for i in contact:
@@ -77,6 +79,35 @@ def register_user():
                         surname = text_file[1]
                         username = firstname + surname
                         f.close()
+
+                        anslag_title = datetime.now()
+                        year = str(anslag_title.year)
+                        month = str(anslag_title.month)
+                        day = str(anslag_title.day)
+                        hour = str(anslag_title.hour)
+                        minute = str(anslag_title.minute)
+                        if len(month) < 2:
+                                month = "0" + month
+                        if len(day) < 2:
+                                day = "0" + day
+                        if len(hour) < 2:
+                                hour = "0" + hour
+                        if len(minute) < 2:
+                                minute = "0" + minute
+
+                        anslag_file = codecs.open("anslagsfolder/" + year + "-" + month + "-" + day + " kl." + hour + "." + minute + ".txt", "w", "utf-8") 
+                        anslag_content = request.forms.writtenPost
+                        
+                        """writes name, pic and content in file"""
+                        anslag_file.write(username)
+                        anslag_file.write("\n")
+                        anslag_file.write("/static/Bilder/avatar.png")
+                        anslag_file.write("\n")
+                        anslag_file.write(" ")
+                        anslag_file.write("\n")
+                        anslag_file.write("Har flyttat in!")
+                        anslag_file.close()
+                        
                         return template("myProfile", title=email, text=contact, firstname=firstname, username=username, pwd_1=pwd_1, pwd_2=pwd_2, profile_pic=profile_pic, lastname=lastname, age_1=age_1, streetname=streetname, town=town, appartment=appartment, tel=tel, like=like)
                 
         else:
@@ -84,10 +115,10 @@ def register_user():
                 return template("registerProfileFail", message=message)
   
   
-@route("/home/", method="POST")
+@route("/", method="POST")
 def sign_in():
 	"""Signing in existing user and goes to home"""
-	global username, email, message, profile_pic
+	global username, email, message
 
 	email = request.forms.mail
 	pwd_1 = request.forms.pwd
@@ -99,6 +130,7 @@ def sign_in():
                 if pwd_1 == pwd_2:
                         firstname = text_file[0]
                         surname = text_file[1]
+                        profile_pic = text_file[3]
                         username = firstname + surname
                         f.close()
                         
@@ -110,20 +142,25 @@ def sign_in():
 
                         """prints anslag"""
                         for anslag in reversed(anslag_list):
-                                f2 = codecs.open("user/" + email + ".txt", "r", "utf-8")
-                                anslag_file = f2.readlines()
+                                f = codecs.open("anslagsfolder/" + anslag, "r", "utf-8")
+                                text_file = f.readlines()
                                 try:
-                                    namn = anslag_file[0]
+                                    firstnamn = text_file[0].replace("\n", " ")
+                                    eftnamn = text_file[1].replace("\n", "")
+                                    namn = firstnamn + eftnamn
                                 except IndexError:
                                     namn = "Namn saknas"
+
                                 try:
-                                    pict = anslag_file[1]
+                                    pict = text_file[3]
                                 except IndexError:
                                     pict = "Bild saknas"
+
                                 try:
-                                    cont = anslag_file[2]
+                                    cont = text_file[5]
                                 except IndexError:
-                                    cont = "Content saknas"
+                                    cont = "Innehåll saknas"
+
                                 time_list.append(anslag)
                                 namn_list.append(namn)
                                 pict_list.append(pict)
@@ -141,7 +178,7 @@ def sign_in():
 @route("/myProfile/")
 def user_profile():
 	"""Shows the userprofile"""
-	global username, email, profile_pic
+	global username, email
 
         f = codecs.open("user/" + email + ".txt", "r", "utf-8")
 	text = f.readlines()
@@ -155,144 +192,134 @@ def user_profile():
 
 	return template("myProfile", username=username, firstname=firstname, profile_pic=profile_pic, age_1=age_1, appartment=appartment, tel=tel, like=like)
 
+@route("/home/", method="POST")
+def post_anslag():
+        global username, email, message
 
-@route("/home/")
-def home():
-        global username, email, profile_pic
-        """Lists for all lines in anslag_file"""
+
+        o = codecs.open("user/" + email + ".txt", "r", "utf-8")
+        txt = o.readlines()
+        profile_pic = txt[3]
+        o.close()
+        
+        
+        anslag_title = datetime.now()
+        year = str(anslag_title.year)
+        month = str(anslag_title.month)
+        day = str(anslag_title.day)
+        hour = str(anslag_title.hour)
+        minute = str(anslag_title.minute)
+        if len(month) < 2:
+                month = "0" + month
+        if len(day) < 2:
+                day = "0" + day
+        if len(hour) < 2:
+                hour = "0" + hour
+        if len(minute) < 2:
+                minute = "0" + minute
+
+        anslag_file = codecs.open("anslagsfolder/" + year + "-" + month + "-" + day + " kl." + hour + "." + minute + ".txt", "w", "utf-8") 
+        anslag_content = request.forms.writtenPost
+        
+        """writes name, pic and content in file"""
+        anslag_file.write(username)
+        anslag_file.write("\n")
+        anslag_file.write(profile_pic)
+        anslag_file.write("\n")
+        anslag_file.write(anslag_content)
+        anslag_file.close()
+
+
+        """prints anslag"""
         anslag_list = listdir("anslagsfolder")
         namn_list = []
         pict_list = []
         content_list = []
         time_list = []
+        for anslag in reversed(anslag_list):
+                f = codecs.open("anslagsfolder/" + anslag, "r", "utf-8")
+                text_file = f.readlines()
+                try:
+                    firstnamn = text_file[0].replace("\n", " ")
+                    eftnamn = text_file[1].replace("\n", "")
+                    namn = firstnamn + eftnamn
+                except IndexError:
+                    namn = "Namn saknas"
+
+                try:
+                    pict = text_file[3]
+                except IndexError:
+                    pict = "Bild saknas"
+
+                try:
+                    cont = text_file[5]
+                except IndexError:
+                    cont = "Innehåll saknas"
+
+                
+                time_list.append(anslag)
+                namn_list.append(namn)
+                pict_list.append(pict)
+                content_list.append(cont)
+                return template("home", username=username, email=email, profile_pic=profile_pic, anslag_list=anslag_list, namn_list=namn_list, pict_list=pict_list, content_list=content_list, time_list=time_list)
+                
+
+@route("/home/")
+def home():
+        global username, email
+        """Lists for all lines in anslag_file"""
+
+        o = codecs.open("user/" + email + ".txt", "r", "utf-8")
+        txt = o.readlines()
+        profile_pic = txt[3]
+        o.close()
+        
+        anslag_list = listdir("anslagsfolder")
+        namn_list = []
+        pict_list = []
+        content_list = []
+        time_list = []
+        
 
         """prints anslag"""
         for anslag in reversed(anslag_list):
                 f = codecs.open("anslagsfolder/" + anslag, "r", "utf-8")
                 text_file = f.readlines()
                 try:
-                    namn = text_file[0]
+                    firstnamn = text_file[0].replace("\n", " ")
+                    eftnamn = text_file[1].replace("\n", "")
+                    namn = firstnamn + eftnamn
                 except IndexError:
                     namn = "Namn saknas"
 
                 try:
-                    pict = text_file[1]
+                    pict = text_file[3]
                 except IndexError:
                     pict = "Bild saknas"
 
                 try:
-                    cont = text_file[2]
+                    cont = text_file[5]
                 except IndexError:
                     cont = "Innehåll saknas"
+
+        
                 time_list.append(anslag)
                 namn_list.append(namn)
                 pict_list.append(pict)
                 content_list.append(cont)
         return template("home", username=username, email=email, profile_pic=profile_pic, anslag_list=anslag_list, namn_list=namn_list, pict_list=pict_list, content_list=content_list, time_list=time_list)
 
-##@route("/home/", method="POST")
-##def create_anslag():
-##        """create anslag with date as filename"""
-##        global username, email, profile_pic
-##
-##        anslag_title = datetime.now()
-##        year = str(anslag_title.year)
-##        month = str(anslag_title.month)
-##        day = str(anslag_title.day)
-##        hour = str(anslag_title.hour)
-##        minute = str(anslag_title.minute)
-##        if len(month) < 2:
-##                month = "0" + month
-##        if len(day) < 2:
-##                day = "0" + day
-##        if len(hour) < 2:
-##                hour = "0" + hour
-##        if len(day) < 2:
-##                day = "0" + day
-##
-##        anslag_file = open("anslagsfolder/" + year + "-" + month + "-" + day + " kl." + hour + "." + minute + ".txt", "w") 
-##        anslag_content = request.forms.writtenPost
-##        
-##        """writes name, pic and content in file"""
-##        anslag_file.write(username)
-##        anslag_file.write("\n")
-##        anslag_file.write(profile_pic)
-##        anslag_file.write("\n")
-##        anslag_file.write(anslag_content)
-##        anslag_file.close()
-##
-##        return template("board", username=username, email=email, profile_pic=profile_pic)
-
-@route("/board/")
-def board():
-        global username, email
-        """Lists for all lines in anslag_file"""
-        anslag_list = listdir("anslagsfolder")
-        namn_list = []
-        pict_list = []
-        content_list = []
-        time_list = []
-
-        """prints anslag"""
-        for anslag in reversed(anslag_list):
-                f = codecs.open("anslagsfolder/" + anslag, "r", "utf-8")
-                text_file = f.readlines()
-                try:
-                    namn = text_file[0]
-                except IndexError:
-                    namn = "Namn saknas"
-
-                try:
-                    pict = text_file[1]
-                except IndexError:
-                    pict = "Bild saknas"
-
-                try:
-                    cont = text_file[2]
-                except IndexError:
-                    cont = "Content saknas"
-                time_list.append(anslag)
-                namn_list.append(namn)
-                pict_list.append(pict)
-                content_list.append(cont)
-
-        return template("board", username=username, email=email, anslag_list=anslag_list, namn_list=namn_list, pict_list=pict_list, content_list=content_list, time_list=time_list)
-
-        
-
-##def anslag():
-##        global username, email
-##        """Lists for all lines in anslag_file"""
-##        anslag_list = listdir("anslagsfolder")
-##        namn_list = []
-##        pict_list = []
-##        content_list = []
-##        time_list = []
-##
-##        """prints anslag"""
-##        for anslag in anslag_list:
-##                f = open("anslagsfolder/" + anslag, "r")
-##                text_file = f.readlines()
-##                namn = text_file[0]
-##                pict = text_file[1]
-##                cont = text_file[2]
-##                time_list.append(anslag)
-##                namn_list.append(namn)
-##                pict_list.append(pict)
-##                content_list.append(cont)
-
-
 
 @route("/nabos/")
 def nabolist():
 	"""Appends usernames into name_list and prints it on the nabopage """
-        global username, profile_pic
+        global username
         
         user_list = listdir("user")
         name_list = []
         pic_list = []
         for user in user_list:
-                f = codecs.open("user/" + email + ".txt", "r", "utf-8")
+                f = codecs.open("user/" + user, "r", "utf-8")
                 text_file = f.readlines()
                 firstname = text_file[0]
                 surname = text_file[1]
@@ -302,7 +329,7 @@ def nabolist():
                 pic_list.append(profile_pic)
 
                         
-	return template("nabos", user_list=user_list, name_list=name_list, username=username, profile_pic=profile_pic, pic_list=pic_list)
+	return template("nabos", user=user, user_list=user_list, name_list=name_list, username=username, profile_pic=profile_pic, pic_list=pic_list)
 
 
 @route("/editProfile/")
@@ -310,7 +337,7 @@ def edit_profile():
 	"""
 	Edit your profile!
 	"""
-	global username, profile_pic, email
+	global username, email
         
         f = codecs.open("user/" + email + ".txt", "r", "utf-8")
         text = f.readlines()
@@ -318,6 +345,7 @@ def edit_profile():
         lastname = text[1]
         pwd = text[2]
         pic = text[3]
+        profile_pic = text[3]
         age_1 = text[6]
         streetname = text[4]
         town = text[5]
@@ -334,7 +362,7 @@ def edit_prof():
 	"""
 	Edit your profile!
 	"""
-	global username, profile_pic, email, message
+	global username, email, message
         contact = []
 	name = request.forms.name
 	surname = request.forms.surname
@@ -395,7 +423,12 @@ def upd_user():
 	"""
 	If wrong password in editUser
 	"""
-	global username, profile_pic, email, message
+	global username, email, message
+
+	o = codecs.open("user/" + email + ".txt", "r", "utf-8")
+        txt = o.readlines()
+        profile_pic = txt[3]
+        o.close()
 	
 	message = message
 	return template("updatedProfile", message=message, username=username, profile_pic=profile_pic)
@@ -427,13 +460,20 @@ def other_user(pagename):
 	This shows another user.
 	"""
 	global username, email
-
         
-##        f = open("user/" + email + ".txt", "r")
-##	text_file = f.readlines()
+        f = codecs.open("user/" + pagename, "r", "utf-8")
+	text = f.readlines()
+	prof_pic = text[3]
+	profile_pic = text[3]
+        first = text[0]
+        last = text[1]
+        age_2 = text[6]
+        apa = text[7]
+        tele = text[8]
+        likees = text[9]
+        f.close()
 	
-	
-	return template("otherUser", username=username)
+	return template("otherUser", username=username, name=pagename, text=text, first=first, last=last, prof_pic=prof_pic, age_2=age_2, apa=apa, tele=tele, likees=likees)
 
 
 @route("/inbox/")
@@ -443,16 +483,43 @@ def inbox():
 	"""
 	global username
 	
+	
 	return template("inbox", username=username)
 
 @route("/write/")
-def about_us():
+def write_message():
 	"""
-	This is the mail inbox
+	This is the write message function
+	"""
+        #!!!!NEEDS TO BE FIXED/ADJUSTED WHEN HTML IS IN PLACE!!!!
+
+        global username
+
+        user_list = listdir("user")
+        name_list = []
+        pic_list = []
+        for user in user_list:
+                f = codecs.open("user/" + user, "r", "utf-8")
+                text_file = f.readlines()
+                firstname = text_file[0]
+                surname = text_file[1]
+                profile_pic = text_file[3]
+                nabos = firstname + surname
+                name_list.append(nabos)
+                pic_list.append(profile_pic)
+
+                        
+	return template("write", user=user, user_list=user_list, name_list=name_list, username=username, profile_pic=profile_pic, pic_list=pic_list)
+
+
+@route("/messageView/")
+def message():
+	"""
+	This is the nabo help.
 	"""
 	global username
 	
-	return template("write", username=username)
+	return template("messageView", username=username)
 
 
 @route("/help/")
