@@ -18,15 +18,16 @@
 			<div id="loggaUt">
 				<p id="adress"> Rönnblomsgatan 11</p>
 				<p id="user">
-				<a href="/myProfile/">{{username}}</a>
-				<a href="/">Logga ut</a>
+				<a href="/myProfile/">{{username}}   </a>
+				<a href="/">  Logga ut</a>
+				</p>
 			</div>
 		</header>
 
 		<nav>
 			<nav class="profile">
 				<ul>
-					<li><p id="user"><a href="/myProfile/">{{username}}</a></p></li>
+					<li><p id="user"><a href="/myProfile/"> Min Profil </a></p></li>
 					<li><a href="/editProfile/" class="nav">Redigera min profil</a></li>
 				</ul>
 			</nav>
@@ -70,9 +71,9 @@
 			%for namn, picture, content, time in zip(namn_list, pict_list, content_list, time_list):
 				<div class="publishedPosts">
 					<img src="{{picture}}" alt="Bild på en Nabo" style="width:60px;height:60px;padding:5px">
+					<p id="publishedName">{{namn}}: </p>
+					<p id="publishedText"> {{content}}</p>
 					<p id="publishedDate">Postat: {{time[:-4]}}</p>
-					<p id="publishedName">{{namn}}</p>
-					<p id="publishedText">{{content}}</p>
 					<p id="replyToPost">Svara på anslaget</p>
 				</div>
 			%end

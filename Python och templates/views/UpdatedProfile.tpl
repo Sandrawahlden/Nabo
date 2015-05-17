@@ -18,16 +18,22 @@
 			<div id="loggaUt">
 				<p id="adress"> Rönnblomsgatan 11</p>
 				<p id="user">
-				<a href="/myProfile/">{{username}}</a>
-				<a href="/">Logga ut</a>
+				<a href="/myProfile/">{{username}}   </a>
+				<a href="/">  Logga ut</a>
+				</p>
 			</div>
 		</header>
 
 		<nav>
 			<nav class="profileClick">
 				<ul>
+<<<<<<< HEAD
+					<li><p id="user"><a href="/myProfile/"> Min Profil </a></p></li>
+					<li><a href="/editProfile/" class="nav">Redigera min profil</a></li>
+=======
 					<li><p id="user"><a href="/myProfile/">{{username}}</a></p></li>
 					<li><a href="/editProfile/" class="nav"><span style="color: #4d6630">Redigera min profil</span></a></li>
+>>>>>>> d01c0a0ff53d8bd24e383af9a254d8cb43ad6bfa
 				</ul>
 			</nav>
 
