@@ -8,12 +8,10 @@ import codecs
 
 username = ""
 email = ""
-
 age = ""
 lgh = ""
 tel_nr = ""
 likes = ""
-message = ""
 firstname = ""
 lastname = ""
 pwd = ""
@@ -24,6 +22,9 @@ town = ""
 appartment = ""
 tel = ""
 like = ""
+message = ""
+link = ""
+link_name = ""
 
 
 @route("/static/<filepath:path>")
@@ -167,6 +168,7 @@ def sign_in():
                                 content_list.append(cont)
                         return template("home", username=username, email=email, profile_pic=profile_pic, anslag_list=anslag_list, namn_list=namn_list, pict_list=pict_list, content_list=content_list, time_list=time_list)
                 else:
+                        
                         message = "Fel lösenord!"
                         return template("loginProfileFail", message=message)
 
@@ -362,7 +364,7 @@ def edit_prof():
 	"""
 	Edit your profile!
 	"""
-	global username, email, message
+	global username, email, message, link
         contact = []
 	name = request.forms.name
 	surname = request.forms.surname
@@ -384,38 +386,47 @@ def edit_prof():
 	text_file = f.readlines()
 	old_pwd_2 = text_file[2].replace("\n", "")
 	if old_pwd == old_pwd_2:
-##                if len(pwd_1) and len(pwd_2) < 2:
+                while len(pwd_1) < 2:
                         
-                contact.extend((name, surname, old_pwd, profile_pic, street, city, age, lgh, tel_nr, likes))
+                        contact.extend((name, surname, old_pwd, profile_pic, street, city, age, lgh, tel_nr, likes))
 
-                text_file = codecs.open("user/" + email + ".txt", "w", "utf-8")
-                                
-                for i in contact:
-                        text_file.write(i)
-                        text_file.write("\n")
-                text_file.close()
-                message = "Din profil är nu uppdaterad"
-                return template("updatedProfile", message=message, username=username, profile_pic=profile_pic, age=age, lgh=lgh, tel_nr=tel_nr, likes=likes ,name=name)
+                        text_file = codecs.open("user/" + email + ".txt", "w", "utf-8")
+                                        
+                        for i in contact:
+                                text_file.write(i)
+                                text_file.write("\n")
+                        text_file.close()
+                        link_name = "Min profil"
+                        link = "/myProfile/"
+                        message = "Din profil är nu uppdaterad"
+                        return template("updatedProfile", link_name=link_name, message=message, username=username, profile_pic=profile_pic, age=age, lgh=lgh, tel_nr=tel_nr, likes=likes ,name=name)
                 
-##                else:
-##                        if pwd_1 == pwd_2:
-##                                contact.extend((name, surname, pwd_1, profile_pic, street, city, age, lgh, tel_nr, likes))
-##
-##                                text_file = codecs.open("user/" + email + ".txt", "w", "utf-8")
-##                                                
-##                                for i in contact:
-##                                        text_file.write(i)
-##                                        text_file.write("\n")
-##                                text_file.close()
-##                                message = "Din profil är nu uppdaterad"
-##                                return template("updatedProfile", message=message, username=username, profile_pic=profile_pic, age=age, lgh=lgh, tel_nr=tel_nr, likes=likes ,name=name)
-##                        else:
-##                                message = "Lösenorden du skrev matchar inte!"
-##                                return template("updatedProfile", message=message, username=username, profile_pic=profile_pic)
+                
+                if pwd_1 == pwd_2:
+                        contact.extend((name, surname, pwd_1, profile_pic, street, city, age, lgh, tel_nr, likes))
+
+                        text_file = codecs.open("user/" + email + ".txt", "w", "utf-8")
+                                        
+                        for i in contact:
+                                text_file.write(i)
+                                text_file.write("\n")
+                        text_file.close()
+
+                        link_name = "Min profil"
+                        link = "/myProfile/"
+                        message = "Din profil är nu uppdaterad"
+                        return template("updatedProfile", link_name=link_name, link=link, message=message, username=username, profile_pic=profile_pic, age=age, lgh=lgh, tel_nr=tel_nr, likes=likes ,name=name)
+                else:
+                        link_name = "Redigera profil"
+                        link = "/editProfile/"
+                        message = "Lösenorden du skrev matchar inte!"
+                        return template("updatedProfile", link_name=link_name, link=link, message=message, username=username, profile_pic=profile_pic)
 
         else:
+                link_name = "Redigera profil"
+                link = "/editProfile/"
                 message = "Du skrev fel lösenord!"
-                return template("updatedProfile", message=message, username=username, profile_pic=profile_pic)
+                return template("updatedProfile", link_name=link_name, link=link, message=message, username=username, profile_pic=profile_pic)
 
 
 @route("/updatedProfile/")
@@ -423,15 +434,17 @@ def upd_user():
 	"""
 	If wrong password in editUser
 	"""
-	global username, email, message
+	global username, email, message, link
 
 	o = codecs.open("user/" + email + ".txt", "r", "utf-8")
         txt = o.readlines()
         profile_pic = txt[3]
         o.close()
-	
+
+        link_name = link_name
+	link = link
 	message = message
-	return template("updatedProfile", message=message, username=username, profile_pic=profile_pic)
+	return template("updatedProfile", link_name=link_name, link=link, message=message, username=username, profile_pic=profile_pic)
 
 @route("/registerProfileFail/")
 def register_Profile_Fail():
@@ -439,7 +452,7 @@ def register_Profile_Fail():
 	If wrong input in register user
 	"""
 	global message
-	
+
 	message = message
 	return template("registerProfileFail", message=message)
 
@@ -449,7 +462,7 @@ def login_Profile_Fail():
 	If wrong input in login user
 	"""
 	global message
-	
+        
 	message = message
 	return template("loginProfileFail", message=message)
 

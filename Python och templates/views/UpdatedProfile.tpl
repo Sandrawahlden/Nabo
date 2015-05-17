@@ -53,6 +53,7 @@
 		<div id="content"
 			<div id="bodySquare">
 				<h1>{{message}}</h1>
+				<p>Tillbaka till: <a href="{{link}}" class="nav">{{link_name}}</a></p>
 			</div>
 		</div>
 		
