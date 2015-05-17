@@ -16,17 +16,18 @@
 				<img src="/static/Bilder/logotypnabo.jpg" alt="Nabologga" style="width:260px;height:82px;border:0"></a>
 			</div>
 			<div id="loggaUt">
-				<p id="adress"> Rönnblommsgatan 11</p>
+				<p id="adress"> Rönnblomsgatan 11</p>
 				<p id="user">
-				<a href="/myProfile/">{{username}}</a>
-				<a href="/">Logga ut</a>
+				<a href="/myProfile/">{{username}}   </a>
+				<a href="/">  Logga ut</a>
+				</p>
 			</div>
 		</header>
 
 				<nav>
 			<nav class="profile">
 				<ul>
-					<li><p id="user"><a href="/myProfile/">{{username}}</a></p></li>
+					<li><p id="user"><a href="/myProfile/"> Min Profil </a></p></li>
 					<li><a href="/editProfile/" class="nav">Redigera min profil</a></li>
 				</ul>
 			</nav>

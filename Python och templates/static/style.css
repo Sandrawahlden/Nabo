@@ -76,12 +76,19 @@ html {
     font-size: 20px;
 }
 
+#user {
+    color: #4d6630;
+    font-weight: bold;
+}
+
+#user a:first-child {
+    margin-right: 15px;
+}
+
 
 /* ----- Navigation ----- */
 
-
-#user {
-    color: #4d6630;
+nav {
     font-weight: bold;
 }
 
@@ -120,6 +127,7 @@ html {
 
 .profile li:last-child {
     font-size: 13px;
+    margin-top: 0px;
 }
 
 ul {
@@ -278,11 +286,11 @@ a:active {
 
 .writeAPost {
     margin: 0 auto;
-    border: 1px solid red;
     width: 80%;
+    height: 80px;
     padding: 10px;
-    margin-top: 15px;
-    margin-bottom: 70px;
+    margin-top: 20px;
+    margin-bottom: 50px;
     background-color: #4d6630;
     border-radius: 5px 5px 5px 5px;
 }
@@ -310,6 +318,7 @@ a:active {
 
 .publishedPosts {
     width: 80%;
+    min-height: 50px;
     margin: 0 auto;
     padding: 10px;
     padding-bottom: 35px;
@@ -321,10 +330,36 @@ a:active {
     
 }
 
+.publishedPosts img {
+    float: left;
+}
+
 #replyToPost {
     float: right;
     font-style: italic;
     color: #4d6630;
+}
+
+#publishedName {
+    float:left;
+    font-weight: bold;
+    margin-right: 5px;
+    margin-left: 10px;
+}
+
+#publishedText {
+    float: left
+}
+
+
+#publishedDate {
+    font-style: italic;
+    font-size: 12px;
+    clear: both;
+    max-width: 150px;
+    margin-right: 0px;
+    margin-top: 50px;
+    margin-bottom: 0px;
 }
 
 
@@ -377,6 +412,7 @@ a:active {
     border-bottom: 2px solid #4d6630;
     margin: 0 auto;
 }
+
 
 
 /* ----- Skriv meddelande ----- */
