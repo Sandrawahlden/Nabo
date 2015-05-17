@@ -215,19 +215,30 @@ a:active {
 #profilePic {
     float: right;
     padding: 20px;
-    margin: 20px;
+    margin-right: 40px;
+    margin-left: 20px;
+    margin-top: 20px;   
+    margin-bottom: 20px;
 }
 
 #age, #apartment, #phone {
-    padding-top: 10px;
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-right: 10px;
+    padding-left: 40px;
+
+}
+
+#likes {
+    padding-top: 40px;
     padding-bottom: 10px;
     padding-right: 10px;
     padding-left: 40px;
 }
 
-#name, #likes {
+#name {
     padding-top: 40px;
-    padding-bottom: 10px;
+    padding-bottom: 0;
     padding-right: 10px;
     padding-left: 40px;
 }
@@ -241,25 +252,50 @@ a:active {
 
 /* ----- REDIGERA PROFIL -----*/
 
-#editProfileText{
-    font-weight: bold;
-    font-size: 18px;
-    padding-top: 25px;
-    padding-bottom: 10px;
-}
-
 #editProfile {
-    padding-left: 10%;
-    padding-right: auto;
-    width: 80%;
+    padding-left: 20px;
+    margin-left: 20px;
+    padding-top: 20px;
+    margin-top: 20px;
+    float: left;
+    width: 40%
 }
 
-#editProfile p {
-    margin: 3px;
+#editProfileText {
+    font-weight: bold;
 }
+
+.profile_pic, .name, .surname, .age, .lgh, .email, .tel, .likes, .password {
+    font-size: smaller;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+
 
 #acceptChange {
+    margin-top: 20px;
+    padding-top: 20px;
+    font-weight: bold;
+}
+
+#EDsubmit {
+    width: 120px; 
+    height: 40px;
+    background-color: #4d6630; 
+    color: #FFF;
+    border-radius: 3px;
+    margin: 15px;
+    font-weight: bold;
+    font-size: 12px;
     float: right;
+   
+}
+
+
+#moving {
+    width: 40%;
+    float: left;
 }
 
 #move {
@@ -271,8 +307,10 @@ a:active {
     float: right;
     font-weight: bold;
     font-size: 12px;
-
+    margin: 20px;
 }
+
+
 
 /* ----- ANSLAGSTAVLAN ----- */
 

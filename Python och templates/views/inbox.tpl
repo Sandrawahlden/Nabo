@@ -16,14 +16,14 @@
 				<img src="/static/Bilder/logotypnabo.jpg" alt="Nabologga" style="width:260px;height:82px;border:0"></a>
 			</div>
 			<div id="loggaUt">
-				<p id="adress"> Rönnblommsgatan 11</p>
+				<p id="adress"> Rönnblomsgatan 11</p>
 				<p id="user">
 				<a href="/myProfile/">{{username}}</a>
 				<a href="/">Logga ut</a>
 			</div>
 		</header>
 
-				<nav>
+		<nav>
 			<nav class="profile">
 				<ul>
 					<li><p id="user"><a href="/myProfile/">{{username}}</a></p></li>
@@ -39,7 +39,7 @@
 
 			<nav class="messagesClick">
 				<ul>
-					<li><a href="/inbox/" class="nav"><span style="color: #4d6630"><span style="font-weight: bold">Mina meddelanden</span></span></a></li>
+					<li><a href="/inbox/" class="nav"><span style="color: #4d6630">Mina meddelanden</span></a></li>
 					<li><a href="/write/" class="nav">Skriv nytt meddelande</a></li>
 				</ul>
 			</nav>
