@@ -25,33 +25,32 @@
 		</header>
 
 		<nav>
-			<nav id="profile">
+			<nav class="profile">
 				<ul>
 					<li><p id="user"><a href="/myProfile/"> Min Profil </a></p></li>
 					<li><a href="/editProfile/" class="nav">Redigera min profil</a></li>
 				</ul>
 			</nav>
 
-			<nav id="board">
+			<nav class="board">
 				<ul>
 					<li><a href="/home/" class="nav">Anslagstavlan</a></li>
 				</ul>
 			</nav>
 
-			<nav id="messages">
+			<nav class="messages">
 				<ul>
 					<li><a href="/inbox/" class="nav">Mina meddelanden</a></li>
 					<li><a href="/write/" class="nav">Skriv nytt meddelande</a></li>
 				</ul>
 			</nav>
 
-			<nav id="nabos">
+			<nav class="nabos">
 				<ul>
 					<li><a href="/nabos/" class="nav">Nabos</a></li>
 				</ul>
 			</nav>
 		</nav>
-
 		<div id="content"
 			<div id="bodySquare">
 				<p>Här kommer vi fylla på med innehåll.

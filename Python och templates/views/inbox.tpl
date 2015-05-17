@@ -24,7 +24,7 @@
 			</div>
 		</header>
 
-				<nav>
+		<nav>
 			<nav class="profile">
 				<ul>
 					<li><p id="user"><a href="/myProfile/"> Min Profil </a></p></li>
@@ -40,7 +40,7 @@
 
 			<nav class="messagesClick">
 				<ul>
-					<li><a href="/inbox/" class="nav"><span style="color: #4d6630"><span style="font-weight: bold">Mina meddelanden</span></span></a></li>
+					<li><a href="/inbox/" class="nav"><span style="color: #4d6630">Mina meddelanden</span></a></li>
 					<li><a href="/write/" class="nav">Skriv nytt meddelande</a></li>
 				</ul>
 			</nav>
