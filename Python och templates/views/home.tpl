@@ -71,13 +71,16 @@
 			%for namn, picture, content, time in zip(namn_list, pict_list, content_list, time_list):
 				<div class="publishedPosts">
 					<img src="{{picture}}" alt="Bild på en Nabo" style="width:60px;height:60px;padding:5px">
+					<p id="publishedDate">Postat: {{time[:-4]}}</p>
 					<p id="publishedName">{{namn}}: </p>
 					<p id="publishedText"> {{content}}</p>
-					<p id="publishedDate">Postat: {{time[:-4]}}</p>
 					<p id="replyToPost">Svara på anslaget</p>
 				</div>
 			%end
+			<p id="backTo"><a href="/home/"> Se fler anslag </a></p>
 		</div>
+
+
 		
 		<footer>
 			<a href="/contact/">Kontakta oss</a>

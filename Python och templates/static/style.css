@@ -325,7 +325,7 @@ a:active {
 .writeAPost {
     margin: 0 auto;
     width: 80%;
-    height: 80px;
+    height: 100px;
     padding: 10px;
     margin-top: 20px;
     margin-bottom: 50px;
@@ -351,6 +351,13 @@ a:active {
     float: left;
     margin-top: 16px;
     margin-left: 5px;
+    border: none;
+    box-shadow: none;
+}
+
+#submitPost:hover {
+    border: 0.5px solid;
+    border-color: #fff;
 }
 
 
@@ -379,26 +386,35 @@ a:active {
 }
 
 #publishedName {
-    float:left;
+    float: left;
     font-weight: bold;
     margin-right: 5px;
     margin-left: 10px;
+    margin-top: 10px;
+    max-width: 300px;
 }
 
 #publishedText {
-    float: left
+    margin-top: 10px;
+    float: left;
 }
 
 
 #publishedDate {
+    margin-left: 79px;
     font-style: italic;
     font-size: 12px;
-    clear: both;
-    max-width: 150px;
-    margin-right: 0px;
-    margin-top: 50px;
-    margin-bottom: 0px;
+   
 }
+
+#backTo {
+    margin-left: 70px;
+    width: 120px;
+    height: 20px;
+    padding: 2px;
+    font-weight: bold;
+}
+
 
 
 
