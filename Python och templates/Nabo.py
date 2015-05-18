@@ -314,13 +314,14 @@ def home():
 
 @route("/nabos/")
 def nabolist():
-	"""Appends usernames into name_list and prints it on the nabopage """
+        """Appends usernames into name_list and prints it on the nabopage """
         global username
         
         user_list = listdir("user")
         name_list = []
         pic_list = []
-        for user in user_list:
+        
+        for user in user_list: 
                 f = codecs.open("user/" + user, "r", "utf-8")
                 text_file = f.readlines()
                 firstname = text_file[0]
@@ -329,7 +330,7 @@ def nabolist():
                 nabos = firstname + surname
                 name_list.append(nabos)
                 pic_list.append(profile_pic)
-
+                
                         
 	return template("nabos", user=user, user_list=user_list, name_list=name_list, username=username, profile_pic=profile_pic, pic_list=pic_list)
 
