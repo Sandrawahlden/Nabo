@@ -54,7 +54,7 @@
 			<div id="content">
 				
 
-				<p class="inboxMessage"><a href="/messageView/"><span style="font-weight:bold"> Lasse Löpare</span><br>05:30? Så har man det gjort :)
+				<p class="inboxMessage"><span style="font-weight:bold"><a href="/messageView/"> Lasse Löpare</span><br>05:30? Så har man det gjort :)
 				</a></p>
 
 				<p class="inboxMessages"><span style="font-weight:bold"> Martin Chard</span><br>Supersnällt att du matar katterna i helgen!
