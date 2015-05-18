@@ -364,7 +364,7 @@ def edit_prof():
 	"""
 	Edit your profile!
 	"""
-	global username, email, message, link
+	global username, email, message, link, link_name
         contact = []
 	name = request.forms.name
 	surname = request.forms.surname
@@ -399,7 +399,7 @@ def edit_prof():
                         link_name = "Min profil"
                         link = "/myProfile/"
                         message = "Din profil är nu uppdaterad"
-                        return template("updatedProfile", link_name=link_name, message=message, username=username, profile_pic=profile_pic, age=age, lgh=lgh, tel_nr=tel_nr, likes=likes ,name=name)
+                        return template("updatedProfile", link_name=link_name, link=link, message=message, username=username, profile_pic=profile_pic, age=age, lgh=lgh, tel_nr=tel_nr, likes=likes ,name=name)
                 
                 
                 if pwd_1 == pwd_2:
@@ -434,7 +434,7 @@ def upd_user():
 	"""
 	If wrong password in editUser
 	"""
-	global username, email, message, link
+	global username, email, message, link, link_name
 
 	o = codecs.open("user/" + email + ".txt", "r", "utf-8")
         txt = o.readlines()
