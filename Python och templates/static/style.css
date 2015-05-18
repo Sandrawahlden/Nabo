@@ -594,10 +594,7 @@ footer a:hover {
     width: 60%;
     padding-left: 3%;
 }
-<p class=​"name" style=​"
-    padding-top:​ 0px;​
-    padding-right:​ 0px;​
-">​…​</p>​
+
 h1 {
     color: white;
     font-family: sans-serif;
@@ -652,7 +649,7 @@ h1 {
     font-size: 14px;
     font-family: sans-serif;
     border: 1px solid;
-    top:-3s%;
+    top:-3%;
     background-color: #4d6630;
     width: 63%;
 
@@ -664,7 +661,7 @@ h1 {
     font-size: 14px;
     font-family: sans-serif;
     border: 1px solid;
-    top:-3s%;
+    top:-3%;
     background-color: #4d6630;
     width: 97%;
 
@@ -690,9 +687,9 @@ input {
     width: 137px;
  }
 
-input:hover 
-input:focus {
-    border-color: 1px solid #4d6630;
+input:hover, input:focus {
+    border: 1px solid;
+    border-color: #4d6630;
     box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 8px;
 }
 
