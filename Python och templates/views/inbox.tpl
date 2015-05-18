@@ -16,17 +16,18 @@
 				<img src="/static/Bilder/logotypnabo.jpg" alt="Nabologga" style="width:260px;height:82px;border:0"></a>
 			</div>
 			<div id="loggaUt">
-				<p id="adress"> Rönnblommsgatan 11</p>
+				<p id="adress"> Rönnblomsgatan 11</p>
 				<p id="user">
-				<a href="/myProfile/">{{username}}</a>
-				<a href="/">Logga ut</a>
+				<a href="/myProfile/">{{username}}   </a>
+				<a href="/">  Logga ut</a>
+				</p>
 			</div>
 		</header>
 
-				<nav>
+		<nav>
 			<nav class="profile">
 				<ul>
-					<li><p id="user"><a href="/myProfile/">{{username}}</a></p></li>
+					<li><p id="user"><a href="/myProfile/"> Min Profil </a></p></li>
 					<li><a href="/editProfile/" class="nav">Redigera min profil</a></li>
 				</ul>
 			</nav>
@@ -39,7 +40,7 @@
 
 			<nav class="messagesClick">
 				<ul>
-					<li><a href="/inbox/" class="nav"><span style="color: #4d6630"><span style="font-weight: bold">Mina meddelanden</span></span></a></li>
+					<li><a href="/inbox/" class="nav"><span style="color: #4d6630">Mina meddelanden</span></a></li>
 					<li><a href="/write/" class="nav">Skriv nytt meddelande</a></li>
 				</ul>
 			</nav>
@@ -54,7 +55,7 @@
 			<div id="content">
 				
 
-				<p class="inboxMessage"><span style="font-weight:bold"><a href="/messageView/"> Lasse Löpare</span><br>05:30? Så har man det gjort :)
+				<p class="inboxMessages"><a href="/messageView/"><span style="font-weight:bold"> Lasse Löpare</span><br>05:30? Så har man det gjort :)
 				</a></p>
 
 				<p class="inboxMessages"><span style="font-weight:bold"> Martin Chard</span><br>Supersnällt att du matar katterna i helgen!

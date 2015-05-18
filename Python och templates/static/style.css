@@ -76,12 +76,19 @@ html {
     font-size: 20px;
 }
 
+#user {
+    color: #4d6630;
+    font-weight: bold;
+}
+
+#user a:first-child {
+    margin-right: 15px;
+}
+
 
 /* ----- Navigation ----- */
 
-
-#user {
-    color: #4d6630;
+nav {
     font-weight: bold;
 }
 
@@ -120,6 +127,7 @@ html {
 
 .profile li:last-child {
     font-size: 13px;
+    margin-top: 0px;
 }
 
 ul {
@@ -215,19 +223,30 @@ a:active {
 #profilePic {
     float: right;
     padding: 20px;
-    margin: 20px;
+    margin-right: 40px;
+    margin-left: 20px;
+    margin-top: 20px;   
+    margin-bottom: 20px;
 }
 
 #age, #apartment, #phone {
-    padding-top: 10px;
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-right: 10px;
+    padding-left: 40px;
+
+}
+
+#likes {
+    padding-top: 40px;
     padding-bottom: 10px;
     padding-right: 10px;
     padding-left: 40px;
 }
 
-#name, #likes {
+#name {
     padding-top: 40px;
-    padding-bottom: 10px;
+    padding-bottom: 0;
     padding-right: 10px;
     padding-left: 40px;
 }
@@ -241,25 +260,50 @@ a:active {
 
 /* ----- REDIGERA PROFIL -----*/
 
-#editProfileText{
-    font-weight: bold;
-    font-size: 18px;
-    padding-top: 25px;
-    padding-bottom: 10px;
-}
-
 #editProfile {
-    padding-left: 10%;
-    padding-right: auto;
-    width: 80%;
+    padding-left: 20px;
+    margin-left: 20px;
+    padding-top: 20px;
+    margin-top: 20px;
+    float: left;
+    width: 40%
 }
 
-#editProfile p {
-    margin: 3px;
+#editProfileText {
+    font-weight: bold;
 }
+
+.profile_pic, .name, .surname, .age, .lgh, .email, .tel, .likes, .password {
+    font-size: smaller;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+
 
 #acceptChange {
+    margin-top: 20px;
+    padding-top: 20px;
+    font-weight: bold;
+}
+
+#EDsubmit {
+    width: 120px; 
+    height: 40px;
+    background-color: #4d6630; 
+    color: #FFF;
+    border-radius: 3px;
+    margin: 15px;
+    font-weight: bold;
+    font-size: 12px;
     float: right;
+   
+}
+
+
+#moving {
+    width: 40%;
+    float: left;
 }
 
 #move {
@@ -271,18 +315,20 @@ a:active {
     float: right;
     font-weight: bold;
     font-size: 12px;
-
+    margin: 20px;
 }
+
+
 
 /* ----- ANSLAGSTAVLAN ----- */
 
 .writeAPost {
     margin: 0 auto;
-    border: 1px solid red;
     width: 80%;
+    height: 80px;
     padding: 10px;
-    margin-top: 15px;
-    margin-bottom: 70px;
+    margin-top: 20px;
+    margin-bottom: 50px;
     background-color: #4d6630;
     border-radius: 5px 5px 5px 5px;
 }
@@ -310,6 +356,7 @@ a:active {
 
 .publishedPosts {
     width: 80%;
+    min-height: 50px;
     margin: 0 auto;
     padding: 10px;
     padding-bottom: 35px;
@@ -321,10 +368,36 @@ a:active {
     
 }
 
+.publishedPosts img {
+    float: left;
+}
+
 #replyToPost {
     float: right;
     font-style: italic;
     color: #4d6630;
+}
+
+#publishedName {
+    float:left;
+    font-weight: bold;
+    margin-right: 5px;
+    margin-left: 10px;
+}
+
+#publishedText {
+    float: left
+}
+
+
+#publishedDate {
+    font-style: italic;
+    font-size: 12px;
+    clear: both;
+    max-width: 150px;
+    margin-right: 0px;
+    margin-top: 50px;
+    margin-bottom: 0px;
 }
 
 
@@ -379,6 +452,7 @@ a:active {
     border-bottom: 3px solid #4d6630;
     margin: 0 auto;
 }
+
 
 
 /* ----- Skriv meddelande ----- */
@@ -520,7 +594,10 @@ footer a:hover {
     width: 60%;
     padding-left: 3%;
 }
-
+<p class=​"name" style=​"
+    padding-top:​ 0px;​
+    padding-right:​ 0px;​
+">​…​</p>​
 h1 {
     color: white;
     font-family: sans-serif;
