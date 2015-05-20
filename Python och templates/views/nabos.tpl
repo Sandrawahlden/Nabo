@@ -55,10 +55,9 @@
 		<div id="content">
 			%for name, pic, user in zip(name_list, pic_list, user_list):
 				<div id="naboRuta">
-					<img src="{{pic}}" alt="{{name}}" style="width:60px;height:60px;padding:5px">
-					<a href="/otherUser/{{user}}">{{name}}</a>
-					<br>
-					<br>
+					<img src="{{pic}}" alt="{{name}}" style="width:60px;height:60px;padding:5px" id="naboListPic">
+					<a href="/otherUser/{{user}}" id="naboListName">{{name}}</a>
+					<a href="/write/"><img src="/static/Bilder/Envelope.png" alt="Skicka meddelande" style="width:20px;height:20px;padding:5px" id="naboListEnvelope"></a>
 				</div>
 			%end
 		</div>

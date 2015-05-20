@@ -53,6 +53,7 @@
 		</nav>
 
 		<div id="content">
+			<div id="ListOfNabos">
 			%for name, pic, user in zip(name_list, pic_list, user_list):
 				<div id="naboRutaWrite">
 					<img src="{{pic}}" alt="{{name}}" style="width:50px;height:50px;padding:5px">
@@ -61,8 +62,9 @@
 					<br>
 				</div>
 			%end
+		</div>
 				
-
+		<div id="sendFields">
 				<p id="writeANewMessage">Till
 				</p>
 
@@ -73,6 +75,7 @@
 				</p>
 			
 		</div>
+	</div>
 		
 		<footer>
 			<a href="/contact/">Kontakta oss</a>
