@@ -17,7 +17,7 @@
 			</div>
 			<div id="loggaUt">
 				<p id="adress"> Rönnblomsgatan 11</p>
-				<p id="user">
+				<p class="user">
 				<a href="/myProfile/">{{username}}   </a>
 				<a href="/">  Logga ut</a>
 				</p>
@@ -27,7 +27,7 @@
 		<nav>
 			<nav id="profile">
 				<ul>
-					<li><p id="user"><a href="/myProfile/"> Min Profil </a></p></li>
+					<li><p class="user"><a href="/myProfile/"> Min Profil </a></p></li>
 					<li><a href="/editProfile/" class="nav">Redigera min profil</a></li>
 				</ul>
 			</nav>
@@ -52,7 +52,7 @@
 			</nav>
 		</nav>
 
-		<div id="content"
+		<div id="content">
 			<div id="bodySquare">
 				<img src="{{prof_pic}}" alt="Bild på {{first}}" style="width:150px;height:150px;padding:10px">
 				

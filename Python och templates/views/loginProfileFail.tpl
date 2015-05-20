@@ -4,10 +4,11 @@
 		<meta charset="utf-8">
 		<title>nabo</title>
 		<link rel="stylesheet" href="../static/style.css">
-		<script type="text/javascript" src=""/static/JS/Password check.js""></script>
+		<script type="text/javascript" src="/static/JS/Password check.js"></script>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	</head>
-	
+
+	<body>
 	<div id="indexWrapper">
 		<header>
 			<div id="logga">
@@ -16,13 +17,11 @@
 				</a>
 			</div>
 		</header>
-	</header>
-
-	<body>
+	</div>	
 
 	<div id="mamaWrapper">
 		<div id="signin">
-				<p id="indexPageText">LOGGA IN</p>
+				<p class="indexPageText">LOGGA IN</p>
 				<h2>{{message}}</h2>
 
 					<form action="/home/" method="POST" class="form">
@@ -48,7 +47,7 @@
 		
 	<div id="secondIndexWrapper">
 		<div id="signUp">
-			<p id="indexPageText">SKAPA ANVÄNDARE</p>	
+			<p class="indexPageText">SKAPA ANVÄNDARE</p>	
 				<form action="/myProfile/" method="POST" class="form">
 				
 					<p class ="name">
@@ -62,9 +61,9 @@
 					</p>
 
 					<p class="password">
-						<input type="password" required name="pwd_1" id="passwordLI" placeholder="Lösenord">	
+						<input type="password" required name="pwd_1" class="passwordLI" placeholder="Lösenord">	
 					
-						<input type="password" required name="pwd_2" id="passwordLI" placeholder="Bekräfta lösenord">	
+						<input type="password" required name="pwd_2" class="passwordLI" placeholder="Bekräfta lösenord">	
 					</p>
 
 					<p class="adress">

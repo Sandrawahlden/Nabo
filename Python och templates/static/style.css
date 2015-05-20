@@ -76,12 +76,12 @@ html {
     font-size: 20px;
 }
 
-#user {
+.user {
     color: #4d6630;
     font-weight: bold;
 }
 
-#user a:first-child {
+.user a:first-child {
     margin-right: 15px;
 }
 
@@ -677,13 +677,13 @@ footer a:hover {
 }
 
 
-#nameLI, #surnameLI, #passwordLI {
+#nameLI, #surnameLI, .passwordLI {
     width: 138px;
     padding: 8px;
     margin-bottom: 8px;
 }
 
-#button1 {
+.button1 {
     float: right;
     width: 100px; 
     height: 30px;
@@ -695,7 +695,7 @@ footer a:hover {
 }
 
 
-#indexPageText {
+.indexPageText {
     font-family: sans-serif;
     font-weight: bold;
 }

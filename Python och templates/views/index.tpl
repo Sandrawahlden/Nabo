@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<title>nabo</title>
 		<link rel="stylesheet" href="../static/style.css">
-		<script type="text/javascript" src=""/static/JS/Password check.js""></script>
+		<script type="text/javascript" src="/static/JS/Password check.js"></script>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	</head>
 
@@ -21,7 +21,7 @@
 		
 			
 				<div id="signin">
-					<p id="indexPageText">LOGGA IN</p>
+					<p class="indexPageText">LOGGA IN</p>
 
 					<form action="/" method="POST" class="form">
 					
@@ -34,7 +34,7 @@
 						</p>
 				
 						<p class="submit">
-							<input name="sign_in" type="submit" value="Logga in" id="button1">
+							<input name="sign_in" type="submit" value="Logga in" class="button1">
 						</p>
 					</form>
 				</div>
@@ -47,7 +47,7 @@
 			
 			<div id="secondIndexWrapper">
 				<div id="signUp">
-					<p id="indexPageText">SKAPA ANVÄNDARE</p>	
+					<p class="indexPageText">SKAPA ANVÄNDARE</p>	
 						<form action="/myProfile/" method="POST" class="form">
 						
 							
@@ -61,9 +61,9 @@
 					
 
 						
-								<input type="password" required name="pwd_1" id="passwordLI" placeholder="Lösenord">	
+								<input type="password" required name="pwd_1" class="passwordLI" placeholder="Lösenord">	
 							
-								<input type="password" required name="pwd_2" id="passwordLI" placeholder="Bekräfta lösenord">	
+								<input type="password" required name="pwd_2" class="passwordLI" placeholder="Bekräfta lösenord">	
 							
 
 						
@@ -75,7 +75,7 @@
 						
 							
 							
-								<input name="register" id="button1" type="submit" value="Registrera">
+								<input name="register" class="button1" type="submit" value="Registrera">
 							
 						</form>
 				</div>

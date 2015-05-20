@@ -17,7 +17,7 @@
 			</div>
 			<div id="loggaUt">
 				<p id="adress"> Rönnblomsgatan 11</p>
-				<p id="user">
+				<p class="user">
 				<a href="/myProfile/">{{username}}   </a>
 				<a href="/">  Logga ut</a>
 				</p>
@@ -27,7 +27,7 @@
 		<nav>
 			<nav class="profileClick">
 				<ul>
-					<li><p id="user"><a href="/myProfile/"> Min Profil </a></p></li>
+					<li><p class="user"><a href="/myProfile/"> Min Profil </a></p></li>
 					<li><a href="/editProfile/" class="nav">Redigera min profil</a></li>
 				</ul>
 			</nav>
@@ -82,14 +82,14 @@
 					<input type="text" name="likes" id="EDlikes" value="{{like}}">			
 		
 					<p class="password">Byt lösenord</p>
-					<input type="password" name="pwd_1" id="EDpassword" placeholder="Nytt lösenord:">	
+					<input type="password" name="pwd_1" class="EDpassword" placeholder="Nytt lösenord:">	
 						
 					<p class="password">
-					<input type="password" name="pwd_2" id="EDpassword" placeholder="Bekräfta nytt lösenord:">	
+					<input type="password" name="pwd_2" class="EDpassword" placeholder="Bekräfta nytt lösenord:">	
 						
 					<p id="acceptChange">Bekräfta ändringar genom att ange ditt nuvarande lösenord</p>
 								
-					<input type="password" required name="old_pwd" id="EDpassword" placeholder="Skriv ditt gamla lösenord:">	
+					<input type="password" required name="old_pwd" class="EDpassword" placeholder="Skriv ditt gamla lösenord:">	
 									
 					<input name="update" type="submit" value="Uppdatera" id="EDsubmit">
 				</form>
