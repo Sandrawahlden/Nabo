@@ -344,6 +344,7 @@ a:active {
     float: left;
     margin-top: 20px;
     margin-left: 10px;
+    padding: 8px;
 }
 
 #submitPost {
@@ -473,13 +474,27 @@ a:active {
 
 /* ----- Skriv meddelande ----- */
 
-#naboRutaWrite {
-    width: 40%;
-    float: left;  
+#listOfNabos {
+    position: relative;
+    float: left;
+    width: 35%;
 }
 
+#naboRutaWrite {
+    width: 85%;
+    position: relative;
+    float: left;
+}
+
+#sendFields {
+    position: relative;
+    float: right;
+    width: 65%;
+
+
+}
 #writeANewMessage {
-    width: 55%;
+    width: 85%;
     float: right;
     background-color: #ffffff;
     color: #696969;
@@ -491,7 +506,7 @@ a:active {
 }
 
 #writeYourMessageHere {
-    width: 55%;
+    width: 85%;
     float: right;
     background-color: #ffffff;
     color: #696969;
@@ -518,9 +533,26 @@ a:active {
 
 /* ----- NABOS ----- */
 
-#naboruta {
+#naboRuta {
     width: 45%;
+    position: relative;
     float: left;
+    padding: 10px;
+    margin: 10px;
+}
+
+#naboListPic {
+    float: left;
+}
+
+#naboListName{
+    position: relative;
+    float: left;
+    margin-left: 10px;
+}
+
+#naboListEnvelope {
+    position: relative;    
 }
 
 /* ----- Footer ----- */
