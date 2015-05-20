@@ -114,8 +114,7 @@ def register_user():
         else:
                 message = "Lösenorden matchar inte!"
                 return template("registerProfileFail", message=message)
-  
-  
+   
 @route("/", method="POST")
 def sign_in():
 	"""Signing in existing user and goes to home"""
