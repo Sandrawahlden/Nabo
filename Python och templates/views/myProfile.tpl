@@ -27,7 +27,11 @@
 		<nav>
 			<nav class="profileClick">
 				<ul>
+<<<<<<< HEAD
 					<li><p class="user"><a href="/myProfile/"> Min Profil </a></p></li>
+=======
+					<li><a href="/myProfile/" class="nav"><span style="color: #4d6630"> Min Profil </span></a></li>
+>>>>>>> 8fca3a3ae0472ea5e9899a57e0d8b2a56c44d7c0
 					<li><a href="/editProfile/" class="nav">Redigera min profil</a></li>
 				</ul>
 			</nav>
@@ -53,7 +57,7 @@
 		</nav>
 
 		<div id="content">
-			<div id="bodySquare">
+			
 				<img src="{{profile_pic}}" alt="Bild på dig" id="profilePic" style="width:150px;height:150px;padding:10px">
 				
 				<p id="name"><span style="font-weight:bold">{{username}}</span></p>

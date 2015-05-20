@@ -27,7 +27,11 @@
 		<nav>
 			<nav class="profile">
 				<ul>
+<<<<<<< HEAD
 					<li><p class="user"><a href="/myProfile/"> Min Profil </a></p></li>
+=======
+					<li><a href="/myProfile/" class="nav"> Min Profil </a></li>
+>>>>>>> 8fca3a3ae0472ea5e9899a57e0d8b2a56c44d7c0
 					<li><a href="/editProfile/" class="nav">Redigera min profil</a></li>
 				</ul>
 			</nav>
@@ -61,7 +65,7 @@
 					<form action="/home/" method="POST" class="form">
 
 					<p class="publishAPost">
-						<input required type="text" name="writtenPost" id="writtenPost" placeholder="Lämna ett meddelande på husets anslagstavla">			
+						<input required type="text" name="writtenPost" id="writtenPostBoard" placeholder="Lämna ett meddelande på husets anslagstavla">			
 					</p>
 
 					<p class="submitPost">
@@ -70,6 +74,7 @@
 				</div>
 			%for namn, picture, content, time in zip(namn_list, pict_list, content_list, time_list):
 				<div class="publishedPosts">
+					<img src="/static/Bilder/1431441645_MapMarker_PushPin_Left_Chartreuse.png" alt="Bild på ett häftstift" id="pushPinPost" style="width:35px;height:35px;padding:1px">
 					<img src="{{picture}}" alt="Bild på en Nabo" style="width:60px;height:60px;padding:5px">
 					<p id="publishedDate">Postat: {{time[:-4]}}</p>
 					<p id="publishedName">{{namn}}: </p>

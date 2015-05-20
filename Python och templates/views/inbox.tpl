@@ -27,7 +27,11 @@
 		<nav>
 			<nav class="profile">
 				<ul>
+<<<<<<< HEAD
 					<li><p class="user"><a href="/myProfile/"> Min Profil </a></p></li>
+=======
+					<li><a href="/myProfile/" class="nav"> Min Profil </a></li>
+>>>>>>> 8fca3a3ae0472ea5e9899a57e0d8b2a56c44d7c0
 					<li><a href="/editProfile/" class="nav">Redigera min profil</a></li>
 				</ul>
 			</nav>

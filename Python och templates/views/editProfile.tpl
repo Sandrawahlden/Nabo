@@ -27,8 +27,13 @@
 		<nav>
 			<nav class="profileClick">
 				<ul>
+<<<<<<< HEAD
 					<li><p class="user"><a href="/myProfile/"> Min Profil </a></p></li>
 					<li><a href="/editProfile/" class="nav">Redigera min profil</a></li>
+=======
+					<li><a href="/myProfile/" class ="nav"> Min Profil </a></li>
+					<li><a href="/editProfile/" class="nav"><span style="color: #4d6630">Redigera min profil</span></a></li>
+>>>>>>> 8fca3a3ae0472ea5e9899a57e0d8b2a56c44d7c0
 				</ul>
 			</nav>
 
