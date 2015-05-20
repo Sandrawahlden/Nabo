@@ -27,8 +27,8 @@
 		<nav>
 			<nav class="profileClick">
 				<ul>
-					<li><p id="user"><a href="/myProfile/"> Min Profil </a></p></li>
-					<li><a href="/editProfile/" class="nav">Redigera min profil</a></li>
+					<li><a href="/myProfile/" class ="nav"> Min Profil </a></li>
+					<li><a href="/editProfile/" class="nav"><span style="color: #4d6630">Redigera min profil</span></a></li>
 				</ul>
 			</nav>
 

@@ -76,10 +76,7 @@ html {
     font-size: 20px;
 }
 
-#user {
-    color: #4d6630;
-    font-weight: bold;
-}
+
 
 #user a:first-child {
     margin-right: 15px;
@@ -126,6 +123,15 @@ nav {
 }
 
 .profile li:last-child {
+    font-size: 13px;
+    
+}
+
+.messagesClick li:last-child {
+    font-size: 13px;
+}
+
+.profileClick li:last-child {
     font-size: 13px;
     margin-top: 0px;
 }
@@ -279,6 +285,10 @@ a:active {
     margin-bottom: 0;
 }
 
+#EDprofile_pic, #EDname, #EDsurname, #EDage, #EDlgh, #EDemail, #EDemail, #EDtel_nr, #EDlikes, #EDpassword {
+    padding: 10px; 
+    width: 300px; 
+}
 
 
 #acceptChange {
@@ -303,7 +313,9 @@ a:active {
 
 #moving {
     width: 40%;
+    position: relative;
     float: left;
+    top: 100px;
 }
 
 #move {
@@ -339,12 +351,12 @@ a:active {
     float: left;
 }
 
-#writtenPost {
+#writtenPostBoard {
     width: 70%;
     float: left;
     margin-top: 20px;
     margin-left: 10px;
-    padding: 8px;
+    padding: 10px;
 }
 
 #submitPost {
@@ -368,7 +380,7 @@ a:active {
     margin: 0 auto;
     padding: 10px;
     padding-bottom: 35px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     margin-top: 10px;
     background-color: #ffffff;
     color: #696969;
@@ -376,6 +388,12 @@ a:active {
     
 }
 
+#pushPinPost {
+    position: relative;
+    float: right;
+    margin-right: 320px;
+    top: -25px;
+}
 .publishedPosts img {
     float: left;
 }
@@ -534,7 +552,7 @@ a:active {
 /* ----- NABOS ----- */
 
 #naboRuta {
-    width: 45%;
+    width: 40%;
     position: relative;
     float: left;
     padding: 10px;
@@ -549,10 +567,19 @@ a:active {
     position: relative;
     float: left;
     margin-left: 10px;
+    margin-bottom: 0;
+    padding-bottom: 0;
 }
 
 #naboListEnvelope {
-    position: relative;    
+    position: relative;
+    float: left;
+    top: 25px;
+       
+}
+
+#naboListEnvelope:hover {
+    border: 2px solid #4d6630;
 }
 
 /* ----- Footer ----- */
