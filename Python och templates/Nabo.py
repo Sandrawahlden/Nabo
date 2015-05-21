@@ -55,65 +55,70 @@ def register_user():
         street = request.forms.adress
         city = request.forms.city
         profile_pic = "/static/Bilder/avatar.png"
-	if pwd_1 == pwd_2:
-                contact.extend((name, surname, pwd_1, profile_pic, street, city, "-", "-", "-", "-"))
+        if len(pwd_1) > 2: 
+                if pwd_1 == pwd_2:
+                        contact.extend((name, surname, pwd_1, profile_pic, street, city, "-", "-", "-", "-"))
 
-                mail = email + ".txt"
-                
-                if mail in listdir("user"):
+                        mail = email + ".txt"
+                        
+                        if mail in listdir("user"):
 
-                        message = "Epostadress finns redan registrerad!"
-                        return template("registerProfileFail", message=message)
+                                message = "Epostadress finns redan registrerad!"
+                                return template("registerProfileFail", message=message)
+                        
+                        else:
+                                
+                                text_file = codecs.open("user/" + email + ".txt", "w", "utf-8")
+                                
+                                for i in contact:
+                                        text_file.write(i)
+                                        text_file.write("\n")
+                                text_file.close()
+
+                                f = codecs.open("user/" + email + ".txt", "r", "utf-8")
+                                text_file = f.readlines()
+                                firstname = text_file[0]
+                                surname = text_file[1]
+                                username = firstname + surname
+                                f.close()
+
+                                anslag_title = datetime.now()
+                                year = str(anslag_title.year)
+                                month = str(anslag_title.month)
+                                day = str(anslag_title.day)
+                                hour = str(anslag_title.hour)
+                                minute = str(anslag_title.minute)
+                                if len(month) < 2:
+                                        month = "0" + month
+                                if len(day) < 2:
+                                        day = "0" + day
+                                if len(hour) < 2:
+                                        hour = "0" + hour
+                                if len(minute) < 2:
+                                        minute = "0" + minute
+
+                                anslag_file = codecs.open("anslagsfolder/" + year + "-" + month + "-" + day + " kl." + hour + "." + minute + ".txt", "w", "utf-8") 
+                                anslag_content = request.forms.writtenPost
+                                
+                                """writes name, pic and content in file"""
+                                anslag_file.write(username)
+                                anslag_file.write("\n")
+                                anslag_file.write("/static/Bilder/avatar.png")
+                                anslag_file.write("\n")
+                                anslag_file.write(" ")
+                                anslag_file.write("\n")
+                                anslag_file.write("Har flyttat in!")
+                                anslag_file.close()
+                                
+                                return template("myProfile", title=email, text=contact, firstname=firstname, username=username, pwd_1=pwd_1, pwd_2=pwd_2, profile_pic=profile_pic, lastname=lastname, age_1=age_1, streetname=streetname, town=town, appartment=appartment, tel=tel, like=like)
                 
                 else:
-                        
-                        text_file = codecs.open("user/" + email + ".txt", "w", "utf-8")
-                        
-                        for i in contact:
-                                text_file.write(i)
-                                text_file.write("\n")
-                        text_file.close()
-
-                        f = codecs.open("user/" + email + ".txt", "r", "utf-8")
-                        text_file = f.readlines()
-                        firstname = text_file[0]
-                        surname = text_file[1]
-                        username = firstname + surname
-                        f.close()
-
-                        anslag_title = datetime.now()
-                        year = str(anslag_title.year)
-                        month = str(anslag_title.month)
-                        day = str(anslag_title.day)
-                        hour = str(anslag_title.hour)
-                        minute = str(anslag_title.minute)
-                        if len(month) < 2:
-                                month = "0" + month
-                        if len(day) < 2:
-                                day = "0" + day
-                        if len(hour) < 2:
-                                hour = "0" + hour
-                        if len(minute) < 2:
-                                minute = "0" + minute
-
-                        anslag_file = codecs.open("anslagsfolder/" + year + "-" + month + "-" + day + " kl." + hour + "." + minute + ".txt", "w", "utf-8") 
-                        anslag_content = request.forms.writtenPost
-                        
-                        """writes name, pic and content in file"""
-                        anslag_file.write(username)
-                        anslag_file.write("\n")
-                        anslag_file.write("/static/Bilder/avatar.png")
-                        anslag_file.write("\n")
-                        anslag_file.write(" ")
-                        anslag_file.write("\n")
-                        anslag_file.write("Har flyttat in!")
-                        anslag_file.close()
-                        
-                        return template("myProfile", title=email, text=contact, firstname=firstname, username=username, pwd_1=pwd_1, pwd_2=pwd_2, profile_pic=profile_pic, lastname=lastname, age_1=age_1, streetname=streetname, town=town, appartment=appartment, tel=tel, like=like)
-                
+                        message = "Lösenorden matchar inte!"
+                        return template("registerProfileFail", message=message)
         else:
-                message = "Lösenorden matchar inte!"
+                message = "Lösenordet måste vara längre än 2 tecken!"
                 return template("registerProfileFail", message=message)
+                
    
 @route("/", method="POST")
 def sign_in():
