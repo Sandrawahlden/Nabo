@@ -4,7 +4,6 @@
 		<meta charset="utf-8">
 		<title>nabo</title>
 		<link rel="stylesheet" href="../static/style.css">
-		<script type="text/javascript" src="/static/JS/Password check.js"></script>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	</head>
 
