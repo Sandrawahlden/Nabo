@@ -491,22 +491,23 @@ a:active {
 
 /* ----- Skriv meddelande ----- */
 
-#listOfNabos {
+#ListOfNabos {
     position: relative;
     float: left;
-    width: 35%;
+    width: 350px;
 }
 
 #naboRutaWrite {
-    width: 85%;
+    width: 350px;
     position: relative;
+    margin-right: 0px;
     float: left;
 }
 
 #sendFields {
     position: relative;
     float: right;
-    width: 65%;
+    width: 55%;
 
 
 }
