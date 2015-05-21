@@ -76,14 +76,6 @@ html {
     font-size: 20px;
 }
 
-<<<<<<< HEAD
-.user {
-    color: #4d6630;
-    font-weight: bold;
-}
-=======
-
->>>>>>> 8fca3a3ae0472ea5e9899a57e0d8b2a56c44d7c0
 
 .user a:first-child {
     margin-right: 15px;
@@ -292,7 +284,7 @@ a:active {
     margin-bottom: 0;
 }
 
-#EDprofile_pic, #EDname, #EDsurname, #EDage, #EDlgh, #EDemail, #EDemail, #EDtel_nr, #EDlikes, #EDpassword {
+#EDprofile_pic, #EDname, #EDsurname, #EDage, #EDlgh, #EDemail, #EDemail, #EDtel_nr, #EDlikes, .EDpassword {
     padding: 10px; 
     width: 300px; 
 }

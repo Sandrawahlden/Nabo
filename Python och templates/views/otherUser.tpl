@@ -27,11 +27,7 @@
 		<nav>
 			<nav class="profile">
 				<ul>
-<<<<<<< HEAD
-					<li><p class="user"><a href="/myProfile/"> Min Profil </a></p></li>
-=======
 					<li><a href="/myProfile/" clas="nav"> Min Profil </a></li>
->>>>>>> 8fca3a3ae0472ea5e9899a57e0d8b2a56c44d7c0
 					<li><a href="/editProfile/" class="nav">Redigera min profil</a></li>
 				</ul>
 			</nav>
@@ -57,19 +53,14 @@
 		</nav>
 
 		<div id="content">
-<<<<<<< HEAD
-			<div id="bodySquare">
-				<img src="{{prof_pic}}" alt="Bild på {{first}}" style="width:150px;height:150px;padding:10px">
-=======
 				<img src="{{prof_pic}}" alt="Bild på {{first}}" id="profilePic" style="width:150px;height:150px;padding:10px">
->>>>>>> 8fca3a3ae0472ea5e9899a57e0d8b2a56c44d7c0
 				
 				<p id="name"><span style="font-weight:bold"> {{first}} {{last}}</span></p>
 				<p id="age"><span style="font-weight:bold"> {{age_2}} år</span></p>
 				<p id="apartment"><span style="font-weight:bold">Våning:</span> {{apa}}</p>
 				<p id="phone"><span style="font-weight:bold">Telefon:</span> {{tele}}</p>
 					
-				<p id="likes"><span style="font-weight:bold">Om </span>{{first}}: <br>
+				<p id="likes"><span style="font-weight:bold">Om {{first}}:</span> <br>
 				{{likees}}</p>	
 		</div>
 		
