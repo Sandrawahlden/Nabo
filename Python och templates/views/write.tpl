@@ -62,7 +62,7 @@
 					<br>
 				</div>
 			%end
-		</div>
+			</div>
 				
 		<div id="sendFields">
 				<p id="writeANewMessage">Till
