@@ -413,8 +413,8 @@ a:active {
 }
 
 #publishedText {
-    margin-top: 10px;
-    float: left;
+    position: relative;
+    top: 6px;
 }
 
 
