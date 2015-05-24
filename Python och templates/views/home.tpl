@@ -72,8 +72,8 @@
 				<div class="publishedPosts">
 					<img src="/static/Bilder/1431441645_MapMarker_PushPin_Left_Chartreuse.png" alt="Bild på ett häftstift" id="pushPinPost" style="width:35px;height:35px;padding:1px">
 					<img src="{{picture}}" alt="Bild på en Nabo" style="width:60px;height:60px;padding:5px">
-					<p id="publishedDate">Postat: {{time[:-4]}}</p>
-					<p id="publishedName">{{namn}}: </p>
+					<p id="publishedDate">Postat {{time[:-4]}}</p>
+					<p id="publishedName">{{namn}} </p>
 					<p id="publishedText"> {{content}}</p>
 					<p id="replyToPost">Svara på anslaget</p>
 				</div>
